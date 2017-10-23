@@ -1,0 +1,623 @@
+<div id="tab-2" class="tab-pane">
+	<div class="panel-body">
+		<div class="table-responsive">
+			
+				 
+				<table class="table table-stripped table-bordered">
+					<thead>
+						<tr>
+							<th style="color: #1ab394;">基本信息</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="hideEasing">初次登记日期</label> <input type="text"
+												name="ccdjrq" disabled="" class="form-control" value="$!{wjxx.ccdjrq}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">车辆识别代号</label> <input type="text"
+												name="clsbdh" disabled="" class="form-control" value="$!{wjxx.clsbdh}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">出厂日期</label> <input type="text"
+												name="ccrq" disabled="" class="form-control" value="$!{wjxx.ccrq}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">检验报告编码</label> <input type="text"
+												name="jybgbm" readonly="readonly" disabled="" class="form-control" value="$!{wjxx.jybgbm}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">检验机构编码</label> <input type="text"
+												name="jyjgbm" disabled="" class="form-control" value="$!{wjxx.jyjgbm}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">外检开始时间</label> <input type="text"
+												name="wjkssj" disabled="" class="form-control" value="$!{wjxx.wjkssj}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">外检结束时间</label> <input type="text"
+												name="wjjssj" disabled="" class="form-control" value="$!{wjxx.wjjssj}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">车辆型号</label> <input type="text"
+												name="clxh" disabled="" class="form-control" value="$!{wjxx.clxh}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">车辆品牌</label> <input type="text"
+												name="clpp1" disabled="" class="form-control" value="$!{wjxx.clpp1}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">发动机型号</label> <input type="text"
+												name="fdjxh" disabled="" class="form-control" value="$!{wjxx.fdjxh}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">发动机号</label> <input type="text"
+												name="fdjh" disabled="" class="form-control" value="$!{wjxx.fdjh}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">行政区划</label> <input type="text"
+												name="xzqh" disabled="" class="form-control" value="$!{wjxx.xzqh}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">号牌号码</label> <input type="text"
+												name="hphm" readonly="readonly" disabled="" class="form-control" value="$!{wjxx.hphm}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">号牌颜色</label> <input type="text"
+												name="hpys" disabled="" class="form-control" value="$!{wjxx.hpys}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">发动机功率</label> <input type="text"
+												name="fdjgl" disabled="" class="form-control" value="$!{wjxx.fdjgl}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">号牌种类</label> <input type="text"
+												name="hpzl" readonly="readonly" disabled="" class="form-control" value="$!{wjxx.hpzl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">车辆类型</label> <input type="text"
+												name="cllx" disabled="" class="form-control" value="$!{wjxx.cllx}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">所有人</label> <input type="text"
+												name="syr" disabled="" class="form-control" value="$!{wjxx.syr}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">车身颜色</label> <input type="text"
+												name="csys" disabled="" class="form-control" value="$!{wjxx.csys}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">使用性质</label> <input type="text"
+												name="syxz" disabled="" class="form-control" value="$!{wjxx.syxz}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">发动机额定转速</label> <input type="text"
+												name="fdjedzs" disabled="" class="form-control" value="$!{wjxx.fdjedzs}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">外检员</label> <input type="text"
+												name="wjy" disabled="" class="form-control" value="$!{wjxx.wjy}">
+										</div>
+
+									</div>
+
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">燃料种类</label> 
+											 <select disabled="" class="form-control" name="rlzl">
+											 
+					                            	<option value="" #if("$!{wjxx.rlzl}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="A" #if($!{wjxx.rlzl}=="A") selected #end><font><font>汽油</font></font></option>
+					                                <option value="B" #if($!{wjxx.rlzl}=="B") selected #end><font><font>柴油</font></font></option>
+					                                <option value="C" #if($!{wjxx.rlzl}=="C") selected #end><font><font>电</font></font></option>
+					                                <option value="D" #if($!{wjxx.rlzl}=="D") selected #end><font><font>混合油</font></font></option>
+					                                <option value="E" #if($!{wjxx.rlzl}=="E") selected #end><font><font>天然气</font></font></option>
+					                                <option value="F" #if($!{wjxx.rlzl}=="F") selected #end><font><font>液化石油气</font></font></option>
+					                                <option value="L" #if($!{wjxx.rlzl}=="L") selected #end><font><font>甲醇</font></font></option>
+					                                <option value="M" #if($!{wjxx.rlzl}=="M") selected #end><font><font>乙醇</font></font></option>
+					                                <option value="N" #if($!{wjxx.rlzl}=="N") selected #end><font><font>太阳能</font></font></option>
+					                                <option value="O" #if($!{wjxx.rlzl}=="O") selected #end><font><font>混合动力</font></font></option>
+					                                <option value="Y" #if($!{wjxx.rlzl}=="Y") selected #end><font><font>无</font></font></option>
+					                                <option value="Z" #if($!{wjxx.rlzl}=="Z") selected #end><font><font>其他</font></font></option>
+					                                
+					                                  
+					                         </select>
+										</div>
+										<div class="form-group">
+											<label for="showEasing">总质量</label> <input type="text"
+												name="zzl" disabled="" class="form-control" value="$!{wjxx.zzl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">核定载客</label> <input type="text"
+												name="hdzk" disabled="" class="form-control" value="$!{wjxx.hdzk}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">整备质量</label> <input type="text"
+												name="zbzl" disabled="" class="form-control" value="$!{wjxx.zbzl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">发动机排量</label> <input type="text"
+												name="fdjpl" disabled="" class="form-control" value="$!{wjxx.fdjpl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">驾驶员</label> <input type="text"
+												name="jsy" disabled="" class="form-control" value="$!{wjxx.jsy}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">操作员</label> <input type="text"
+												name="czy" disabled="" class="form-control" value="$!{wjxx.czy}">
+										</div>
+
+									</div>
+
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">变速箱型式</label> 
+											 <select disabled="" class="form-control" name="bsxxs">
+											 
+					                            	<option value="" #if("$!{wjxx.bsxxs}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="1" #if($!{wjxx.bsxxs}=="1") selected #end><font><font>手动</font></font></option>
+					                                <option value="2" #if($!{wjxx.bsxxs}=="2") selected #end><font><font>自动</font></font></option>
+					                                <option value="3" #if($!{wjxx.bsxxs}=="3") selected #end><font><font>手自一体</font></font></option>
+					                                <option value="4" #if($!{wjxx.bsxxs}=="4") selected #end><font><font>无极</font></font></option>
+					                                
+					                                  
+					                         </select>
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">档位数</label> <input type="text"
+												name="dws" disabled="" class="form-control" value="$!{wjxx.dws}">
+										</div>
+										
+										<div class="form-group">
+											<label for="hideEasing">进气方式</label> 
+											 <select disabled="" class="form-control" name="jqfs">
+											 
+					                            	<option value="" #if("$!{wjxx.jqfs}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="1" #if($!{wjxx.jqfs}=="1") selected #end><font><font>自然进气</font></font></option>
+					                                <option value="2" #if($!{wjxx.jqfs}=="2") selected #end><font><font>涡轮增压</font></font></option>
+					                                
+					                                  
+					                         </select>
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">发动机汽缸数</label> <input type="text"
+												name="fdjqgs" disabled="" class="form-control" value="$!{wjxx.fdjqgs}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">行驶里程数</label> <input type="text"
+												name="xslcs" disabled="" class="form-control" value="$!{wjxx.xslcs}">
+										</div>
+										
+										<div class="form-group">
+											<label for="hideEasing">驱动方式</label> 
+											 <select disabled="" class="form-control" name="qdfs">
+											 
+					                            	<option value="" #if("$!{wjxx.qdfs}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="1" #if($!{wjxx.qdfs}=="1") selected #end><font><font>前驱</font></font></option>
+					                                <option value="2" #if($!{wjxx.qdfs}=="2") selected #end><font><font>后驱</font></font></option>
+					                                <option value="3" #if($!{wjxx.qdfs}=="3") selected #end><font><font>四驱</font></font></option>
+					                                <option value="4" #if($!{wjxx.qdfs}=="4") selected #end><font><font>全时四驱</font></font></option>
+					                                  
+					                                  
+					                         </select>
+										</div>
+										
+										<div class="form-group">
+											<label for="hideEasing">后处理种类</label> 
+											 <select disabled="" class="form-control" name="hclzl">
+											 
+					                            	<option value="" #if("$!{wjxx.hclzl}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="1" #if($!{wjxx.hclzl}=="1") selected #end><font><font>三元催化</font></font></option>
+					                                <option value="2" #if($!{wjxx.hclzl}=="2") selected #end><font><font>DPF</font></font></option>
+					                                <option value="3" #if($!{wjxx.hclzl}=="3") selected #end><font><font>SCR</font></font></option>
+					                                <option value="4" #if($!{wjxx.hclzl}=="4") selected #end><font><font>DOC</font></font></option>
+					                                <option value="5" #if($!{wjxx.hclzl}=="5") selected #end><font><font>POC</font></font></option>
+					                                <option value="6" #if($!{wjxx.hclzl}=="6") selected #end><font><font>其他</font></font></option>
+					                                  
+					                                  
+					                         </select>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="table table-stripped table-bordered">
+					<thead>
+						<tr>
+							<th style="color: #1ab394;">外检参数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="showEasing">车辆识别代号判定</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label>
+											 <input type="radio" disabled=""  value="1" name="clsbdhpd"
+												#if($!{wjxx.clsbdhpd}==1) checked #end> <i></i>一致
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="clsbdhpd" 
+												#if($!{wjxx.clsbdhpd}==0) checked #end><i></i> 不一致
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="showEasing">车牌是否一致</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="cpfsyz"
+											 #if($!{wjxx.cpfsyz}==1) checked #end> <i></i>是
+											</label>
+											<label>
+											<input type="radio" disabled=""  value="0" name="cpfsyz"
+											 #if($!{wjxx.cpfsyz}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">发动机是否一致</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="fdjsfyz" 
+											#if($!{wjxx.fdjsfyz}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="fdjsfyz" 
+											#if($!{wjxx.fdjsfyz}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="showEasing">车辆类型是否一致</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="lxsfyz" 
+											#if($!{wjxx.lxsfyz}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="lxsfyz" 
+											#if($!{wjxx.lxsfyz}==0) checked #end> <i></i> 否
+											</label>
+										</div> 
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">轮胎未潮湿存水判定</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="wcscspd" 
+											#if($!{wjxx.wcscspd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="wcscspd" 
+											#if($!{wjxx.wcscspd}==0) checked #end> <i></i>不合格
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">发动机机外净化器</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="jwjhqpd" 
+											#if($!{wjxx.jwjhqpd}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="jwjhqpd" 
+											#if($!{wjxx.jwjhqpd}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">是否有增压器</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="sfyzyq" 
+											#if($!{wjxx.sfyzyq}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="sfyzyq" 
+											#if($!{wjxx.sfyzyq}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-3">
+									
+									<div class="form-group">
+										<label for="hideEasing">是否有燃油蒸发控制装置</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="sfyryzfkz" 
+											#if($!{wjxx.sfyryzfkz}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="sfyryzfkz" 
+											#if($!{wjxx.sfyryzfkz}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">发动机分缸点火线</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="fgdhxpd" 
+											#if($!{wjxx.fgdhxpd}==1) checked #end> <i></i>一致
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="fgdhxpd" 
+											#if($!{wjxx.fgdhxpd}==0) checked #end> <i></i> 不一致
+											</label>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<label for="showEasing">发动机喷油嘴</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="pyzpd" 
+											#if($!{wjxx.pyzpd}==1) checked #end> <i></i>一致
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="pyzpd" 
+											#if($!{wjxx.pyzpd}==0) checked #end> <i></i> 不一致
+											</label>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<label for="showEasing">外检员结果判定</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="wjyjgpd" 
+											#if($!{wjxx.wjyjgpd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="wjyjgpd" 
+											#if($!{wjxx.wjyjgpd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">轮胎未夹硬物判定</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="wjdywpd" 
+											#if($!{wjxx.wjdywpd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="wjdywpd" 
+											#if($!{wjxx.wjdywpd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">发动机空气滤芯</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="kqlxpd" 
+											#if($!{wjxx.kqlxpd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="kqlxpd" 
+											#if($!{wjxx.kqlxpd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="showEasing">发动机废气再循环管</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="fqzxhgpd" 
+											#if($!{wjxx.fqzxhgpd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="fqzxhgpd" 
+											#if($!{wjxx.fqzxhgpd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">车辆工作水温</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="clgzswpd" 
+											#if($!{wjxx.clgzswpd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="clgzswpd" 
+											#if($!{wjxx.clgzswpd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">不冒黑烟</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="bmhypd" 
+											#if($!{wjxx.bmhypd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="bmhypd" 
+											#if($!{wjxx.bmhypd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<label for="showEasing">发动机不烧机油</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="bsjypd" 
+											#if($!{wjxx.bsjypd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="bsjypd" 
+											#if($!{wjxx.bsjypd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">轮胎压力</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="ltylpd" 
+											#if($!{wjxx.ltylpd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="ltylpd" 
+											#if($!{wjxx.ltylpd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="showEasing">轮胎未严重磨损判定</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="wyzmspd" 
+											#if($!{wjxx.wyzmspd}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="wyzmspd" 
+											#if($!{wjxx.wyzmspd}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="hideEasing">进排气不漏气</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="jpqblq" 
+											#if($!{wjxx.jpqblq}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="jpqblq" 
+											#if($!{wjxx.jpqblq}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">进排气不漏油</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="jpqbly" 
+											#if($!{wjxx.jpqbly}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="jpqbly" 
+											#if($!{wjxx.jpqbly}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="showEasing">进排气不漏水</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="jpqbls" 
+											#if($!{wjxx.jpqbls}==1) checked #end> <i></i>合格
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="jpqbls" 
+											#if($!{wjxx.jpqbls}==0) checked #end> <i></i> 不合格
+											</label>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="showEasing">是否有OBD</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="sfyobd" 
+											#if($!{wjxx.sfyobd}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="sfyobd" 
+											#if($!{wjxx.sfyobd}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="hideEasing">OBD检验是否有故障</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="obdsfgz" 
+											#if($!{wjxx.obdsfgz}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="obdsfgz" 
+											#if($!{wjxx.obdsfgz}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="showEasing">检查是否关闭暖风/ABS/ASR/ESP等特殊装置</label>
+										<div class="i-checks" style="margin-top: 7px;">
+											<label> 
+											<input type="radio" disabled=""  value="1" name="sfgbnf" 
+											#if($!{wjxx.sfgbnf}==1) checked #end> <i></i>是
+											</label> 
+											<label> 
+											<input type="radio" disabled=""  value="0" name="sfgbnf" 
+											#if($!{wjxx.sfgbnf}==0) checked #end> <i></i> 否
+											</label>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="showEasing">不能上线检测原因</label> <input type="text"
+										name="bnsxjcyy"	disabled="" class="form-control" value="$!{wjxx.bnsxjcyy}">
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="showEasing">外检员结果判定描述</label> <input type="text"
+										name="wjyjgpdms" disabled="" class="form-control" value="$!{wjxx.wjyjgpdms}">
+									</div>
+								</div>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+				
+		</div>
+	</div>
+
+</div>

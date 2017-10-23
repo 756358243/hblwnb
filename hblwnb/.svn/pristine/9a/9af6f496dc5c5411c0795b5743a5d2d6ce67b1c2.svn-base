@@ -1,0 +1,87 @@
+/** 
+ * Project Name:hblw_nb 
+ * File Name:TPREFACECHECKDao.java 
+ * Package Name:com.vkl.hblw.dao.persistence 
+ * Date:2017年10月13日下午2:26:16 
+ * Copyright (c) 2017, chenzhou1025@126.com All Rights Reserved. 
+ * 
+*/  
+  
+package com.vkl.hblw.dao.persistence;
+
+import java.sql.Timestamp;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vkl.hblw.dao.domain.TPREFACECHECK;
+import com.vkl.hblw.dao.persistence.base.TPREFACECHECKBaseDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+
+/** 
+* @ClassName: TPREFACECHECKDao 
+* @Description:车辆外检信息dao扩展类 
+* @author aiyun 
+* @date 2017年10月13日 下午2:26:25 
+*  
+*/
+public class TPREFACECHECKDao extends TPREFACECHECKBaseDao {
+
+	
+	/** 
+	* @Title: queryByCcheckcode 
+	* @Description: 根据流水号查询外检信息表
+	* @param CCHECKCODE
+	* @return    设定文件 
+	* @return TPREFACECHECK    返回类型 
+	* @throws 
+	*/
+	public TPREFACECHECK queryByCcheckcode(String CCHECKCODE){
+		TPREFACECHECK tprefacecheck = new TPREFACECHECK();
+		tprefacecheck.setCcheckcode(CCHECKCODE);
+		SqlSelect sql = new SqlSelect().where(TPREFACECHECK.SQL_ccheckcode);
+		tprefacecheck = load(sql, tprefacecheck);
+		return tprefacecheck;
+	}
+	/**
+	 * 
+	* @Title: queryByCondition 
+	* @Description: 获取登记车辆信息
+	* @author xy
+	* @param cnumberplate 车牌号码
+	* @param cnumbertype 号牌种类
+	* @param registertime 登记时间
+	* @return
+	 */
+	@Transactional
+	public TPREFACECHECK queryByCondition(String cnumberplate, String cnumbertype, Timestamp registertime) {
+		TPREFACECHECK tprefacecheck=new TPREFACECHECK();
+		tprefacecheck.setCnumberplate(cnumberplate);
+		//tprefacecheck.setCnumbertype(cnumbertype);//号牌种类 没这个字段
+		tprefacecheck.setDregister(registertime);
+		SqlSelect sql = new SqlSelect().where(TPREFACECHECK.SQL_cnumberplate)/*.and(TPREFACECHECK.SQL_cnumbertype)*/.and(TPREFACECHECK.SQL_dregister);
+		tprefacecheck = load(sql, tprefacecheck);
+		return tprefacecheck;
+		}
+
+	/** 
+	* @Title: queryByCNUMBERPLATECNUMBERTYPECVIN 
+	* @Description: 根据外观检验流水号查询外检信息
+	* @param cnumberplate
+	* @param cnumbertype
+	* @param cvin
+	* @return    设定文件 
+	* @return TPREFACECHECK    返回类型 
+	* @throws 
+	*/
+	public TPREFACECHECK queryByCprefacecheckid(String cprefacecheckid) {
+		TPREFACECHECK tprefacecheck = new TPREFACECHECK();
+		tprefacecheck.setCprefacecheckid(cprefacecheckid);
+		SqlSelect sql = new SqlSelect().where(TPREFACECHECK.SQL_cprefacecheckid);
+		tprefacecheck = load(sql, tprefacecheck);
+		return null;
+	}
+}
+	
+
+  

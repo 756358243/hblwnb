@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+	<tool>
+     <key>numberTool</key>
+     <scope>application</scope>
+     <class>org.apache.velocity.tools.generic.NumberTool</class>
+     <parameter name="format" value="#0.0"/>
+     </tool>
+     
+     <tool>   
+        <key>mathTool</key>   
+        <scope>application</scope>   
+        <class>org.apache.velocity.tools.generic.MathTool</class>   
+    </tool>  
+
+ 
+</toolbox>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;" xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+<title>检测报告打印</title>
+
+
+<script type="text/javascript" language="javascript">
+	function printPage() {
+		var newWin = window.open("printer", "", "");
+		var titleHTML = document.getElementById("printdiv").innerHTML;
+		newWin.document.write(titleHTML);
+		newWin.document.location.reload();
+		newWin.print();
+		newWin.close();
+		return false;
+	}
+	function back() {
+		window.history.back(-1);
+	}
+	window.onload = function() {
+		var newWin = window.open("printer", "", "");
+		var titleHTML = document.getElementById("printdiv").innerHTML;
+		newWin.document.write(titleHTML);
+		newWin.document.location.reload();
+		newWin.print();
+		newWin.close();
+		setTimeout("window.close()", 2000);
+	}
+</script>
+
+</head>
+<body>
+	<form name="ctl00" method="post" action="" id="ctl00">
+		<div></div>
+
+		<div id="savemenu" style="display: none">
+			<a href="javascript:;"></a><a href="javascript:;">车辆检测管理 </a>
+		</div>
+		<table class="toptable grid" cellspacing="1" cellpadding="4"
+			align="center" border="1px" style="width: 98%; height: 100%">
+			<tbody>
+				<tr>
+					<td align="left" class="category" colspan="4"
+						style="height: 15px; width: 50%">&nbsp;检测报告打印</td>
+				</tr>
+				<tr>
+
+					<td id="TD1" align="left" colspan="4" valign="top">
+						<div id="printdiv">
+							<table id="detail" width="100%" border="0" bordercolor="white"
+								cellpadding="0" cellspacing="0">
+								<tr style="height: 22px;"></tr>
+								<tr>
+									<td align="left" colspan="2">
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_Title" style="width: 98%;">
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9px; width: 14%;">&nbsp;</td>
+													<td align="left" style="font-size: 9px; width: 28%;">&nbsp;</td>
+													<td align="center" style="font-size: 9px; width: 9%;">&nbsp;</td>
+													<td align="center" style="font-size: 11px; width: 25%;">$!{dlxx.jybgbm}</td>
+													<td align="center" style="font-size: 9px; width: 12%;">&nbsp;</td>
+													<td align="left" style="font-size: 12px; width: 13%;">1</td>
+												</tr>
+											</table>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td align="left" colspan="2" style="height: 158px">
+										<div>
+											<table cellspacing="3" cellpadding="2" border="0"
+												id="GV_VehicleBaseInfo" style="width: 98%;">
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{wjxx.hphm}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" colspan="3"
+														style="font-size: 9pt; width: 18%;">$!{wjxx.syr}</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{wjxx.clxh}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" colspan="2"
+														style="font-size: 9pt; width: 18%;">$!{dlxx.sccsmc}</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">$!util.showDate($!{dlxx.ccrq})</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">
+													#set($zbzl=$!{dlxx.zbzl} + 100) $!{zbzl}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">$!{dlxx.zzl}</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">#if($!{dlxx.dczz})
+														$!{dlxx.dczz} #else / #end</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{dlxx.clsbdh}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">$!{apiDataConfig.QDFSMap.get($!{wjxx.qdfs})}</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">/</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{apiDataConfig.BSXXSMap.get($!{wjxx.bsxxs})}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">/</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">$!{wjxx.fdjxh}</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">/</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">$!{wjxx.fdjh}</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">$!{wjxx.fdjqgs}</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{wjxx.fdjpl}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">#if($!{dlxx.rlgjxtxs})
+														$!{apiDataConfig.RLGJXTXSMap.get($!{dlxx.rlgjxtxs})} #else
+														/ #end</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">$!{wjxx.xslcs}</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{apiDataConfig.RLZLMap.get($!{wjxx.rlzl})}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">#if($!{dlxx.chzhq})
+														$!{dlxx.chzhq} #else / #end</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">$!{apiDataConfig.JQFSMap.get($!{wjxx.jqfs})}</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!util.showDate($!{wjxx.ccdjrq})</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" colspan="2"
+														style="font-size: 9pt; width: 18%;">$!util.showTime($!{jyjgxx.sxkssj})</td>
+													<td align="center" style="font-size: 9pt; width: 12%;">$!{wjxx.clpp1}</td>
+												</tr>
+												<tr style="height: 10px;">
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" colspan="5" rowspan="2"
+														style="font-size: 9pt; width: 16%;">轻型汽油车排气污染物&nbsp;&nbsp;&nbsp;&nbsp;GB18285-2005点燃式发动机汽车排气污染物排放限值及测量方法<br />（双怠速法及简易工况法）
+													</td>
+												</tr>
+												<tr style="height: 20px;">
+
+												</tr>
+												<tr style="height: 16px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{dlxx.djy}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">$!{dlxx.czy}</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 12%;">$!{dlxx.ycy}</td>
+												</tr>
+												<tr style="height: 16px;">
+													<td align="center" style="font-size: 9pt; width: 15%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 16%;">$!{jyjgxx.wd}</td>
+													<td align="center" style="font-size: 9pt; width: 22%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 18%;">$!{jyjgxx.qy}</td>
+													<td align="center" style="font-size: 9pt; width: 17%;">&nbsp;</td>
+													<td align="left" style="font-size: 9pt; width: 12%;">$!{jyjgxx.sd}</td>
+		 										</tr> 
+											</table>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td align="left" colspan="2">
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_InspectionInfo" style="width: 98%;">
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 10pt; width: 14%;">&nbsp;</td>
+													<td align="center" style="font-size: 10pt; width: 68%;">&nbsp;</td>
+													<td align="center" style="font-size: 10pt; width: 18%;">&nbsp;</td>
+												</tr>
+											</table>
+										</div> <b></b>
+									</td>
+								</tr>
+								<tr>
+									<td align="left" colspan="2">
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_Idle" style="width: 98%;">
+												<tr style="height: 18px;">
+													<td align="center" valign="bottom" rowspan="5"
+														style="font-size: 9pt; width: 3%;">&nbsp;</td>
+													<td align="center" rowspan="5"
+														style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 11%;">&nbsp;</td>
+													<td align="center" colspan="2"
+														style="font-size: 9pt; width: 11%;">&nbsp;</td>
+													<td align="center" colspan="2"
+														style="font-size: 9pt; width: 14.5%;">&nbsp;</td>
+													<td align="left" rowspan="5"
+														style="font-size: 9pt; width: 18.5%;"><br />
+														#if($!{dlxx.jcff}==1) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;QWJ3000-JST
+														<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深圳汇银 #end</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 11%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 14.5%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 13%;">&nbsp;</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.val01} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.val02} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.val03} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 14.5%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.val04} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 13%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.val05} #else — #end</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														/ #end</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.valsx02} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.valsx03} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 14.5%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.valsx04} #else — #end</td>
+													<td align="center" style="font-size: 9pt; width: 13%;">#if($!{dlxx.jcff}==1)
+														$!{jyjgxx.valsx05} #else — #end</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center" style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														/ #end</td>
+													<td align="center" colspan="2"
+														style="font-size: 9pt; width: 11%;">#if($!{dlxx.jcff}==1)
+														#if($!{jyjgxx.valpd02}==1 && $!{jyjgxx.valpd03}==1) ○
+														#else x #end #end</td>
+													<td align="center" colspan="2"
+														style="font-size: 9pt; width: 14.5%;">#if($!{dlxx.jcff}==1)
+														#if($!{jyjgxx.valpd04}==1 && $!{jyjgxx.valpd05}==1) ○
+														#else × #end #end</td>
+												</tr>
+											</table>
+										</div>
+
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_Vms2" style="width: 98%;">
+												<tr style="height: 29px;">
+													<td align="center" rowspan="5"
+														style="font-size: 9pt; height: 18.5pt; width: 3%;">&nbsp;</td>
+													<td align="center" rowspan="5"
+														style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 14%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 14.5%;">&nbsp;</td>
+													<td align="center" rowspan="5"
+														style="font-size: 9pt; height: 18.5pt; width: 18.5%;"><br />
+														#if($!{dlxx.jcff}==3) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;QWJ3000-JST
+														<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深圳汇银 #end</td>
+												</tr>
+												<tr style="height: 22px;">
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">#if($!{dlxx.jcff}==3)
+														$!{jyjgxx.val01} #else — #end</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">#if($!{dlxx.jcff}==3)
+														$!{jyjgxx.val02} #else — #end</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; height: 18.5pt; width: 14%;">#if($!{dlxx.jcff}==3)
+														$!{jyjgxx.val03} #else — #end</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; height: 18.5pt; width: 14.5%;">#if($!{dlxx.jcff}==3)
+														$!{jyjgxx.val04} #else — #end</td>
+												</tr>
+												<tr>
+
+												</tr>
+												<tr style="height: 21px;">
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valsx01})
+														$!{jyjgxx.valsx01} #else — #end #else — #end</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valsx02})
+														$!{jyjgxx.valsx02} #else — #end #else — #end</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 14%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valsx03})
+														$!{jyjgxx.valsx03} #else — #end #else — #end</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 14.5%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valsx04})
+														$!{jyjgxx.valsx04} #else — #end #else — #end</td>
+												</tr>
+												<tr style="height: 18px;">
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valpd01} &&
+														$!{jyjgxx.valsx01}) #if($!{jyjgxx.valpd01}==1) ○ #else ×
+														#end #else — #end #end</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 16%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valpd02} &&
+														$!{jyjgxx.valsx02}) #if($!{jyjgxx.valpd02}==1) ○ #else ×
+														#end #else — #end #end</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 14%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valpd03} &&
+														$!{jyjgxx.valsx03}) #if($!{jyjgxx.valpd03}==1) ○ #else ×
+														#end #else — #end #end</td>
+													<td align="center"
+														style="font-size: 9pt; height: 18.5pt; width: 14.5%;">
+														#if($!{dlxx.jcff}==3) #if($!{jyjgxx.valpd04} &&
+														$!{jyjgxx.valsx04}) #if($!{jyjgxx.valpd04}==1) ○ #else ×
+														#end #else — #end #end</td>
+												</tr>
+											</table>
+										</div>
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_Filter" style="width: 98%;">
+												<tr>
+													<td align="center" valign="bottom" rowspan="4"
+														style="font-size: 9pt; width: 3%;">&nbsp;</td>
+													<td align="center" rowspan="4"
+														style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" colspan="4"
+														style="font-size: 9pt; width: 8%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 8.5%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 10%;">&nbsp;</td>
+													<td align="left" rowspan="2"
+														style="font-size: 9pt; width: 10%;">&nbsp;</td>
+													<td align="left" rowspan="4"
+														style="font-size: 9pt; width: 18.5%;">&nbsp;</td>
+												</tr>
+												<tr>
+													<td align="center" style="font-size: 9pt; width: 9%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 8%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 8%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 8%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 8%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 8.5%;">&nbsp;</td>
+													<td align="center" style="font-size: 9pt; width: 10%;">&nbsp;</td>
+												</tr>
+												<tr style="height: 19px;">
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 9%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 8%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 8%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 8%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 8%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 8.5%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9pt; width: 10%;">—</td>
+													<td align="left" rowspan="2"
+														style="font-size: 9pt; width: 10%;">—</td>
+												</tr>
+												<tr style="height: 19px;">
+
+												</tr>
+											</table>
+										</div>
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_Opacity" style="width: 98%;">
+												<tr style="height: 22px;">
+													<td align="center" valign="top" rowspan="4"
+														style="font-size: 9.5pt; width: 3%;">&nbsp;</td>
+													<td align="center" rowspan="4"
+														style="font-size: 9.5pt; width: 9%;">&nbsp;</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 9%;">&nbsp;</td>
+													<td align="center" colspan="3"
+														style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 8.5%;">&nbsp;</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+													<td align="left" rowspan="2"
+														style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+													<td align="left" rowspan="4"
+														style="font-size: 9.5pt; width: 18.5%;">&nbsp;</td>
+												</tr>
+												<tr>
+													<td align="center" style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+													<td align="center" style="font-size: 9.5pt; width: 11%;">&nbsp;</td>
+													<td align="center" style="font-size: 9.5pt; width: 11%;">&nbsp;</td>
+												</tr>
+												<tr>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 9%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 10%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 11%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 11%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 8.5%;">—</td>
+													<td align="center" rowspan="2"
+														style="font-size: 9.5pt; width: 10%;">—</td>
+													<td align="left" rowspan="2"
+														style="font-size: 9.5pt; width: 10%;">—</td>
+												</tr>
+												<tr style="height: 18px;">
+
+												</tr>
+											</table>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td align="left" colspan="2" style="border-bottom: 0;"></td>
+								</tr>
+								<tr>
+									<td align="center" colspan="2" style="border-top: 0">
+										<div>
+											<table cellspacing="3" cellpadding="3" border="0"
+												id="GV_Outlook" style="width: 98%;">
+												<tr style="height: 24px;">
+													<td align="center" style="font-size: 9.5pt; width: 14%;">&nbsp;</td>
+													<td align="center" style="font-size: 9.5pt; width: 65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														#if($!{wjxx.wjyjgpd}==1)合格 #else 不合格 #end</td>
+													<td align="center" style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+													<td align="left" style="font-size: 9.5pt; width: 11%;">$!{dlxx.wjy}</td>
+												</tr>
+												<tr>
+													<td align="center" rowspan="5"
+														style="font-size: 9.5pt; width: 14%;">&nbsp;</td>
+													<td align="left" colspan="3" rowspan="5"
+														style="font-size: 9.5pt; width: 65%;">
+														#if($!{dlxx.jcff}==1)
+														&nbsp;&nbsp;依据&nbsp;&nbsp;GB18285-2005&nbsp;&nbsp;国家标准，对号牌&nbsp;&nbsp;$!{wjxx.hphm}
+														&nbsp;&nbsp;进行排气污染物检测，<br />综合结论为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														#elseif($!{dlxx.jcff}==3)
+														&nbsp;&nbsp;依据&nbsp;&nbsp;DB33/660-2016&nbsp;&nbsp;地方标准、GB18285-2005&nbsp;&nbsp;
+														国家标准，对号牌&nbsp;&nbsp;$!{wjxx.hphm} &nbsp;&nbsp;<br />进行排气污染物检测，综合结论为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														#end #if($!{jyjgxx.sxjgpd}==1 && $!{wjxx.wjyjgpd}==1) 合格
+														#else 不合格 #end <br /> <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+														<br />
+													</td>
+												</tr>
+												<tr>
+
+												</tr>
+												<tr>
+
+												</tr>
+												<tr>
+
+												</tr>
+												<tr>
+
+												</tr>
+											</table>
+										</div>
+										<div>
+											<table cellspacing="3" cellpadding="2" border="0"
+												id="GV_Allow" style="width: 98%;">
+												<tr>
+													<td align="center" style="font-size: 10pt; width: 14%;"></td>
+													<td align="center" style="font-size: 10pt; width: 44%;"></td>
+													<td style="font-size: 10pt; width: 18%;">&nbsp;</td>
+													<td style="font-size: 10pt; width: 24%;">&nbsp;</td>
+												</tr>
+											</table>
+										</div>
+										<div>
+											<table cellspacing="2" cellpadding="2" border="0"
+												id="GV_Desc" style="width: 98%;">
+												<tr>
+													<td align="left" style="font-size: 9.5pt;">&nbsp;</td>
+												</tr>
+											</table>
+										</div>
+										<div></div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+
+				</tr>
+				<tr>
+					<td align="center">
+
+						<div class="btn-group">
+							<button class=" btn btn-xs btn-primary" name="IBtnPrint"
+								id="IBtnPrint" onclick="printPage();">打印</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+
+
+		<div></div>
+	</form>
+</body>
+</html>

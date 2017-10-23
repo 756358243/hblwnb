@@ -1,0 +1,590 @@
+<div id="tab-4" class="tab-pane">
+	<fieldset>
+		<div class="ibox">
+			<div class="ibox-content">
+
+				<div class="table-responsive">
+					<table class="table table-stripped table-bordered">
+						<thead>
+							<tr>
+								<th style="color: #1ab394;">基本信息</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="showEasing">检验报告编码</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.jybgbm}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">检测线编码</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.jcxbm}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">初次登记日期</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.ccdjrq}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">出厂日期</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.ccrq}">
+										</div>
+
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">检测类别</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.jclb}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">检验方法</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.jcff}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">行政区划</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.xzqh}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">号牌号码</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.hphm}">
+										</div>
+
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">号牌颜色</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.hpys}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">号牌种类</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.hpzl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">车辆类型</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.cllx}">
+										</div>
+
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">车辆识别代号</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.clsbdh}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">车辆型号</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.clxh}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">发动机型号</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.fdjxh}">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">所有人</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.syr}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">燃料种类</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.rlzl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">车辆品牌</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.clpp1}">
+										</div>
+									</div>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-stripped table-bordered">
+						<thead>
+							<tr>
+								<th style="color: #1ab394;">检测参数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="showEasing">上线开始时间</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.sxkssj}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">上线结束时间</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.sxjssj}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">实测最大轮边功率</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.sczdlbgl}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">校正最大轮边功率</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.xzzdlbgl}">
+										</div>
+
+
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">温度</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.wd}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">气压</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.qy}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">湿度</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.sd}">
+										</div>
+
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">发动机转速</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.fdjzs}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">采样深度</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.cysd}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">功率修正系数</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.glxzxs}">
+										</div>
+
+									</div>
+
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">计算滚筒线速度</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.jsgtxsd}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">实际滚筒线速度</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.sjgtxsd}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">总加载功率</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.zjzgl}">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">驱动轮胎气压</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.qdltqy}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">流量</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.ll}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">上线结果判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.sxjgpd}">
+										</div>
+
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					#if($!{dlxx.jcff}==1)
+					<table class="table table-stripped table-bordered">
+						<thead>
+							<tr>
+								<th style="color: #1ab394;">双怠速法检测参数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">过量空气系数检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">过量空气系数上限</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx01}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">过量空气系数下限</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valxx01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">过量空气系数判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd01}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">低怠速CO浓度检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val02}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">低怠速CO浓度限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx02}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">低怠速CO判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd02}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">低怠速HC浓度检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val03}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">低怠速HC浓度限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx03}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">低怠速HC判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd03}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">高怠速CO浓度检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val04}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">高怠速CO浓度限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx04}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">高怠速HC浓度检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val05}">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">高怠速HC浓度限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx05}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">高怠速HC判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd05}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">低怠速转速检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val06}">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="hideEasing">高怠速转速检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val07}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">低怠速机油温度检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val08}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">高怠速机油温度检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val09}">
+										</div>
+										<div class="form-group"></div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					#elseif($!{dlxx.jcff}==3)
+					<table class="table table-stripped table-bordered">
+						<thead>
+							<tr>
+								<th style="color: #1ab394;">简易瞬态工况法检测参数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">HC质量检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">HC质量限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx01}">
+										</div>
+										
+
+									</div>
+									<div class="col-md-2">
+									
+										<div class="form-group">
+											<label for="showEasing">HC质量判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">CO质量检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val02}">
+										</div>
+										
+
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">CO质量限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx02}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">CO质量判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd02}">
+										</div>
+										
+
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">NOX质量检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val03}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">NOX质量限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx03}">
+										</div>
+										
+										
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">NOX质量判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd03}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">HCNOX质量检测值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val04}">
+										</div>
+										
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="showEasing">HCNOX质量限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx04}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">HCNOX质量判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd04}">
+										</div>
+									</div>
+									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					#elseif($!{dlxx.jcff}==4)
+					<table class="table table-stripped table-bordered">
+						<thead>
+							<tr>
+								<th style="color: #1ab394;">加载减速法检测参数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">100%点排放</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">100%点排放限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">100%点排放判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd01}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+									
+										<div class="form-group">
+											<label for="showEasing">90%点排放</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val02}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">90%点排放限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx02}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">90%点排放判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd02}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">80%点排放</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val03}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">80%点排放限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx03}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">80%点排放判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd03}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">最大轮边功率</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val04}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">最大轮边功率限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx04}">
+										</div>
+										
+										
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">发动机额定转速</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val05}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">发动机额定转速上限</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx05}">
+										</div>
+										
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="showEasing">发动机额定转速下限</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valxx05}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">发动机额定转速判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd05}">
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					#elseif($!{dlxx.jcff}==5)
+					<table class="table table-stripped table-bordered">
+						<thead>
+							<tr>
+								<th style="color: #1ab394;">自由加速法检测参数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="showEasing">光吸收系数k1</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k1限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx01}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k1判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd01}">
+										</div>
+
+									</div>
+									<div class="col-md-2">
+									
+										<div class="form-group">
+											<label for="showEasing">光吸收系数k2</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val02}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k2限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx02}">
+										</div>
+										
+
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k2判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd02}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">光吸收系数k3</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val03}">
+										</div>
+										
+
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k3限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx03}">
+										</div>
+										<div class="form-group">
+											<label for="showEasing">光吸收系数k3判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd03}">
+										</div>
+										
+										
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k4</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val04}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数k4限值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valsx04}">
+										</div>
+										
+									</div>
+									<div class="col-md-2">
+										
+										<div class="form-group">
+											<label for="showEasing">光吸收系数k4判定</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.valpd04}">
+										</div>
+										<div class="form-group">
+											<label for="hideEasing">光吸收系数排放平均值</label> <input type="text"
+												disabled="" class="form-control" value="$!{jyjgxx.val05}">
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					#end
+					
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</div>

@@ -1,0 +1,296 @@
+
+<div id="tab-1" class="tab-pane active">
+	<div class="panel-body">
+		<div class="table-responsive">
+		 
+			<table class="table table-stripped table-bordered">
+				<thead>
+					<tr>
+						<th style="color: #1ab394;">基本信息</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="col-md-4">
+									<!-- 需要查询车辆表和车辆状态表 -->
+								<div class="form-group">
+									<label for="showEasing">车辆识别代号</label> <input type="text"
+									name="CVIN"  disabled="" class="form-control" value="$!{vehiclelogin.CVIN}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">初次登记日期</label> <input type="text"
+									name="ccdjrq"  disabled="" class="form-control" value="$!{dlxx.ccdjrq}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">生产厂商名称</label> <input type="text"
+									name="CVEHICLEMADEFACTOR"	  disabled="" class="form-control" value="$!{vehiclelogin.CVEHICLEMADEFACTOR}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">检验报告编码</label> <input type="text"
+									name="jybgbm"	readonly="readonly"   disabled="" class="form-control" value="$!{dlxx.jybgbm}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">发动机号</label> <input type="text"
+									name="CENGINENO"	  disabled="" class="form-control" value="$!{vehiclelogin.CENGINENO}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">发动机型号</label> <input type="text"
+									name="CENGINEMODEL"	  disabled="" class="form-control" value="$!{vehiclelogin.CENGINEMODEL}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">整备质量</label> <input type="text"
+									name="zbzl"	  disabled="" class="form-control" value="$!{dlxx.zbzl}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">车辆型号</label> <input type="text"
+									name="clxh"	  disabled="" class="form-control" value="$!{dlxx.clxh}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">号牌号码</label> <input type="text"
+									name="CNUMBERPLATE"	readonly="readonly"  disabled="" class="form-control" value="$!{vehiclelogin.CNUMBERPLATE}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">所有人</label> <input type="text"
+									name="CUSER"	  disabled="" class="form-control" value="$!{vehiclelogin.CUSER}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">号牌种类</label> <input type="text"
+									name="CNUMBERTYPE"	 readonly="readonly"  disabled="" class="form-control" value="$!{vehiclelogin.CNUMBERTYPE}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">号牌颜色</label> <input type="text"
+									name="CPLATETYPE"	  disabled="" class="form-control" value="$!{vehiclelogin.CPLATETYPE}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+
+								<div class="form-group">
+									<label for="hideEasing">行政区划</label> <input type="text"
+									name="xzqh"	  disabled="" class="form-control" value="$!{dlxx.xzqh}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">检验机构编码</label> <input type="text"
+									name="CUNITCODE"	  disabled="" class="form-control" value="$!{vehiclelogin.CUNITCODE}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">检验线编码</label> <input type="text"
+									name="CCHKDEVICECODE"	  disabled="" class="form-control" value="$!{vehiclelogin.CCHKDEVICECODE}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">检验类别</label> 
+									 <select disabled="" class="form-control" name="CHECKTYPE">
+			                            	
+			                                  <option value="1" #if($!{vehiclelogin.CHECKTYPE}=="1") selected #end><font><font>定期检验</font></font></option>
+			                                  <option value="2" #if($!{vehiclelogin.CHECKTYPE}=="2") selected #end><font><font>注册登记检验</font></font></option>
+			                                  <option value="3" #if($!{vehiclelogin.CHECKTYPE}=="3") selected #end><font><font>实验比对</font></font></option>
+			                                  <option value="4" #if($!{vehiclelogin.CHECKTYPE}=="4") selected #end><font><font>监督抽测不合格复检</font></font></option>
+			                                  <option value="5" #if($!{vehiclelogin.CHECKTYPE}=="5") selected #end><font><font>定期检验不合格复检</font></font></option>
+			                                  <option value="6" #if($!{vehiclelogin.CHECKTYPE}=="6") selected #end><font><font>路检</font></font></option>
+			                                  <option value="7" #if($!{vehiclelogin.CHECKTYPE}=="7") selected #end><font><font>场检</font></font></option>
+			                                  <option value="8" #if($!{vehiclelogin.CHECKTYPE}=="8") selected #end><font><font>行政复检</font></font></option>
+			                                  <option value="9" #if($!{vehiclelogin.CHECKTYPE}=="9") selected #end><font><font>新车上牌检测</font></font></option>
+			                         </select>
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">首检检验流水号</label> <input type="text"
+									name="FIRSTCHECKNUMBER"	  disabled="" class="form-control" value="$!{vehiclelogin.FIRSTCHECKNUMBER}">
+								</div> 
+								<div class="form-group">
+									<label for="hideEasing">检验状态</label> 
+									 <select disabled="" class="form-control" name="status">
+			                            	
+			                                  <option value="1" #if($!{vehiclelogin.CHECKSTATE}=="1") selected #end><font><font>已登记</font></font></option>
+			                                  <option value="2" #if($!{vehiclelogin.CHECKSTATE}=="2") selected #end><font><font>已外检</font></font></option>
+			                                  <option value="3" #if($!{vehiclelogin.CHECKSTATE}=="3") selected #end><font><font>已上传过程数据</font></font></option>
+			                                  <option value="4" #if($!{vehiclelogin.CHECKSTATE}=="4") selected #end><font><font>已上线检测</font></font></option>
+			                                  <option value="5" #if($!{vehiclelogin.CHECKSTATE}=="5") selected #end><font><font>已提交</font></font></option>
+			                                  <option value="6" #if($!{vehiclelogin.CHECKSTATE}=="6") selected #end><font><font>已退办</font></font></option>
+			                                  
+			                         </select>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="showEasing">车辆类型</label> <input type="text"
+									name="CVEHICLESTYLE"	  disabled="" class="form-control" value="$!{vehiclelogin.CVEHICLESTYLE}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">检验方法</label> 
+									<select disabled="" class="form-control" name="CHECKMETHOD">
+			                            	
+			                            	  <option value="0" #if($!{vehiclelogin.CHECKMETHOD}=="0") selected #end><font><font>低怠速法</font></font></option>
+			                                  <option value="1" #if($!{vehiclelogin.CHECKMETHOD}=="1") selected #end><font><font>双怠速法</font></font></option>
+			                                  <option value="2" #if($!{vehiclelogin.CHECKMETHOD}=="2") selected #end><font><font>稳态工况法</font></font></option>
+			                                  <option value="3" #if($!{vehiclelogin.CHECKMETHOD}=="3") selected #end><font><font>简易瞬态工况法</font></font></option>
+			                                  <option value="4" #if($!{vehiclelogin.CHECKMETHOD}=="4") selected #end><font><font>加载减速工况法</font></font></option>
+			                                  <option value="5" #if($!{vehiclelogin.CHECKMETHOD}=="5") selected #end><font><font>不透光烟度法</font></font></option>
+			                                  <option value="6" #if($!{vehiclelogin.CHECKMETHOD}=="6") selected #end><font><font>滤纸烟度法</font></font></option>
+			                                  
+			                                  
+			                         </select>
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">车身颜色</label> <input type="text"
+									name="BODYCOLOR"	  disabled="" class="form-control" value="$!{tvehicle.BODYCOLOR}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">使用性质</label> <input type="text"
+									name="CPURPOSEID"	  disabled="" class="form-control" value="$!{vehiclelogin.CPURPOSEID}">
+								</div>
+								<div class="form-group">
+											<label for="hideEasing">燃料种类</label> 
+											 <select disabled="" class="form-control" name="CFUELTYPE">
+											 
+					                            	<option value="" #if("$!{vehiclelogin.CFUELTYPE}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="A" #if($!{vehiclelogin.CFUELTYPE}=="A") selected #end><font><font>汽油</font></font></option>
+					                                <option value="B" #if($!{vehiclelogin.CFUELTYPE}=="B") selected #end><font><font>柴油</font></font></option>
+					                                <option value="C" #if($!{vehiclelogin.CFUELTYPE}=="C") selected #end><font><font>电</font></font></option>
+					                                <option value="D" #if($!{vehiclelogin.CFUELTYPE}=="D") selected #end><font><font>混合油</font></font></option>
+					                                <option value="E" #if($!{vehiclelogin.CFUELTYPE}=="E") selected #end><font><font>天然气</font></font></option>
+					                                <option value="F" #if($!{vehiclelogin.CFUELTYPE}=="F") selected #end><font><font>液化石油气</font></font></option>
+					                                <option value="L" #if($!{vehiclelogin.CFUELTYPE}=="L") selected #end><font><font>甲醇</font></font></option>
+					                                <option value="M" #if($!{vehiclelogin.CFUELTYPE}=="M") selected #end><font><font>乙醇</font></font></option>
+					                                <option value="N" #if($!{vehiclelogin.CFUELTYPE}=="N") selected #end><font><font>太阳能</font></font></option>
+					                                <option value="O" #if($!{vehiclelogin.CFUELTYPE}=="O") selected #end><font><font>混合动力</font></font></option>
+					                                <option value="Y" #if($!{vehiclelogin.CFUELTYPE}=="Y") selected #end><font><font>无</font></font></option>
+					                                <option value="Z" #if($!{vehiclelogin.CFUELTYPE}=="Z") selected #end><font><font>其他</font></font></option>
+					                                
+					                                  
+					                         </select>
+										</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="showEasing">车辆品牌(中文)</label> <input type="text"
+									name="BRANDCH"	  disabled="" class="form-control" value="$!{tvehicle.BRANDCH}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">国产进口</label> <input type="text"
+									name="SALETYPE"	  disabled="" class="form-control" value="$!{tvehicle.SALETYPE}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">最大总质量</label> <input type="text"
+									name="NMAXWEIGHT"	  disabled="" class="form-control" value="$!{vehiclelogin.NMAXWEIGHT}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">核定载质量</label> <input type="text"
+									name="NWEIGHT"	  disabled="" class="form-control" value="$!{tvehicle.NWEIGHT}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">核定载客</label> <input type="text"
+									name="NSEATORTONNAGE"	  disabled="" class="form-control" value="$!{vehiclelogin.NSEATORTONNAGE}">
+								</div>
+
+							</div>
+							<div class="col-md-2"></div>
+
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table table-stripped table-bordered">
+				<thead>
+					<tr>
+						<th style="color: #1ab394;">其他信息</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="col-md-4">
+
+								<div class="form-group">
+									<label for="hideEasing">出厂日期</label> <input type="text"
+									name="MDATE"	  disabled="" class="form-control" value="$!{vehiclelogin.MDATE}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">登记时间</label> <input type="text"
+									name="DREGISTER"	 readonly="readonly"  disabled="" class="form-control" value="$!{tvehicle.DREGISTER}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="showEasing">登记员姓名</label> <input type="text"
+									name="REGISTERPERSON"	  disabled="" class="form-control" value="$!{vehiclelogin.REGISTERPERSON}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">引车员姓名</label> <input type="text"
+									name="CDRIVERCODE"	  disabled="" class="form-control" value="$!{vehiclelogin.CDRIVERCODE}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">外检员姓名</label> <input type="text"
+									name="EXTERNALPERSON"	  disabled="" class="form-control" value="$!{vehiclelogin.EXTERNALPERSON}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">送检人</label> <input type="text"
+									name="GIVECHECK"	  disabled="" class="form-control" value="$!{vehiclelogin.GIVECHECK}">
+								</div>
+
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">操作员姓名</label> <input type="text"
+									name="OPERATIONPERSON"	  disabled="" class="form-control" value="$!{vehiclelogin.OPERATIONPERSON}">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">插管员姓名</label> <input type="text"
+									name="CANNULAPERSON"	  disabled="" class="form-control" value="$!{vehiclelogin.CANNULAPERSON}">
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="showEasing">送检人备注</label> <input type="text"
+									name="GIVECHECKREMARKS"	  disabled="" class="form-control" value="$!{vehiclelogin.GIVECHECKREMARKS}">
+								</div>
+
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="showEasing">登记备注</label> <input type="text"
+									name="REGISTERREMARKS"	  disabled="" class="form-control" value="$!{vehiclelogin.REGISTERREMARKS}">
+								</div>
+
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="showEasing">备注</label> <input type="text"
+									name="OTHERREMARKS"	  disabled="" class="form-control" value="$!{vehiclelogin.OTHERREMARKS}">
+								</div>
+
+							</div>
+						</td>
+
+					</tr>
+				</tbody>
+			</table> 
+			
+	   </div>
+		
+	</div>
+
+</div>

@@ -1,0 +1,37 @@
+<div id="tab-6" class="tab-pane">
+
+	<fieldset class="form-horizontal">
+		<div class="ibox">
+			<div class="ibox-content">
+				<h3 class="page-header">检测视频</h3>
+				<div class="docs-galley">
+					<ul class="docs-pictures clearfix">
+						#set($index=1) #foreach($jcsp in $jyspList)
+						<li style="margin-right: 20px;">
+
+							<div class="image">
+								#set($strr=$!{jcsp.splj})
+								#set($splj=$strr.substring($strr.indexOf('videoCompress')))
+								<video id="my-video$index"
+									class="video-js vjs-big-play-centered" controls preload="auto"
+									width="320" height="134" align="center" data-setup="{}">
+									<source src="/$splj" type="video/mp4">
+
+								</video>
+
+
+							</div>
+							<div style="margin-top: 60px; text-align: center;">
+								#set($spkey=$!{jcsp.nodecode} + $!{jcsp.cursor})
+								$!{apiDataConfig.SPBHMap.get($spkey)} <br /> #set($index=$index
+								+ 1)
+							</div>
+						</li> #end
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</fieldset>
+</div>

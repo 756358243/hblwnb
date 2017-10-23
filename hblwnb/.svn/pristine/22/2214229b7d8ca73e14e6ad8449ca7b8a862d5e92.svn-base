@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+    http://www.springframework.org/schema/tx   
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
+    http://www.springframework.org/schema/context  
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+    http://www.springframework.org/schema/mvc  
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	    <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+	    <!-- 172.16.10.4 --><!-- 192.168.0.43 -->
+	    <property name="jdbcUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl"/>
+	    <property name="user" value="hblwnb" />
+		<property name="password" value="vkeline" />
+		 
+		<!-- 连接池在无空闲连接可用时一次性创建的新数据库连接数 -->
+		<property name="acquireIncrement" value="10" />
+		
+		<!-- 连接池初始化时创建的连接数 -->
+		<property name="initialPoolSize" value="10" /> 
+		
+		<!-- 连接池中拥有的最大连接数 -->
+		<property name="maxPoolSize" value="100" />
+		
+		<!-- 连接池保持的最小连接数 -->
+		<property name="minPoolSize" value="10" />
+		
+		<!--两次连接中间隔时间，单位毫秒。Default: 1000 -->
+		<property name="acquireRetryDelay" value="1000" />
+		
+		<!-- 连接的最大空闲时间（秒） -->
+		<property name="maxIdleTime" value="3600" />
+		
+		<!-- 配置连接的生存时间（秒） -->
+		<!-- <property name="maxConnectionAge" value="86400" /> -->
+		<!-- maxIdleTime 和 maxConnectionAge ：表示connection的时效性，maxIdleTime和maxConnectionAge不同之处在于， 
+		maxIdleTime表示idle状态的connection能存活的最大时间，而 maxConnectionAge表示 connection能存活的绝对时间 -->
+	</bean>
+		
+		
+		 
+		
+		  
+ 	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource"> 
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" /> <property 
+		name="url" value="jdbc:oracle:thin:@172.16.10.81:1521/pdb01" /> <property 
+		name="username" value="sdyw" /> <property name="password" value="sdyw123456" /> 
+	</bean>	 -->
+	
+ 	 
+ 	
+ 	
+ 	<!-- 服务器升级 -->
+ 	
+ 	 <!-- <bean id="siDataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@192.168.12.6:1521:newetldb" />
+		<property name="username" value="ihrss" />
+		<property name="password" value="ncrbj_ihrss123" />
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:zhrsdb" />
+		<property name="username" value="sdyw" />
+		<property name="password" value="sdyw2015db" />
+	</bean> -->
+	
+</beans>

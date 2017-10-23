@@ -1,0 +1,771 @@
+<div id="tab-8" class="tab-pane">
+
+	<div class="ibox">
+		<div class="ibox-content">
+			<!-- <h3 class="page-header">补传提交所有数据</h3> -->
+			<form id="resubmitALlForm" action="${ctxPath}/api/reupload/resubmitALl.do" method="post" enctype="multipart/form-data">
+
+				<div class="panel panel-default">
+				  <div class="panel-heading">如需重新补传提交车辆检测信息，请点击补传按钮重新上传</div>
+				  <div class="panel-body">
+				    <button id="resubmitALlButton" class="btn btn-w-m btn-primary btn-primary">补传提交</button>
+				  </div>
+				</div>
+				<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> 
+				<input type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> 
+				<input type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> 
+				<input type="hidden" name="CHECKMETHOD" value="$!{vehiclelogin.CHECKMETHOD}" />
+
+			</form>
+			<h3 class="page-header">提交数据结果</h3>
+			<table
+				class="table table-striped table-bordered table-hover dataTables-status">
+				<thead>
+					<tr>
+
+						<th>序号</th>
+						<th>项目类型</th>
+						<th>项目模块</th>
+						<th style="width: 20%">项目名称</th>
+						<th>结果状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>数据</td>
+						<td></td>
+						<td>车辆检测登记数据</td>
+						<td>
+						#if($!{tJYSCJG.dlxxsc}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td><button class="btn btn-primary btn-xs">上传</button></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>数据</td>
+						<td></td>
+						<td>车辆检测外检数据</td>
+						<td>
+						#if($!{tJYSCJG.wjxxsc}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td><button class="btn btn-primary btn-xs">上传</button></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>数据</td>
+						<td></td>
+						<td>车辆检测过程数据</td>
+						<td>
+						#if($!{tJYSCJG.jygcxxsc}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td><button class="btn btn-primary btn-xs">上传</button></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>数据</td>
+						<td></td>
+						<td>车辆检测结果数据</td>
+						<td>
+						#if($!{tJYSCJG.jyjgxxsc}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td><button class="btn btn-primary btn-xs">上传</button></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td rowspan="16" class="text-center">照片</td>
+						<td rowspan="8" class="text-center">登记</td>
+						<td>行驶证</td>
+						<td>
+						#if($!{tJYSCJG.djzp01}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="01" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>6</td>
+
+						<td>送检人身份证</td>
+						<td>
+						#if($!{tJYSCJG.djzp04}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="04" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>7</td>
+
+						<td>车主委托证明</td>
+						<td>
+						#if($!{tJYSCJG.djzp05}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="05" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>变更检测方法证明</td>
+						<td>
+						#if($!{tJYSCJG.djzp06}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="06" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td>跨站检测证明</td>
+						<td>
+						#if($!{tJYSCJG.djzp07}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="07" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>维修证明</td>
+						<td>
+						#if($!{tJYSCJG.djzp08}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="08" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>11</td>
+						<td>检测站委托证明</td>
+						<td>
+						#if($!{tJYSCJG.djzp09}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="09" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td>检验委托合同</td>
+						<td>
+						#if($!{tJYSCJG.djzp10}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1001" /> <input
+									type="hidden" name="cursor" value="10" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>13</td>
+						<td rowspan="6" class="text-center">外检照片</td>
+						<td>前45度</td>
+						<td>
+						#if($!{tJYSCJG.wjzp01}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1002" /> <input
+									type="hidden" name="cursor" value="01" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>14</td>
+						<td>后45度</td>
+						<td>
+						#if($!{tJYSCJG.wjzp02}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1002" /> <input
+									type="hidden" name="cursor" value="02" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td>车架号</td>
+						<td>
+						#if($!{tJYSCJG.wjzp03}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1002" /> <input
+									type="hidden" name="cursor" value="03" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>16</td>
+						<td>发动机号</td>
+						<td>
+						#if($!{tJYSCJG.wjzp04}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1002" /> <input
+									type="hidden" name="cursor" value="04" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>17</td>
+						<td>仪表盘里程</td>
+						<td>
+						#if($!{tJYSCJG.wjzp05}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1002" /> <input
+									type="hidden" name="cursor" value="05" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>18</td>
+						<td>底盘照片</td>
+						<td>
+						#if($!{tJYSCJG.wjzp06}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1002" /> <input
+									type="hidden" name="cursor" value="06" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>19</td>
+						<td rowspan="2" class="text-center">上线检</td>
+						<td>上线检测全景照（前）</td>
+						<td>
+						#if($!{tJYSCJG.sxzp01}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do"
+								method="post" enctype="multipart/form-data">
+								<button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file"><span
+										class="fileinput-new">选择上传照片</span><span
+										class="fileinput-exists">重新选择</span><input type="file"
+										name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename"></span>
+									<a href="#" class="close fileinput-exists"
+										data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> <input
+									type="hidden" name="nodecode" value="1004" /> <input
+									type="hidden" name="cursor" value="01" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>20</td>
+						<td>上线检测全景照（后）</td>
+						<td>
+						#if($!{tJYSCJG.sxzp02}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td>
+							<form class="fileform" action="${ctxPath}/api/file/doUpload.do" method="post" enctype="multipart/form-data">
+							    <button class="btn btn-w-m btn-info btn-primary">重传</button>
+								<div class="fileinput fileinput-new" data-provides="fileinput">
+									<span class="btn btn-default btn-file">
+									<span class="fileinput-new">选择上传照片</span>
+									<span class="fileinput-exists">重新选择</span>
+									<input type="file" name="fileName" onchange="loadImage(this)"></span> <span class="fileinput-filename">
+									</span>
+									<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+								</div>
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> 
+								<input type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> 
+								<input type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> 
+								<input type="hidden" name="nodecode" value="1004" /> 
+								<input type="hidden" name="cursor" value="02" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>21</td>
+						<td rowspan="6" class="text-center">检测视频</td>
+						<td rowspan="3" class="text-center">外检</td>
+						<td>外检视频（前）</td>
+						<td >
+						#if($!{tJYSCJG.wjsp01}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td rowspan="3">
+						<form class="fileform" action="${ctxPath}/api/reupload/video.do"
+								method="post" enctype="multipart/form-data">
+						<div style=" padding: 10px 0; border-bottom: 1px solid #ccc; margin-bottom: 10px; ">
+							<label class="checkbox-inline">
+						      <input type="checkbox" name="nodecode_cursor" value="100201"> 外检视频（前）
+						   </label>
+						   <label class="checkbox-inline">
+						      <input type="checkbox" name="nodecode_cursor" value="100202"> 外检视频（后）
+						   </label>
+						   <label class="checkbox-inline">
+						      <input type="checkbox" name="nodecode_cursor" value="100203"> 外检底盘检测视频
+						   </label>
+						   
+						  </div>
+							
+								<div class="col-sm-12">
+								
+								<label class="control-label" for="order_id">检测视频开始时间</label>
+								<div class="input-group date">
+									<span class="input-group-addon"><i
+										class="fa fa-calendar"></i></span> <input type="text"
+										class="form-control ui_timepicker" name="startTime" value="${wjjyyssp.kssj}">
+								</div>
+								</div>
+								
+								<div class="col-sm-12">
+								<label class="control-label" for="order_id">检测视频结束时间</label>
+								<div class="input-group date">
+									<span class="input-group-addon"><i
+										class="fa fa-calendar"></i></span> <input type="text"
+										class="form-control ui_timepicker" name="endTime" value="${wjjyyssp.jssj}">
+								</div>
+								</div>
+								<div class="col-sm-5">
+			                        <label class="control-label" for="order_id">检测线</label>
+			                            <select class="form-control" name="ysb">
+			                            	
+			                                  <option value="15" ><font><font>低</font></font></option>
+			                                  <option value="20" ><font><font>中</font></font></option>
+			                                  <option value="36" ><font><font>高</font></font></option>
+			                                   </select>
+			                    </div>
+
+								<div class="col-sm-5">
+			                        <label class="control-label" for="order_id">检测线</label>
+			                            <select class="form-control" name="jcxbm">
+			                            	
+			                                  <option value="01" #if($!{wjxx.jcxbm}=="01") selected #end><font><font>1号检测线</font></font></option>
+			                                  <option value="02" #if($!{wjxx.jcxbm}=="02") selected #end><font><font>2号检测线</font></font></option>
+			                                  <option value="03" #if($!{wjxx.jcxbm}=="03") selected #end><font><font>3号检测线</font></font></option>
+			                                  <option value="04" #if($!{wjxx.jcxbm}=="04") selected #end><font><font>4号检测线</font></font></option>
+			                                  <option value="05" #if($!{wjxx.jcxbm}=="05") selected #end><font><font>5号检测线</font></font></option>
+			                                  <option value="06" #if($!{wjxx.jcxbm}=="06") selected #end><font><font>6号检测线</font></font></option>
+			                              </select>
+			                    </div>
+								<br>
+								<button style="margin-top: 22px;" class="btn btn-w-m btn-info btn-primary">重传</button>
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> 
+							</form>
+
+						</td>
+					</tr>
+					<tr>
+						<td>22</td>
+						<td>外检视频（后）</td>
+						<td>
+						#if($!{tJYSCJG.wjsp02}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						
+					</tr>
+					<tr>
+						<td>23</td>
+						<td>外检底盘检测视频</td>
+						<td>
+						#if($!{tJYSCJG.wjsp03}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						
+					</tr>
+					<tr>
+						<td>24</td>
+						<td rowspan="3" class="text-center">上线检</td>
+						<td>上线检测前部摄录视频</td>
+						<td>
+						#if($!{tJYSCJG.sxsp04}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						<td rowspan="3"> 
+						<form class="fileform" action="${ctxPath}/api/reupload/video.do" method="post" enctype="multipart/form-data">
+						<div style=" padding: 10px 0; border-bottom: 1px solid #ccc; margin-bottom: 10px; ">
+							<label class="checkbox-inline">
+						      <input type="checkbox" name="nodecode_cursor" value="100404"> 上线检测前部摄录视频
+						   </label>
+						   <label class="checkbox-inline">
+						      <input type="checkbox" name="nodecode_cursor" value="100401"> 上线检测后部摄录视频
+						   </label>
+						   <label class="checkbox-inline">
+						      <input type="checkbox" name="nodecode_cursor" value="100402"> 上线检测移动式视频
+						   </label>
+						  
+						   </div>
+							
+								<div class="col-sm-12">
+								<label class="control-label" for="order_id">检测视频开始时间</label>
+								<div class="input-group date">
+									<span class="input-group-addon"><i
+										class="fa fa-calendar"></i></span> <input type="text"
+										class="form-control ui_timepicker" name="startTime" value="${sxjyyssp.kssj}">
+								</div>
+								</div>
+								
+								<div class="col-sm-12">
+								<label class="control-label" for="order_id">检测视频结束时间</label>
+								<div class="input-group date">
+									<span class="input-group-addon"><i
+										class="fa fa-calendar"></i></span> <input type="text"
+										class="form-control ui_timepicker" name="endTime" value="${sxjyyssp.jssj}">
+								</div>
+								</div>
+
+                                <div class="col-sm-5">
+			                        <label class="control-label" for="order_id">检测线</label>
+			                            <select class="form-control" name="ysb">
+			                            	
+			                                  <option value="15" ><font><font>低</font></font></option>
+			                                  <option value="20" ><font><font>中</font></font></option>
+			                                  <option value="36" ><font><font>高</font></font></option>
+			                                   </select>
+			                    </div>
+
+
+								<div class="col-sm-5">
+			                        <label class="control-label" for="order_id">检测线</label>
+			                            <select class="form-control" name="jcxbm">
+			                            	
+			                                  <option value="01" #if($!{jyjgxx.jcxbm}=="01") selected #end><font><font>1号检测线</font></font></option>
+			                                  <option value="02" #if($!{jyjgxx.jcxbm}=="02") selected #end><font><font>2号检测线</font></font></option>
+			                                  <option value="03" #if($!{jyjgxx.jcxbm}=="03") selected #end><font><font>3号检测线</font></font></option>
+			                                  <option value="04" #if($!{jyjgxx.jcxbm}=="04") selected #end><font><font>4号检测线</font></font></option>
+			                                  <option value="05" #if($!{jyjgxx.jcxbm}=="05") selected #end><font><font>5号检测线</font></font></option>
+			                                  <option value="06" #if($!{jyjgxx.jcxbm}=="06") selected #end><font><font>6号检测线</font></font></option>
+			                              </select>
+			                    </div>
+								<br>
+								<button style="margin-top: 22px;" class="btn btn-w-m btn-info btn-primary">重传</button>
+								<input type="hidden" name="CNUMBERPLATE" value="$!{vehiclelogin.CNUMBERPLATE}" /> <input
+									type="hidden" name="CNUMBERTYPE" value="$!{vehiclelogin.CNUMBERTYPE}" /> <input
+									type="hidden" name="CCHECKCODE" value="$!{vehiclelogin.CCHECKCODE}" /> 
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>25</td>
+						<td>上线检测后部摄录视频</td>
+						<td>
+						#if($!{tJYSCJG.sxsp01}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						
+					</tr>
+					<tr>
+						<td>26</td>
+						<td>上线检测移动式视频</td>
+						<td>
+						#if($!{tJYSCJG.sxsp02}==1)
+						<span class="label label-success">已上传</span>
+						#else <span class="label label-danger">未上传 </span>
+						#end
+						</td>
+						
+					</tr>
+
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>

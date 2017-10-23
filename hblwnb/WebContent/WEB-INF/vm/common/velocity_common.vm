@@ -1,0 +1,293 @@
+
+## ######################## 
+## 通用方法用于表单显示
+## #########################
+
+#macro (showKeyValueDataInSelect $list $selectedValue)
+#foreach ($keyValue in $list)
+<option value="${keyValue.getKey()}" #if($selectedValue==$keyValue.getKey()) selected #end>$keyValue.value</option>
+#end
+#end
+
+## ######################## 
+## 通用方法用于翻页显示
+## #########################
+
+#macro (ShowPageList $pageList)
+#if($pageLanguage == "en")
+  Total $!{pageList.totalSize} records &nbsp;&nbsp;
+  #if ($pageList.isPreviousPageAvailable())
+  <a href="javascript:PageList.prePage();">prePage</a>
+  #end
+  #if ($pageList.isNextPageAvailable())
+  <a href="javascript:PageList.nextPage();">nextPage</a>
+  #end
+  &nbsp;&nbsp;Current $!{pageList.currentPage}/$!{pageList.totalPage} Page
+  &nbsp;&nbsp;To
+  <select name="page" onchange="PageList.changePage();">
+   #foreach ($p in [1..$pageList.totalPage])
+    <option value="$p" #if ($pageList.currentPage==$p) selected #end>$p</option>
+   #end
+  </select>
+  Page
+#else
+  总 $!{pageList.totalSize} 条记录 
+  #if ($pageList.isPreviousPageAvailable())
+  <a href="javascript:PageList.prePage();">上一页</a>
+  #end
+  #if ($pageList.isNextPageAvailable())
+  <a href="javascript:PageList.nextPage();">下一页</a>
+  #end
+  当前 $!{pageList.currentPage}/$!{pageList.totalPage}页
+  跳到
+  <select name="page" onchange="PageList.changePage();">
+   #foreach ($p in [1..$pageList.totalPage])
+    <option value="$p" #if ($pageList.currentPage==$p) selected #end>$p</option>
+   #end
+  </select>
+  页
+#end
+#end
+
+
+## ######################## 
+## 通用方法用于翻页显示
+## #########################
+#macro (LSPageList $pageList $uri)
+<div class="ls-pagelist">
+
+#set($cp = ${pageList.currentPage} )
+#set($tp = ${pageList.totalPage} )
+#set($tmp = 7)
+#set($nextStart = $cp + 1)
+#set($nextDistance = $tp - $cp)
+
+#set($prePage =($cp - 1))
+#set($nextPage = ($cp + 1))
+<ul>
+  #if ($pageList.isPreviousPageAvailable())
+  	<li><a href="${uri}?page=${prePage}" class="pre">&lt;</a></li>
+  #else
+	<li><a href="#" class="pre-disable">&lt;</a></li>
+  #end
+
+## output 1 ... $currentPage
+#if (${cp} > ${tmp})
+	<li><a href="${uri}?page=1">1</a>
+	<li><a href="${uri}?page=2">2</a>
+	<li class="dot">...</li>
+	#foreach ($i in [1..${cp}])
+		#set( $distance =  ${cp} - ${i} )
+		#if ( ( $distance < 5 ) )
+			#if ($cp == $i)
+				<li class="current">$i</li>
+			#else
+				<li><a href="${uri}?page=${i}">$i</a></li>
+			#end
+		#end
+	#end
+#else 
+	#foreach ($i in [1..${cp}])
+		#if ($cp == $i)
+			<li class="current">$i</li>
+		#else
+			<li><a href="${uri}?page=${i}">$i</a></li>
+		#end
+	#end	
+#end
+
+## output $nextStart ... $totalPage
+#if (${nextDistance} > ${tmp})
+	#foreach ($i in [1..${tp}])
+		#set( $distance =  ${i} - ${cp} )
+		#if ( ${distance} > 0 && ${distance} < 5 )
+			<li><a href="${uri}?page=${i}">$i</a>
+		#end
+	#end
+	#set($tp2 = ${tp} - 1 )
+	<li class="dot3">...</li>
+	<li><a href="${uri}?page=${tp2}">${tp2}</a></li>
+	<li><a href="${uri}?page=${tp}">${tp}</a></li>
+#else
+	#foreach ($i in [1..${tp}])
+		#if ($i>$cp)
+		<li><a href="${uri}?page=${i}">$i</a></li>
+		#end
+	#end	
+#end
+
+  #if ($pageList.isNextPageAvailable())
+  	<li><a href="${uri}?page=${nextPage}" class="next">&gt;</a></li>
+  #else
+  	<li><a href="#" class="next-disabled">&gt;</a></li>
+  #end
+  <li class="total">#if($pageLanguage == "en")Total $!{pageList.totalSize} records #else 总 $!{pageList.totalSize} 条 #end</li>
+</ul>
+</div>
+#end
+
+
+## #################################
+## 通用方法用于翻页显示，使用表单
+## #################################
+#macro (FormPageList $pageList $formId)
+<div class="ls-pagelist">
+
+#set($cp = ${pageList.currentPage} )
+#set($tp = ${pageList.totalPage} )
+#set($tmp = 7)
+#set($nextStart = $cp + 1)
+#set($nextDistance = $tp - $cp)
+
+#set($prePage =($cp - 1))
+#set($nextPage = ($cp + 1))
+<input type="hidden" name="page" id="page" value="$!cp"/>
+<ul>
+  #if ($pageList.isPreviousPageAvailable())
+  	<li><a href="javascript:void(0);" class="pre" onclick="flipOver(${prePage},'$formId')" >&lt;</a></li>
+  #else
+	<li><a href="#" class="pre-disable">&lt;</a></li>
+  #end
+
+## output 1 ... $currentPage
+#if (${cp} > ${tmp})
+	<li><a href="javascript:void(0);" onclick="flipOver(1,'$formId')" >1</a>
+	<li><a href="javascript:void(0);" onclick="flipOver(2,'$formId')" >2</a>
+	<li class="dot">...</li>
+	#foreach ($i in [1..${cp}])
+		#set( $distance =  ${cp} - ${i} )
+		#if ( ( $distance < 5 ) )
+			#if ($cp == $i)
+				<li class="current">$i</li>
+			#else
+				<li><a href="javascript:void(0);" onclick="flipOver(${i},'$formId')" >$i</a></li>
+			#end
+		#end
+	#end
+#else 
+	#foreach ($i in [1..${cp}])
+		#if ($cp == $i)
+			<li class="current">$i</li>
+		#else
+			<li><a href="javascript:void(0);" onclick="flipOver(${i},'$formId')" >$i</a></li>
+		#end
+	#end	
+#end
+
+## output $nextStart ... $totalPage
+#if (${nextDistance} > ${tmp})
+	#foreach ($i in [1..${tp}])
+		#set( $distance =  ${i} - ${cp} )
+		#if ( ${distance} > 0 && ${distance} < 5 )
+			<li><a href="javascript:void(0);" onclick="flipOver(${i},'$formId')" >$i</a>
+		#end
+	#end
+	#set($tp2 = ${tp} - 1 )
+	<li class="dot3">...</li>
+	<li><a href="javascript:void(0);" onclick="flipOver(${tp2},'$formId')" >${tp2}</a></li>
+	<li><a href="javascript:void(0);" onclick="flipOver(${tp},'$formId')" >${tp}</a></li>
+#else
+	#foreach ($i in [1..${tp}])
+		#if ($i>$cp)
+		<li><a href="javascript:void(0);" onclick="flipOver(${i},'$formId')" >$i</a></li>
+		#end
+	#end	
+#end
+
+  #if ($pageList.isNextPageAvailable())
+  	<li><a href="javascript:void(0);" class="next" onclick="flipOver(${nextPage},'$formId')" >&gt;</a></li>
+  #else
+  	<li><a href="#" class="next-disabled">&gt;</a></li>
+  #end
+  <li class="total">#if($pageLanguage == "en")Total $!{pageList.totalSize} records #else 总 $!{pageList.totalSize} 条 #end</li>
+</ul>
+</div>
+#end
+
+## ######################## 
+## 企业认证
+## #########################
+#macro (EntAuth $s $ctxp $wd)
+#if ($s==2)
+<span class="bizAuth" title="认证企业"><img src="$ctxp/img/layout/auth_apo.png" alt="认证企业" width="$wd" vertical-align="middle" /></span>
+#else
+<span class="bizAuth" title="企业未认证"><img src="$ctxp/img/layout/auth_upo.png" alt="企业未认证" width="$wd" vertical-align="middle" /></span>
+#end
+#end
+
+
+## ######################## 
+## 通用方法用于翻页显示
+## #########################
+#macro (LSPageListO $pageList $uri)
+<div class="ls-pagelist">
+
+#set($cp = ${pageList.currentPage} )
+#set($tp = ${pageList.totalPage} )
+#set($tmp = 7)
+#set($nextStart = $cp + 1)
+#set($nextDistance = $tp - $cp)
+
+#set($prePage =($cp - 1))
+#set($nextPage = ($cp + 1))
+<ul class="pagination">
+  #if ($pageList.isPreviousPageAvailable())
+  	<li><a href="${uri}page=${prePage}" class="pre" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+  #else
+	<li><a href="#" class="pre-disable" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+  #end
+
+## output 1 ... $currentPage
+#if (${cp} > ${tmp})
+	<li><a href="${uri}page=1">1</a>
+	<li><a href="${uri}page=2">2</a>
+	<li class="dot"><a href="#">...</a></li>
+	#foreach ($i in [1..${cp}])
+		#set( $distance =  ${cp} - ${i} )
+		#if ( ( $distance < 5 ) )
+			#if ($cp == $i)
+				<li class="active"><a href="#">$i<span class="sr-only">(current)</span></a></li>
+			#else
+				<li><a href="${uri}page=${i}">$i</a></li>
+			#end
+		#end
+	#end
+#else 
+	#foreach ($i in [1..${cp}])
+		#if ($cp == $i)
+			<li class="active"><a href="#">$i<span class="sr-only">(current)</span></a></li>
+		#else
+			<li><a href="${uri}page=${i}">$i</a></li>
+		#end
+	#end	
+#end
+
+## output $nextStart ... $totalPage
+#if (${nextDistance} > ${tmp})
+	#foreach ($i in [1..${tp}])
+		#set( $distance =  ${i} - ${cp} )
+		#if ( ${distance} > 0 && ${distance} < 5 )
+			<li><a href="${uri}page=${i}">$i</a>
+		#end
+	#end
+	#set($tp2 = ${tp} - 1 )
+	<li class="dot3"><a href="#">...</a></li>
+	<li><a href="${uri}page=${tp2}">${tp2}</a></li>
+	<li><a href="${uri}page=${tp}">${tp}</a></li>
+#else
+	#foreach ($i in [1..${tp}])
+		#if ($i>$cp)
+		<li><a href="${uri}page=${i}">$i</a></li>
+		#end
+	#end	
+#end
+
+  #if ($pageList.isNextPageAvailable())
+  	<li><a href="${uri}page=${nextPage}" class="next"><span aria-hidden="true">&raquo;</span></a></li>
+  #else
+  	<li><a href="#" class="next-disabled"><span aria-hidden="true">&raquo;</span></a></li>
+  #end
+  #*<li class="total">#if($pageLanguage == "en")Total $!{pageList.totalSize} records #else 总 $!{pageList.totalSize} 条 #end</li>*#
+</ul>
+</div>
+#end

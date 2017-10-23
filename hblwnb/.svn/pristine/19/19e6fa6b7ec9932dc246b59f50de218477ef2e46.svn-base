@@ -1,0 +1,91 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.api.pda;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vkl.common.json.JsonResult;
+import com.vkl.hblw.common.constant.CustomData;
+import com.vkl.hblw.common.constant.ResultDate;
+import com.vkl.hblw.common.util.AndroidOut;
+import com.vkl.hblw.dao.domain.TPREFACECHECK;
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.dao.persistence.TPREFACECHECKDao;
+import com.vkl.hblw.dao.persistence.VEHICLELOGINDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+/**
+ * @author xcc
+ *
+ */
+@Service
+public class PdaService {
+
+	private static final Logger log = Logger.getLogger(PdaService.class);
+	
+	@Autowired
+	private VEHICLELOGINDao vEHICLELOGINDao;// 检验登记信息
+	
+	@Autowired
+	private TPREFACECHECKDao tPREFACECHECKDao;// 检验登记信息
+
+	/** 
+	* @Title: getQuarantineCars 
+	* @Description: 查询所有的待检测车辆，并且可以根据号牌号码和车架号查询 
+	* @param CNUMBERPLATE
+	* @param CVIN
+	* @return    设定文件 
+	* return List<VEHICLELOGIN>    返回类型 
+	* @throws 
+	*/
+	public JsonResult getQuarantineCars(String CNUMBERPLATE,String CVIN) {
+		JsonResult result = new JsonResult();
+		Map<String, String> map = new HashMap<String, String>();
+		SqlSelect sql = new SqlSelect().where(VEHICLELOGIN.SQL_checkstate);
+		map.put("checkstate", CustomData.DLXX_STATUS_QUARANTINE);
+		if(!CNUMBERPLATE.isEmpty()){
+			map.put("CNUMBERPLATE", "%" + CNUMBERPLATE + "%");
+			sql.and(VEHICLELOGIN.FLD_cnumberplate + " like :CNUMBERPLATE ");
+			}
+		if(!CVIN.isEmpty()){
+			map.put("CVIN", "%" + CVIN + "%");
+			sql.and(VEHICLELOGIN.FLD_cvin + " like :CVIN ");
+		}
+		List<VEHICLELOGIN> listByMap = vEHICLELOGINDao.listByMap(sql, map);
+		if (listByMap.isEmpty()) {
+			AndroidOut.aiyunprintln("---------"+CNUMBERPLATE);
+            result.setCode(1);
+			result.setInfo(ResultDate.RS_PDA_VEHICLELOGIN_NULL);
+		
+		}
+		result.setAttach(listByMap);
+		return result;
+	}
+	
+	
+	/** 
+	* @Title: TprefaceCheckStart 
+	* @Description: 车辆外检开始接口 
+	* @return    设定文件 
+	* @return JsonResult    返回类型 
+	* @throws 
+	*/
+	public JsonResult TprefaceCheckStart(String CCHECKCODE){
+		JsonResult result = new JsonResult();
+		//1.查询外检信息表里面是否存在数据
+		TPREFACECHECK tPREFACECHECK = tPREFACECHECKDao.queryByCcheckcode(CCHECKCODE);
+		//2.更新外检信息表的检查开始时间
+		
+		return result;
+	}
+	
+
+	
+}

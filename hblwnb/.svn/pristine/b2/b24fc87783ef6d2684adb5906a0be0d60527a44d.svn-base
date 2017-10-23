@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="apiDataConfig" class="com.vkl.hblw.setting.config.APIDataConfig"
+		init-method="init">
+		
+		<!-- 喷射类型-->
+		
+		<property name="PSLXMap">
+		   <map>
+		      <entry key="1" value="闭环电喷" />
+		      <entry key="2" value="点燃式" />
+		      <entry key="3" value="电喷" />
+		      <entry key="4" value="电喷加三元催化" />
+		      <entry key="5" value="化油器" />
+		      <entry key="6" value="化油器改造" />
+		      <entry key="7" value="开环电喷" />
+		      <entry key="8" value="涡轮增压" />
+		      <entry key="9" value="压燃式" />
+		      <entry key="10" value="自然吸气" />
+		      <entry key="11" value="其它" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 排放标准阶段 -->
+		
+		<property name="PFBZJDMap">
+		   <map>
+		      <entry key="0" value="国〇" />
+		      <entry key="1" value="国Ⅰ" />
+		      <entry key="2" value="国Ⅱ" />
+		      <entry key="3" value="国Ⅲ" />
+		      <entry key="4" value="国Ⅳ" />
+		      <entry key="5" value="国Ⅴ" />
+		      <entry key="6" value="国Ⅵ" />
+		   </map>
+		</property>
+		
+				
+		<!-- 变速箱型式 -->
+		
+		<property name="BSXXSMap">
+		   <map>
+		      <entry key="1" value="手动" />
+		      <entry key="2" value="自动" />
+		      <entry key="3" value="手自一体" />
+		      <entry key="4" value="无极" />
+		   </map>
+		</property>
+		
+			<!-- 进气方式 -->
+		
+		<property name="JQFSMap">
+		   <map>
+		      <entry key="1" value="自然进气" />
+		      <entry key="2" value="涡轮增压" />
+		   </map>
+		</property>
+		
+			
+			<!--燃油规格 -->
+		
+		<property name="RYGGMap">
+		   <map>
+		      <entry key="1" value="90#" />
+		      <entry key="2" value="92#" />
+		      <entry key="3" value="93#" />
+		      <entry key="4" value="95#" />
+		      <entry key="5" value="97#" />
+		      <entry key="6" value="98#" />
+		      <entry key="7" value="10#" />
+		      <entry key="8" value="0#" />
+		      <entry key="9" value="-10#" />
+		      <entry key="10" value="-20#" />
+		      <entry key="11" value="-35#" />
+		      <entry key="12" value="-50#" />
+		   </map>
+		</property>
+
+	
+		<!-- 燃料供给系统型式 -->
+		
+		<property name="RLGJXTXSMap">
+		   <map>
+		      <entry key="1" value="化油器" />
+		      <entry key="2" value="化油器改造" />
+		      <entry key="3" value="开环电喷" />
+		      <entry key="4" value="闭环电喷" />
+		      <entry key="5" value="高压共轨" />
+		      <entry key="6" value="泵喷嘴" />
+		      <entry key="7" value="单体泵" />
+		      <entry key="8" value="直列泵" />
+		      <entry key="9" value="机械泵" />
+		      <entry key="10" value="其他" />
+		   </map>
+		</property>
+		
+		
+		
+			<!-- 驱动方式-->
+		
+		<property name="QDFSMap">
+		   <map>
+		      <entry key="1" value="前驱" />
+		      <entry key="2" value="后驱" />
+		      <entry key="3" value="四驱" />
+		      <entry key="4" value="全时四驱" />
+		   </map>
+		</property>
+		
+		
+		<!-- 供油方式  -->
+		
+		<property name="GYFSMap">
+		   <map>
+		      <entry key="1" value="直喷" />
+		      <entry key="2" value="电喷" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 后处理种类 -->
+		
+		<property name="HCLZLMap">
+		   <map>
+		      <entry key="1" value="三元催化" />
+		      <entry key="2" value="DPF" />
+		      <entry key="3" value="SCR" />
+		      <entry key="4" value="DOC" />
+		      <entry key="5" value="POC" />
+		      <entry key="6" value="其他（如适用）" />
+		      
+		   </map>
+		</property>
+		
+		<!--检验类别 -->
+		
+		<property name="JYLBMap">
+		   <map>
+		      <entry key="1" value="定期检验" />
+		      <entry key="2" value="注册登记检验" />
+		      <entry key="3" value="实验比对" />
+		      <entry key="4" value="监督抽测不合格复检" />
+		      <entry key="5" value="定期检验不合格复检" />
+		      <entry key="6" value="路检" />
+		      <entry key="7" value="场检" />
+		      <entry key="8" value="行政复检" />
+		      <entry key="9" value="新车上牌检测" />
+		      
+		      
+		   </map>
+		</property>
+		
+		<!-- 检验方法 -->
+		
+		<property name="JYFFMap">
+		   <map>
+		      <entry key="0" value="低怠速法" />
+		      <entry key="1" value="双怠速法" />
+		      <entry key="2" value="稳态工况法" />
+		      <entry key="3" value="简易瞬态工况法" />
+		      <entry key="4" value="加载减速工况法" />
+		      <entry key="5" value="不透光烟度法" />
+		      <entry key="6" value="滤纸烟度法" />
+		      
+		   </map>
+		</property>
+		
+		<!--所在岗位 -->
+		
+		<property name="SZGWMap">
+		   <map>
+		      <entry key="1" value="站长" />
+		      <entry key="2" value="技术负责人" />
+		      <entry key="3" value="质量负责人" />
+		      <entry key="4" value="外检员" />
+		      <entry key="5" value="登录员" />
+		      <entry key="6" value="驾控员" />
+		      <entry key="7" value="其他" />
+		      <entry key="8" value="引车员" />
+		      <entry key="9" value="驾驶员" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 检测类型-->
+		
+		<property name="JCLXMap">
+		   <map>
+		      <entry key="1" value="底盘测功机" />
+		      <entry key="2" value="气体分析仪" />
+		      <entry key="3" value="烟度计" />
+		      <entry key="4" value="电子环境信息仪" />
+		      <entry key="5" value="发动机转速仪/转速计" />
+		      <entry key="6" value="流量计" />
+		      <entry key="7" value="油温传感器" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 设备自检/标定内容   流量计检查字段说明-->
+		
+		<property name="SBZJ_LLJMap">
+		   <map>
+		      <entry key="val01" value="流量计氧气高量程标值" />
+		      <entry key="val02" value="流量计氧气高量程测量值" />
+		      <entry key="val03" value="流量计氧气高量程误差" />
+		      <entry key="val04" value="流量计氧气低量程标值" />
+		      <entry key="val05" value="流量计氧气低量程测量值" />
+		      <entry key="val06" value="流量计氧气低量程误差" />
+		      <entry key="val07" value="流量计氧检查设备型号" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 设备自检/标定内容   加载滑行检查字段说明 -->
+		
+		<property name="SBZJ_JZHXMap">
+		   <map>
+		      <entry key="val01" value="加载滑行检查48-32km/h实际滑行时间" />
+		      <entry key="val02" value="加载滑行检查32-16km/h实际滑行时间" />
+		      <entry key="val03" value="加载滑行检查40km/h时的内损" />
+		      <entry key="val04" value="加载滑行检查25km/h时的内损" />
+		      <entry key="val05" value="加载滑行检查48-32km/h名义滑行时间" />
+		      <entry key="val06" value="加载滑行检查32-16km/h名义滑行时间" />
+		      <entry key="val07" value="加载滑行检查48-32km/h滑行指示功率" />
+		      <entry key="val08" value="加载滑行检查32-16km/h滑行指示功率" />
+		      <entry key="val09" value="加载滑行检查基本惯量" />
+		      <entry key="val10" value="加载滑行检查48-32km/h滑行检查结果" />
+		      <entry key="val11" value="加载滑行检查32-16km/h滑行检查结果" />
+		      
+		      
+		   </map>
+		</property>
+		
+		<!--设备自检/标定内容   附加功率损失检查字段说明-->
+		
+		<property name="SBZJ_FJGLMap">
+		   <map>
+		      <entry key="val01" value="附加功率损失滑行检查开始时间" />
+		      <entry key="val02" value="附加功率损失32-16km/h实际滑行时间" />
+		      <entry key="val03" value="附加功率损失滑行检查结束时间" />
+		      <entry key="val04" value="附加功率损失48-32km/h实际滑行时间" />
+		      <entry key="val05" value="附加功率损失40km/h时的内损" />
+		      <entry key="val06" value="附加功率损失25km/h时的内损" />
+		      <entry key="val07" value="附加功率损失基本惯量" />
+		      <entry key="val08" value="附加功率结果" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 检验结果内容  双怠速法字段说明-->
+		
+		<property name="JYJG_SDSMap">
+		   <map>
+		      <entry key="val01" value="过量空气系数检测值" />
+		      <entry key="valsx01" value="过量空气系数上限" />
+		      <entry key="valxx01" value="过量空气系数下限" />
+		      <entry key="valpd01" value="过量空气系数判定" />
+		      <entry key="val02" value="低怠速CO浓度检测值" />
+		      <entry key="valsx02" value="低怠速CO浓度限值" />
+		      <entry key="valpd02" value="低怠速CO判定" />
+		      <entry key="val03" value="低怠速HC浓度检测值" />
+		      <entry key="valsx03" value="低怠速HC浓度限值" />
+		      <entry key="valpd03" value="低怠速HC判定" />
+		      <entry key="val04" value="高怠速CO浓度检测值" />
+		      <entry key="valsx04" value="高怠速CO浓度限值" />
+		      <entry key="val05" value="高怠速HC浓度检测值" />
+		      <entry key="valsx05" value="高怠速HC浓度限值" />
+		      <entry key="valpd05" value="高怠速HC判定" />
+		      <entry key="val06" value="低怠速转速检测值" />
+		      <entry key="val07" value="高怠速转速检测值" />
+		      <entry key="val08" value="低怠速机油温度检测值" />
+		      <entry key="val09" value="高怠速机油温度检测值" />
+		   </map>
+		</property>
+		
+		<!-- 检验结果内容  简易瞬态工况法字段说明-->
+		
+		<property name="JYJG_JYSTMap">
+		   <map>
+		      <entry key="val01" value="HC质量检测值" />
+		      <entry key="valsx01" value="HC质量限值" />		 
+		      <entry key="valpd01" value="HC质量判定" />
+		      <entry key="val02" value="CO质量检测值" />
+		      <entry key="valsx02" value="CO质量限值" />
+		      <entry key="valpd02" value="CO质量判定" />
+		      <entry key="val03" value="NOX质量检测值" />
+		      <entry key="valsx03" value="NOX质量限值" />
+		      <entry key="valpd03" value="NOX质量判定" />
+		      <entry key="val04" value="HCNOX质量检测值" />
+		      <entry key="valsx04" value="HCNOX质量限值" />
+		      <entry key="valpd04" value="HCNOX质量判定" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 检验结果内容  加载减速法字段说明-->
+		
+		<property name="JYJG_JZJSMap">
+		   <map>
+		      <entry key="val01" value="100%点排放" />
+		      <entry key="valsx01" value="100%点排放限值" />
+		      <entry key="valpd01" value="100%点排放判定" />
+		      <entry key="val02" value="90%点排放" />
+		      <entry key="valsx02" value="90%点排放限值" />
+		      <entry key="valpd02" value="90%点排放判定" />
+		      <entry key="val03" value="80%点排放" />
+		      <entry key="valsx03" value="80%点排放限值" />
+		      <entry key="valpd03" value="80%点排放判定" />
+		      <entry key="val04" value="最大轮边功率" />
+		      <entry key="valsx04" value="最大轮边功率限值" />
+		      <entry key="val05" value="发动机额定转速" />
+		      <entry key="valsx05" value="发动机额定转速上限" />
+		      <entry key="valxx05" value="发动机额定转速下限" />
+		      <entry key="valpd05" value="发动机额定转速判定" />
+		     
+		   </map>
+		</property>
+		
+		<!-- 检验结果内容  自由加速法字段说明-->
+		
+		<property name="JYJG_ZYJSMap">
+		   <map>
+		      <entry key="val01" value="光吸收系数k1" />
+		      <entry key="valsx01" value="光吸收系数k1限值" />
+		      <entry key="valpd01" value="光吸收系数k1判定" />
+		      <entry key="val02" value="光吸收系数k2" />
+		      <entry key="valsx02" value="光吸收系数k2限值" />
+		      <entry key="valpd02" value="光吸收系数k2判定" />
+		      <entry key="val03" value="光吸收系数k3" />
+		      <entry key="valsx03" value="光吸收系数k3限值" />
+		      <entry key="valpd03" value="光吸收系数k3判定" />
+		      <entry key="val04" value="光吸收系数k4" />
+		      <entry key="valsx04" value="光吸收系数k4限值" />
+		      <entry key="valpd04" value="光吸收系数k4判定" />
+		      <entry key="val05" value="光吸收系数排放平均值" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 审验信息编号-->
+		
+		<property name="SYXXBHMap">
+		   <map>
+		      <entry key="1000" value="机动车信息编码" />
+		      <entry key="1001" value="检测登记信息编码" />
+		      <entry key="1002" value="外检信息编码" />
+		      <entry key="1003" value="外检信息照片编码" />
+		      <entry key="1004" value="检验过程信息编码" />
+		      <entry key="1005" value="检验结果信息编码" />
+		      <entry key="1018" value="资料补齐提交编码" />
+		      <entry key="1019" value="检测数据提交编码" />
+		      <entry key="1021" value="审验待检编码" />
+		      <entry key="1022" value="审验预检编码" />
+		      <entry key="1023" value="审验退回编码" />
+		      <entry key="1024" value="审验不通过编码" />
+		      <entry key="1025" value="审验通过编码" />
+		      <entry key="0000" value="默认编码" />
+		      
+		   </map>
+		</property>
+		
+		<!-- 照片编号-->
+		
+		<property name="ZPBHMap">
+		   <map>
+		      <entry key="100101" value="行驶证" />
+		      <entry key="100104" value="送检人身份证" />
+		      <entry key="100105" value="车主委托证明" />
+		      <entry key="100106" value="变更检测方法证明" />
+		      <entry key="100107" value="跨站检测证明" />
+		      <entry key="100108" value="维修证明" />
+		      <entry key="100109" value="检测站委托证明" />
+		      <entry key="100110" value="检验委托合同" />
+		      
+		      <entry key="100201" value="前45度" />
+		      <entry key="100202" value="后45度" />
+		      <entry key="100203" value="车架号" />
+		      <entry key="100204" value="发动机号" />
+		      <entry key="100205" value="仪表盘里程" />
+		      <entry key="100206" value="底盘照片" />
+		      
+		      <entry key="100401" value="上线检测全景照（前）" />
+		      <entry key="100402" value="上线检测全景照（后）" />
+		      
+		      <entry key="100501" value="报告单" />
+		      
+		      <entry key="100001" value="环保信息随车清单" />
+		      <entry key="100002" value="铭牌照片" />
+		      <entry key="100003" value="三元催化照片" />
+		      <entry key="100004" value="DOC照片" />
+		      <entry key="100005" value="SCR照片" />
+		      <entry key="100006" value="DPF照片" />
+		      <entry key="100007" value="POC照片" />
+		      <entry key="100008" value="EGR照片" />
+		      <entry key="100009" value="ECU照片" />
+		      <entry key="100010" value="氧传感器照片" />
+		   </map>
+		</property>
+		
+		<!-- 视频编号-->
+		
+		<property name="SPBHMap">
+		   <map>
+		      <entry key="100201" value="外检视频（前）" />
+		      <entry key="100202" value="外检视频（后）" />
+		      <entry key="100203" value="外检底盘检测视频" />
+		      <entry key="100404" value="上线检测前部摄录视频" />
+		      <entry key="100401" value="上线检测后部摄录视频" />
+		      <entry key="100402" value="上线检测移动式视频" />
+		      
+		      
+		   </map>
+		</property>
+		
+		<!-- 号牌种类-->
+		
+		<property name="HPZLMap">
+		   <map>
+		      <entry key="01" value="大型汽车号牌" />
+		      <entry key="02" value="小型汽车号牌" />
+		      <entry key="03" value="使馆汽车号牌" />
+		      <entry key="04" value="领馆汽车号牌" />
+		      <entry key="05" value="境外汽车号牌" />
+		      <entry key="06" value="外籍汽车号牌" />
+		      <entry key="07" value="两、三轮摩托车号牌" />
+		      <entry key="08" value="轻便摩托车号牌" />
+		      <entry key="09" value="使馆摩托车号牌" />
+		      <entry key="10" value="领馆摩托车号牌" />
+		      <entry key="11" value="境外摩托车号牌" />
+		      <entry key="12" value="外籍摩托车号牌" />
+		      <entry key="13" value="农用运输车号牌" />
+		      <entry key="14" value="拖拉机号牌" />
+		      <entry key="15" value="挂车号牌" />
+		      <entry key="16" value="教练汽车号牌" />
+		      <entry key="17" value="教练摩托车号牌" />
+		      <entry key="18" value="试验汽车号牌" />
+		      <entry key="19" value="试验摩托车号牌" />
+		      <entry key="20" value="临时入境汽车号牌" />
+		      <entry key="21" value="临时入境摩托车号牌" />
+		      <entry key="22" value="临时行驶车号牌" />
+		      <entry key="23" value="公安警用汽车号牌" />
+		      <entry key="24" value="公安警用摩托车号牌" />
+		      <entry key="99" value="其他号牌" />
+		   </map>
+		</property>
+		
+		<!-- 燃料种类-->
+		
+		<property name="RLZLMap">
+		   <map>
+		      <entry key="A" value="汽油" />
+		      <entry key="B" value="柴油" />
+		      <entry key="C" value="电" />
+		      <entry key="D" value="混合油" />
+		      <entry key="E" value="天然气" />
+		      <entry key="F" value="液化石油气" />
+		      <entry key="L" value="甲醇" />
+		      <entry key="M" value="乙醇" />
+		      <entry key="N" value="太阳能" />
+		      <entry key="O" value="混合动力" />
+		      <entry key="Y" value="无" />
+		      <entry key="Z" value="其他" />
+		      
+		   </map>
+		</property>
+		
+	</bean>
+</beans>

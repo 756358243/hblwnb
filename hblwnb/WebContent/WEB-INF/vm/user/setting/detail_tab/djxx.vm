@@ -1,0 +1,301 @@
+
+<div id="tab-1" class="tab-pane active">
+	<div class="panel-body">
+		<div class="table-responsive">
+		 <form id="djxxForm" action="${ctxPath}/user/setting/saveModifiedDJXX.do" method="post"
+				enctype="multipart/form-data">
+			<table class="table table-stripped table-bordered">
+				<thead>
+					<tr>
+						<th style="color: #1ab394;">基本信息</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="col-md-4">
+
+								<div class="form-group">
+									<label for="showEasing">车辆识别代号</label> <input type="text"
+									name="clsbdh"  class="form-control" value="$!{dlxx.clsbdh}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">初次登记日期</label> <input type="text"
+									name="ccdjrq"  class="form-control" value="$!{dlxx.ccdjrq}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">生产厂商名称</label> <input type="text"
+									name="sccsmc"	  class="form-control" value="$!{dlxx.sccsmc}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">检验报告编码</label> <input type="text"
+									name="jybgbm"	readonly="readonly"   class="form-control" value="$!{dlxx.jybgbm}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">发动机号</label> <input type="text"
+									name="fdjh"	  class="form-control" value="$!{dlxx.fdjh}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">发动机型号</label> <input type="text"
+									name="fdjxh"	  class="form-control" value="$!{dlxx.fdjxh}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">整备质量</label> <input type="text"
+									name="zbzl"	  class="form-control" value="$!{dlxx.zbzl}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">车辆型号</label> <input type="text"
+									name="clxh"	  class="form-control" value="$!{dlxx.clxh}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">号牌号码</label> <input type="text"
+									name="hphm"	readonly="readonly"  class="form-control" value="$!{dlxx.hphm}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">所有人</label> <input type="text"
+									name="syr"	  class="form-control" value="$!{dlxx.syr}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">号牌种类</label> <input type="text"
+									name="hpzl"	 readonly="readonly"  class="form-control" value="$!{dlxx.hpzl}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">号牌颜色</label> <input type="text"
+									name="hpys"	  class="form-control" value="$!{dlxx.hpys}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+
+								<div class="form-group">
+									<label for="hideEasing">行政区划</label> <input type="text"
+									name="xzqh"	  class="form-control" value="$!{dlxx.xzqh}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">检验机构编码</label> <input type="text"
+									name="jyjgbm"	  class="form-control" value="$!{dlxx.jyjgbm}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">检验线编码</label> <input type="text"
+									name="jcxbm"	  class="form-control" value="$!{dlxx.jcxbm}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">检验类别</label> 
+									 <select class="form-control" name="jclb">
+			                            	
+			                                  <option value="1" #if($!{dlxx.jclb}=="1") selected #end><font><font>定期检验</font></font></option>
+			                                  <option value="2" #if($!{dlxx.jclb}=="2") selected #end><font><font>注册登记检验</font></font></option>
+			                                  <option value="3" #if($!{dlxx.jclb}=="3") selected #end><font><font>实验比对</font></font></option>
+			                                  <option value="4" #if($!{dlxx.jclb}=="4") selected #end><font><font>监督抽测不合格复检</font></font></option>
+			                                  <option value="5" #if($!{dlxx.jclb}=="5") selected #end><font><font>定期检验不合格复检</font></font></option>
+			                                  <option value="6" #if($!{dlxx.jclb}=="6") selected #end><font><font>路检</font></font></option>
+			                                  <option value="7" #if($!{dlxx.jclb}=="7") selected #end><font><font>场检</font></font></option>
+			                                  <option value="8" #if($!{dlxx.jclb}=="8") selected #end><font><font>行政复检</font></font></option>
+			                                  <option value="9" #if($!{dlxx.jclb}=="9") selected #end><font><font>新车上牌检测</font></font></option>
+			                         </select>
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">首检检验流水号</label> <input type="text"
+									name="sjjybh"	  class="form-control" value="$!{dlxx.sjjybh}">
+								</div> 
+								<div class="form-group">
+									<label for="hideEasing">检验状态</label> 
+									 <select class="form-control" name="status">
+			                            	
+			                                  <option value="1" #if($!{dlxx.status}=="1") selected #end><font><font>已登记</font></font></option>
+			                                  <option value="2" #if($!{dlxx.status}=="2") selected #end><font><font>已外检</font></font></option>
+			                                  <option value="3" #if($!{dlxx.status}=="3") selected #end><font><font>已上传过程数据</font></font></option>
+			                                  <option value="4" #if($!{dlxx.status}=="4") selected #end><font><font>已上线检测</font></font></option>
+			                                  <option value="5" #if($!{dlxx.status}=="5") selected #end><font><font>已提交</font></font></option>
+			                                  <option value="6" #if($!{dlxx.status}=="6") selected #end><font><font>已退办</font></font></option>
+			                                  
+			                         </select>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="showEasing">车辆类型</label> <input type="text"
+									name="cllx"	  class="form-control" value="$!{dlxx.cllx}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">检验方法</label> 
+									<select class="form-control" name="jcff">
+			                            	
+			                            	  <option value="0" #if($!{dlxx.jcff}=="0") selected #end><font><font>低怠速法</font></font></option>
+			                                  <option value="1" #if($!{dlxx.jcff}=="1") selected #end><font><font>双怠速法</font></font></option>
+			                                  <option value="2" #if($!{dlxx.jcff}=="2") selected #end><font><font>稳态工况法</font></font></option>
+			                                  <option value="3" #if($!{dlxx.jcff}=="3") selected #end><font><font>简易瞬态工况法</font></font></option>
+			                                  <option value="4" #if($!{dlxx.jcff}=="4") selected #end><font><font>加载减速工况法</font></font></option>
+			                                  <option value="5" #if($!{dlxx.jcff}=="5") selected #end><font><font>不透光烟度法</font></font></option>
+			                                  <option value="6" #if($!{dlxx.jcff}=="6") selected #end><font><font>滤纸烟度法</font></font></option>
+			                                  
+			                                  
+			                         </select>
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">车身颜色</label> <input type="text"
+									name="csys"	  class="form-control" value="$!{dlxx.csys}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">使用性质</label> <input type="text"
+									name="syxz"	  class="form-control" value="$!{dlxx.syxz}">
+								</div>
+								<div class="form-group">
+											<label for="hideEasing">燃料种类</label> 
+											 <select class="form-control" name="rlzl">
+											 
+					                            	<option value="" #if("$!{dlxx.rlzl}"=="") selected #end><font><font>无</font></font></option>
+					                                <option value="A" #if($!{dlxx.rlzl}=="A") selected #end><font><font>汽油</font></font></option>
+					                                <option value="B" #if($!{dlxx.rlzl}=="B") selected #end><font><font>柴油</font></font></option>
+					                                <option value="C" #if($!{dlxx.rlzl}=="C") selected #end><font><font>电</font></font></option>
+					                                <option value="D" #if($!{dlxx.rlzl}=="D") selected #end><font><font>混合油</font></font></option>
+					                                <option value="E" #if($!{dlxx.rlzl}=="E") selected #end><font><font>天然气</font></font></option>
+					                                <option value="F" #if($!{dlxx.rlzl}=="F") selected #end><font><font>液化石油气</font></font></option>
+					                                <option value="L" #if($!{dlxx.rlzl}=="L") selected #end><font><font>甲醇</font></font></option>
+					                                <option value="M" #if($!{dlxx.rlzl}=="M") selected #end><font><font>乙醇</font></font></option>
+					                                <option value="N" #if($!{dlxx.rlzl}=="N") selected #end><font><font>太阳能</font></font></option>
+					                                <option value="O" #if($!{dlxx.rlzl}=="O") selected #end><font><font>混合动力</font></font></option>
+					                                <option value="Y" #if($!{dlxx.rlzl}=="Y") selected #end><font><font>无</font></font></option>
+					                                <option value="Z" #if($!{dlxx.rlzl}=="Z") selected #end><font><font>其他</font></font></option>
+					                                
+					                                  
+					                         </select>
+										</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="showEasing">车辆品牌(中文)</label> <input type="text"
+									name="clpp1"	  class="form-control" value="$!{dlxx.clpp1}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">国产进口</label> <input type="text"
+									name="gcjk"	  class="form-control" value="$!{dlxx.gcjk}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">总质量</label> <input type="text"
+									name="zzl"	  class="form-control" value="$!{dlxx.zzl}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">核定载质量</label> <input type="text"
+									name="hdzzl"	  class="form-control" value="$!{dlxx.hdzzl}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">核定载客</label> <input type="text"
+									name="hdzk"	  class="form-control" value="$!{dlxx.hdzk}">
+								</div>
+
+							</div>
+							<div class="col-md-2"></div>
+
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table table-stripped table-bordered">
+				<thead>
+					<tr>
+						<th style="color: #1ab394;">其他信息</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="col-md-4">
+
+								<div class="form-group">
+									<label for="hideEasing">出厂日期</label> <input type="text"
+									name="ccrq"	  class="form-control" value="$!{dlxx.ccrq}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">登记时间</label> <input type="text"
+									name="djsj"	 readonly="readonly"  class="form-control" value="$!{dlxx.djsj}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="showEasing">登记员姓名</label> <input type="text"
+									name="djy"	  class="form-control" value="$!{dlxx.djy}">
+								</div>
+								<div class="form-group">
+									<label for="hideEasing">引车员姓名</label> <input type="text"
+									name="ycy"	  class="form-control" value="$!{dlxx.ycy}">
+								</div>
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">外检员姓名</label> <input type="text"
+									name="wjy"	  class="form-control" value="$!{dlxx.wjy}">
+								</div>
+								<div class="form-group">
+									<label for="showEasing">送检人</label> <input type="text"
+									name="sjr"	  class="form-control" value="$!{dlxx.sjr}">
+								</div>
+
+
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">操作员姓名</label> <input type="text"
+									name="czy"	  class="form-control" value="$!{dlxx.czy}">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label for="hideEasing">插管员姓名</label> <input type="text"
+									name="cgy"	  class="form-control" value="$!{dlxx.cgy}">
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="showEasing">送检人备注</label> <input type="text"
+									name="sjrbz"	  class="form-control" value="$!{dlxx.sjrbz}">
+								</div>
+
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="showEasing">登记备注</label> <input type="text"
+									name="djbz"	  class="form-control" value="$!{dlxx.djbz}">
+								</div>
+
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="showEasing">备注</label> <input type="text"
+									name="qtbz"	  class="form-control" value="$!{dlxx.qtbz}">
+								</div>
+
+							</div>
+						</td>
+
+					</tr>
+				</tbody>
+			</table> 
+			<div style="margin-left: 32%;margin-top: 2%;">
+			<button id="saveDJXX" type="submit" class="btn btn-w-m btn-info btn-primary">保存</button>
+			<button type="reset" style="margin-left: 10%;" class="btn btn-w-m btn-info btn-primary">重置</button>
+			</div>
+		</form>
+	   </div>
+		
+	</div>
+
+</div>

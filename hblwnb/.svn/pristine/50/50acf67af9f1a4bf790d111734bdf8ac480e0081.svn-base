@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.api.autoPrint;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * @author xcc
+ *
+ */
+@Controller
+@RequestMapping(value = "/api/autoPrint")
+public class AutoPrintController {
+
+	private static final Logger log = Logger.getLogger(AutoPrintController.class);
+
+	
+}

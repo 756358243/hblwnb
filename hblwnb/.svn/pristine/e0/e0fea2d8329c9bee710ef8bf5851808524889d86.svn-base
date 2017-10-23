@@ -1,0 +1,27 @@
+package com.vkl.hblw.common.constant;
+
+/** 
+* @ClassName: ResultDate 
+* @Description: 用于存放所有不理想的返回值 
+* @author aiyun
+* @date 2017年10月17日 下午2:57:04 
+*  
+*/
+public class ResultDate {
+	
+	/**
+	 * PDA接口返回值常量
+	 */
+	public static final String RS_PDA_VEHICLELOGIN_NULL = "查询车辆状态表时，没有查到记录...."; //车辆状态表为空 
+	public static final String RS_PDA_TPREFACECHECK_NULL = "查询外检信息表时，没有查到记录...."; //外检信息表为空 
+	public static final String RS_PDA_SECCESS = "执行成功...."; //成功
+
+	
+	
+	/**
+	 * PDA方法调用异常
+	 */
+	public static final String METHOD_PDA_ERROR = "外检开始TprefaceCheckStart()执行的时候抛出异常...."; //外检开始 
+	public static final String METHOD_insertOrUpdatePicture_PDA_ERROR = "外检开始insertOrUpdatePicture()执行的时候抛出异常...."; //外检开始 
+
+}

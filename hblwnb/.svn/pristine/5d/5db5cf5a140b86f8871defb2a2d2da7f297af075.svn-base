@@ -1,0 +1,17 @@
+package com.vkl.hblw.common.constant;
+
+/** 
+* @ClassName: ResultDate 
+* @Description: 用于存放所有不理想的返回值 
+* @author aiyun
+* @date 2017年10月17日 下午2:57:04 
+*  
+*/
+public class ResultDate {
+	
+	/**
+	 * PDA接口返回值常量
+	 */
+	public static final String RS_PDA_VEHICLELOGIN_NULL = "查询车辆状态表时，没有查到记录...."; //车辆状态表为空 
+
+}

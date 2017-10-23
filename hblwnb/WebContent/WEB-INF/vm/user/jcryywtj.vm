@@ -1,0 +1,406 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.7
+*
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>机动车检验机构尾气排放联网平台</title>
+
+    <link href="${ctxPath}/static/inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="${ctxPath}/static/inspinia/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="${ctxPath}/static/inspinia/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    
+    <link href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/animate.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/style.css" rel="stylesheet">
+    <link href="${ctxPath}/static/css/newstyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+       #parse("/header.vm")
+
+    <div id="page-wrapper" class="gray-bg" >
+        
+        
+        <div class="row wrapper border-bottom white-bg">
+            <div class="col-lg-10">
+                <h2>检测人员业务量统计</h2>
+                <ol class="breadcrumb crumb">
+                   <li>
+                        <span>当前位置:</span>
+                    </li>
+                    <li>
+                        <a href="index.html">数据统计</a>
+                    </li>
+                    <li class="active">
+                        <strong>检测人员业务量统计</strong>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+             <form action="" >
+            <div class="ibox-content m-b-sm border-bottom">
+                
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label" for="order_id">检测站名称</label>
+                        <select class="form-control" >
+                                  <option><font><font>检测站名称1</font></font></option>
+                                  <option><font><font>检测站名称2</font></font></option>
+                                  <option><font><font>检测站名称3</font></font></option>
+                              </select>  
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="order_id">检测人员姓名</label>
+                         <select class="form-control" >
+                                  <option><font><font>全体</font></font></option>
+                                  <option><font><font>张兰</font></font></option>
+                                  <option><font><font>小明</font></font></option>
+                              </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="order_id">人员职称</label>
+                         <select class="form-control" >
+                                  <option><font><font>所有</font></font></option>
+                                  <option><font><font>管理员</font></font></option>
+                                  <option><font><font>引车员</font></font></option>
+                                  <option><font><font>打表员</font></font></option>
+                              </select>
+                    </div>
+                    <div class="col-sm-2" id="data_1">
+                        <div class="form-group">
+                        <label class="control-label" for="order_id">检测起始日期</label>
+                         <div class="input-group date">
+                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                             <input type="text" class="form-control" value="">
+                          </div></div>
+                    </div> 
+                     <div class="col-sm-2" id="data_1">
+                        <label class="control-label" for="order_id">检测截止日期</label>
+                         <div class="input-group date">
+                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                             <input type="text" class="form-control" value="">
+                          </div>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group" >
+	                          <button id="button_query" class="btn btn-primary" ><font><font>查询</font></font></button>
+	                          <button class="btn btn-white" type="reset"><font><font>重置</font></font></button>
+	                     </div>
+                    </div> 
+                </div>
+               
+            </div>
+             </form>            
+                 
+            <div class="row">
+             <div class="col-lg-12">
+                    <div class="ibox">
+                     <div class="ibox-title">
+                        <h3>检测人员业务统计（个人）</h3></div>
+                        <div class="ibox-content">
+                        <div class="row">
+                               <div class="col-sm-9 m-b-xs">
+			                    <div data-toggle="buttons" class="btn-group">
+			                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> 日 </label>
+			                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> 周 </label>
+			                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> 月 </label>
+			                    </div>
+			                </div>
+			            </div>
+                            <div id="morris-bar-chart1"></div>
+                    </div>                                     
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+             <div class="col-lg-12">
+                    <div class="ibox">
+                     <div class="ibox-title">
+                        <h3>检测人员业务统计</h3></div>
+                        
+                        <div class="ibox-content">
+                        <div class="row">
+                               <div class="col-sm-9 m-b-xs">
+			                    <div data-toggle="buttons" class="btn-group">
+			                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> 日 </label>
+			                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> 周 </label>
+			                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> 月 </label>
+			                    </div>
+			                </div>
+			                 <div class="col-sm-3">
+			                     <div class="btn-group" style=" float:right; margin-right:20px;">
+									<button class=" btn btn-xs btn-primary" style=" padding:5px 10px;" name="IBtnPrint" id="IBtnPrint" onclick="printPage();">打印</button>
+								 </div>
+							 </div>
+			            </div>
+                           <div id="morris-bar-chart2"></div>
+                    </div>
+                    <div class="ibox-content">
+                    <div class="table-responsive">
+		                <table class="table table-striped">
+		                    <thead>
+		                    <tr>
+		
+		                        <th>序号</th>
+		                        <th>监测站名称 </th>
+		                        <th>检测人员名称 </th>
+		                        <th>岗位名称 </th>
+		                        <th>检测业务量 （辆）</th>
+		                        <th>检测起始时间</th>
+		                        <th>检测结束时间</th>
+		                    </tr>
+		                    </thead>
+		                    <tbody>
+		                    <tr>
+		                        <td>1</td>
+		                        <td>检测站名称1</td>
+		                        <td>张三</td>
+		                        <td>引车员</td>
+		                        <td>60</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>2</td>
+		                        <td>检测站名称1</td>
+		                        <td>李四</td>
+		                        <td>引车员</td>
+		                        <td>75</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>3</td>
+		                        <td>检测站名称1</td>
+		                        <td>王二</td>
+		                        <td>管理员</td>
+		                        <td>50</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>4</td>
+		                        <td>检测站名称1</td>
+		                        <td>小明</td>
+		                        <td>引车员</td>
+		                        <td>75</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>5</td>
+		                        <td>检测站名称1</td>
+		                        <td>韩梅梅</td>
+		                        <td>引车员</td>
+		                        <td>57</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>6</td>
+		                        <td>检测站名称1</td>
+		                        <td>刘东</td>
+		                        <td>引车员</td>
+		                        <td>75</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>7</td>
+		                        <td>检测站名称1</td>
+		                        <td>谭小芳</td>
+		                        <td>引车员</td>
+		                        <td>100</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>8</td>
+		                        <td>检测站名称1</td>
+		                        <td>谭小兰</td>
+		                        <td>引车员</td>
+		                        <td>44</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>9</td>
+		                        <td>检测站名称1</td>
+		                        <td>谭小红</td>
+		                        <td>引车员</td>
+		                        <td>75</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>10</td>
+		                        <td>检测站名称1</td>
+		                        <td>谭小白</td>
+		                        <td>引车员</td>
+		                        <td>75</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    <tr>
+		                        <td>11</td>
+		                        <td>检测站名称1</td>
+		                        <td>谭小黑</td>
+		                        <td>引车员</td>
+		                        <td>75</td>
+		                        <td>2017-04-01</td>
+		                        <td>2017-05-30</td>
+		                    </tr>
+		                    
+		                    </tbody>
+		                    </table></div></div>
+                     
+                    
+                    
+                                                         
+                    </div>
+                </div>
+            </div>
+            
+              </div> 
+                #parse("/footer.vm")
+          </div>
+        </div>
+       
+  
+   
+    <!-- Mainly scripts -->
+    <script src="${ctxPath}/static/inspinia/js/jquery-3.1.1.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/bootstrap.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="${ctxPath}/static/inspinia/js/inspinia.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    
+    <script src="${ctxPath}/static/inspinia/js/plugins/dataTables/datatables.min.js"></script>
+    
+    <!-- Morris demo data-->
+    <script src="${ctxPath}/static/inspinia/js/demo/morris-demo.js"></script>
+    <!-- Morris -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/morris/morris.js"></script>
+
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function() {
+
+        	$('#hbjcxx').addClass("active");
+        	$('#hbjcxx_collapse').addClass("in");
+        	$('#hbjcxx_cljc').addClass("active");
+    		
+			
+            $('#date_added').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            $('#date_modified').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+            
+            Morris.Bar({
+                element: 'morris-bar-chart1',
+                data: [{ y: '1月', a: 60 },
+                    { y: '2月', a: 75},
+                    { y: '3月', a: 50},
+                    { y: '4月', a: 75 },
+                    { y: '5月', a: 57 },
+                    { y: '6月', a: 75 },
+                    { y: '7月', a: 100 },
+                    { y: '8月', a: 44 },
+                    { y: '9月', a: 75 },
+                    { y: '10月', a: 25 },
+                    { y: '11月', a: 85 },
+                    { y: '12月', a: 22 }
+                    
+                    ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['李四检测车辆数'],
+                hideHover: 'auto',
+                resize: true,
+                barColors: ['#1ab394'],
+            });
+            
+            Morris.Bar({
+                element: 'morris-bar-chart2',
+                data: [{ y: '张三', a: 60 },
+                    { y: '李四', a: 75},
+                    { y: '王二', a: 50},
+                    { y: '小明', a: 75 },
+                    { y: '韩梅梅', a: 57 },
+                    { y: '刘东', a: 75 },
+                    { y: '谭小芳', a: 100 },
+                    { y: '谭小蓝', a: 44 },
+                    { y: '谭小红', a: 75 },
+                    { y: '谭小白', a: 25 },
+                    { y: '谭小黑', a: 85 }
+                    ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['检测车辆数'],
+                hideHover: 'auto',
+                resize: true,
+                barColors: ['#23c6c8'],
+            });
+            
+           
+        });
+
+    </script>
+   
+</body>
+</html>

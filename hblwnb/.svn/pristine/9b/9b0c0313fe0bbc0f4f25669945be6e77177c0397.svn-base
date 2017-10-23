@@ -1,0 +1,72 @@
+/** 
+ * Project Name:hblw_nb 
+ * File Name:ORIGINALVIDEODao.java 
+ * Package Name:com.vkl.hblw.dao.persistence 
+ * Date:2017年10月13日下午2:51:58 
+ * Copyright (c) 2017, chenzhou1025@126.com All Rights Reserved. 
+ * 
+*/  
+  
+package com.vkl.hblw.dao.persistence;
+import com.vkl.hblw.dao.domain.ORIGINALVIDEO;
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vkl.hblw.dao.domain.ORIGINALVIDEO;
+import com.vkl.hblw.dao.domain.TPREFACECHECK;
+import com.vkl.hblw.dao.persistence.base.ORIGINALVIDEOBaseDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+
+/** 
+* @ClassName: ORIGINALVIDEODao 
+* @Description: TODO(这里用一句话描述这个类的作用) 
+* @author aiyun 
+* @date 2017年10月13日 下午2:52:28 
+*  
+*/
+public class ORIGINALVIDEODao extends ORIGINALVIDEOBaseDao {
+
+
+/** 
+* @Title: queryOriginalVideoByCcheckcode 
+* @Description: 查询某一个视频 
+* @param CCHECKCODE
+* @param PASSWAYTYPE
+* @return    设定文件 
+* @return ORIGINALVIDEO    返回类型 
+* @throws 
+*/
+public ORIGINALVIDEO queryOriginalVideoByCcheckcode(String CCHECKCODE,String PASSWAYTYPE){
+		ORIGINALVIDEO originalvideo = new ORIGINALVIDEO();
+		originalvideo.setCcheckcode(CCHECKCODE);
+		originalvideo.setPasswaytype(PASSWAYTYPE);
+		SqlSelect querysql = new SqlSelect().where(ORIGINALVIDEO.SQL_ccheckcode).and(ORIGINALVIDEO.SQL_passwaytype);
+		originalvideo = load(querysql, originalvideo);
+		return originalvideo;
+	}
+	
+	/**
+	 * 
+	* @Title: queryByCondition 
+	* @Description: 获取视频列表信息
+	* @author xy
+	* @param cnumberplate 车牌号码
+	* @param cnumbertype 号牌种类
+	* @param registertime 登记时间
+	* @return
+	 */
+	@Transactional
+	public List<ORIGINALVIDEO> queryByCondition(String cnumberplate, String cnumbertype, Timestamp registertime) {
+		ORIGINALVIDEO originalvideo=new ORIGINALVIDEO();
+		//tprefacecheck.setCnumberplate(cnumberplate);
+		//tprefacecheck.setCnumbertype(cnumbertype);//号牌种类
+		//tprefacecheck.setDregister(registertime);
+		//SqlSelect sql = new SqlSelect().where(ORIGINALVIDEO.SQL_cnumberplate)/*.and(TPREFACECHECK.SQL_cnumbertype)*/.and(TPREFACECHECK.SQL_dregister);
+		List<ORIGINALVIDEO> originalvideos =null;// list(sql, mJYYSSP);
+		return originalvideos;
+		}
+}
+  

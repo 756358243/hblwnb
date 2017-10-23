@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+.top-bg {
+	background:url(../img/newimg/top-bg.jpg) repeat-x; width:100%; height:60px; z-index: 2000;
+}
+.login {
+	background:url(../img/newimg/logo.png) no-repeat; width:520px; height:60px; display: inline-block; z-index: 1000;
+}
+.top-bg .nav > li > a {
+    padding: 20px 20px;
+    color: #fff;
+}
+.crumb{ background-color: #fff; padding:15px;}
+.marginb0{ margin-bottom:0px;}
+.pagination {
+    margin: 10px 0;
+}
+.table {
+    margin-bottom: 0px; 
+	}
+.dataTables_wrapper {
+    padding-bottom: 0px;
+}
+.width180{ width:180px;}
+
+.backgroundf5 {
+    background-color: #f5f5f5;
+}
+.bordero{ border:0px solid #fff;}
+
+.loginbg{ background-image:url(../img/newimg/loginbg.jpg);
+          background-repeat:repeat-x;
+		  width:100%; height:700px;}
+		  
+.loginscreen.middle-box {
+    width: 780px;
+	background:url(../img/newimg/loginbgk.jpg) no-repeat;
+	height:700px;
+}
+.middle-box {
+    max-width: 850px;
+    z-index: 100;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+.logincon{
+	width:310px;
+	margin:215px 240px 0;
+	
+	}
+.gslogo{ display:inline-block; background:url(../img/newimg/gslogo.png) no-repeat; height:17px; width:95px;}
+
+.text-center{ text-align:center; vertical-align: middle; }
+.nav-header strong{ color:#ffffff;}
+
+
+
+
+
+
+
+
+
+
+
+
+

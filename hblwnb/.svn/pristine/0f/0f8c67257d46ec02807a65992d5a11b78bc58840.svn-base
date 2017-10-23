@@ -1,0 +1,94 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.api.vehicleLogin;
+
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vkl.common.json.JsonResult;
+import com.vkl.common.json.JsonUtil;
+import com.vkl.common.util.StrUtil;
+import com.vkl.hblw.common.constant.SystemInfo;
+import com.vkl.hblw.service.api.vehicleLogin.VehicleLoginService;
+
+/**
+ * @author xcc 检测登录系统调用接口
+ */
+@Controller
+@RequestMapping(value = "/api/vehicleLogin")
+public class VehicleLoginController {
+
+	private static final Logger log = Logger.getLogger(VehicleLoginController.class);
+
+	@Resource
+	private VehicleLoginService vehicleLoginService;
+	
+	
+	
+	
+	/** 
+	* @Title: modifyCheckFuelType 
+	* @Description: 修改检测燃料种类
+	* @param req
+	* @return    设定文件 
+	* @return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	public ResponseEntity<String> modifyCheckFuelType(HttpServletRequest req){
+		String cnumberplate = StrUtil.getParamStr(req, "CNUMBERPLATE","");//号牌号码
+		String cnumbertype = StrUtil.getParamStr(req, "CNUMBERTYPE","");//号牌种类
+		String cvin = StrUtil.getParamStr(req, "CVIN","");//车辆识别号
+		String checkfueltype = StrUtil.getParamStr(req, "CHECKFUELTYPE","");//检测燃料种类
+		JsonResult result = new JsonResult();
+		try {
+			String info = vehicleLoginService.modifyCheckFuelType(cnumberplate, cnumbertype, cvin, checkfueltype);
+			if (SystemInfo.API_MODIFYJYRLZL_SUCCESS.equals(info)) {
+				result.setCode(JsonResult.CODE_SUCCESS);
+
+			} else {
+				result.setCode(JsonResult.CODE_ERROR);
+			}
+			result.setInfo(info);
+		} catch (Exception e) {
+			log.error(SystemInfo.LOG_CODE_ERROR, e);
+			result.setCode(JsonResult.CODE_ERROR);
+			result.setInfo(SystemInfo.API_CODE_EXCEPTION);
+		}
+		return JsonUtil.toResponse(result);
+	}
+	/** 
+	* @Title: uploadChragedVehicle 
+	* @Description: 提交已收费车辆信息
+	* @return    设定文件 
+	* @return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/charged")
+	public ResponseEntity<String> uploadChragedVehicle(HttpServletRequest req){
+		String cnumberplate = StrUtil.getParamStr(req, "CNUMBERPLATE","");//号牌号码
+		String cnumbertype = StrUtil.getParamStr(req, "CNUMBERTYPE","");//号牌种类
+		String cvin = StrUtil.getParamStr(req, "CVIN","");//车辆识别号
+		
+		JsonResult result = new JsonResult();
+		try {
+			if (vehicleLoginService.uploadChragedVehicle(cnumberplate,cnumbertype,cvin)){
+				result.setCode(JsonResult.CODE_SUCCESS);
+			}else {
+				result.setCode(JsonResult.CODE_ERROR);
+				result.setInfo(SystemInfo.API_CODE_ERROR);
+			}
+		} catch (Exception e) {
+			log.error(SystemInfo.LOG_CODE_ERROR, e);
+			result.setCode(JsonResult.CODE_ERROR);
+			result.setInfo(SystemInfo.API_CODE_EXCEPTION);
+		}
+		return JsonUtil.toResponse(result);
+	}
+}

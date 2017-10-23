@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+package com.vkl.hblw.common.constant;
+
+/**
+ * @author xcc
+ *
+ */
+public class SystemInfo {
+
+	/**
+	 * 日志信息
+	 */
+	public static final String LOG_CODE_ERROR = "error";// 错误
+	
+	/**
+	 * 接口信息
+	 */
+	public static final String API_CODE_ERROR_MODIFY_CHECKMETHOD_AND_CDRIVEFORM = "修改检测方式和驱动方式方法错误";// 错误
+	public static final String API_CODE_ERROR = "系统错误";// 错误
+	public static final String API_CODE_EXCEPTION = "系统异常";// 错误
+	public static final String API_CODE_EXCEPTION_RETIREMENT = "退办异常";
+	
+	/**
+	 * 插入登记信息接口返回结果
+	 */
+	public static final String API_DLXX_UNFOUND = "该车辆信息不存在";
+	public static final String API_DLXX_LOGINED = "该车辆已登录";
+	public static final String API_DLXX_RLZL_ERROR = "该车辆登录的燃料种类不符合要求";
+	public static final String API_DLXX_SUCCESS = "登录成功";
+	
+	/**
+	 * 退办接口返回结果
+	 */
+	public static final String API_RETIREMENT_UNFOUND = "该车辆信息不存在";
+	public static final String API_RETIREMENT_SUBMITED = "该车辆信息已提交，不能退办";
+	public static final String API_RETIREMENT_SECOND_UNFOUND = "该车辆第二燃料检验信息不存在";
+	public static final String API_RETIREMENT_SECOND_SUBMITED = "该车辆第二燃料检验信息已提交，不能退办";
+	public static final String API_RETIREMENT_SUCCESS = "退办成功";
+	/**
+	 * 修改燃料接口返回结果
+	 */
+	public static final String API_MODIFYJYRLZL_UNFOUND = "该车辆信息不存在";
+	public static final String API_MODIFYJYRLZL_INCONFORMITY_STATUS = "该车辆状态不符合要求";
+	public static final String API_MODIFYJYRLZL_SUCCESS = "修改燃料成功";
+	public static final String API_JYRLZL_ISNULL = "检验燃料种类字段为空";
+
+	
+ 
+
+}

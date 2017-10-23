@@ -1,0 +1,50 @@
+/** 
+ * Project Name:hblw_nb 
+ * File Name:VEHICLELOGINDao.java 
+ * Package Name:com.vkl.hblw.dao.persistence 
+ * Date:2017年10月13日下午2:47:45 
+ * Copyright (c) 2017, chenzhou1025@126.com All Rights Reserved. 
+ * 
+*/  
+  
+package com.vkl.hblw.dao.persistence;
+
+
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.dao.persistence.base.VEHICLELOGINBaseDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+/** 
+ * ClassName:VEHICLELOGINDao <br/> 
+ * Function: TODO ADD FUNCTION. <br/> 
+ * Reason:   TODO ADD REASON. <br/> 
+ * Date:     2017年10月13日 下午2:47:45 <br/> 
+ * @author   xwh 
+ * @version   
+ * @since    JDK 1.8
+ * @see       
+ */
+public class VEHICLELOGINDao extends VEHICLELOGINBaseDao {
+
+	/** 
+	* @Title: queryByCnumberplateCnumbertypeCvin 
+	* @Description: 查询登录车辆状态信息 
+	* @param cnumberplate
+	* @param cnumbertype
+	* @param cvin
+	* @return    设定文件 
+	* @return VEHICLELOGIN    返回类型 
+	* @throws 
+	*/
+	public VEHICLELOGIN queryByCnumberplateCnumbertypeCvin(String cnumberplate, String cnumbertype, String cvin) {
+		VEHICLELOGIN vehicleLogin = new VEHICLELOGIN();
+		vehicleLogin.setCnumberplate(cnumberplate);
+		vehicleLogin.setCnumbertype(cnumbertype);
+		vehicleLogin.setCvin(cvin);
+		SqlSelect sql = new SqlSelect().where(VEHICLELOGIN.SQL_cnumberplate).and(VEHICLELOGIN.SQL_cnumbertype).and(VEHICLELOGIN.SQL_cvin);
+		vehicleLogin=load(sql, vehicleLogin);
+		return vehicleLogin;
+	}
+
+}
+  

@@ -1,0 +1,102 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.api.vehicleLogin;
+
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vkl.hblw.common.constant.CustomData;
+import com.vkl.hblw.common.constant.SystemInfo;
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.dao.persistence.TPREFACECHECKDao;
+import com.vkl.hblw.dao.persistence.VEHICLELOGINDao;
+import com.vkl.hblw.dao.util.SqlUpdate;
+
+
+/**
+ * @author xcc
+ *
+ */
+@Service
+public class VehicleLoginService {
+
+	private static final Logger log = Logger.getLogger(VehicleLoginService.class);
+	@Autowired
+	private VEHICLELOGINDao vehicleLoginDao;//检验登录信息
+	@Autowired
+	private TPREFACECHECKDao tprefaceCheckDao;//检验外检信息
+	
+	
+	/** 
+	* @Title: modifyCheckMethod 
+	* @Description: TODO(这里用一句话描述这个方法的作用) 
+	* @return    设定文件 
+	* @return boolean    返回类型 
+	* @throws 
+	*/
+	public boolean modifyCheckMethod() {
+		return true;
+	}
+
+
+	/** 
+	* @Title: uploadChragedVehicle 
+	* @Description: 提交已收费车辆信息
+	* @param cnumberplate 号牌号码
+	* @param cnumbertype 号牌种类
+	* @param cvin 车辆识别号
+	* @return    设定文件 
+	* @return boolean    返回类型 
+	* @throws 
+	*/
+	public boolean uploadChragedVehicle(String cnumberplate, String cnumbertype, String cvin) {
+		try {
+			VEHICLELOGIN vehiclelogin =vehicleLoginDao.queryByCnumberplateCnumbertypeCvin(cnumberplate,cnumbertype,cvin);
+			if (null==vehiclelogin) {
+				return false;
+			}
+			vehiclelogin.setCharge(CustomData.DLXX_CHARGE_PAYED);
+			vehicleLoginDao.update(new SqlUpdate().addColumn(VEHICLELOGIN.SQL_charge).where(VEHICLELOGIN.SQL_id),vehiclelogin);
+		} catch (Exception e) {
+			log.error(SystemInfo.LOG_CODE_ERROR, e);
+			return false;
+		}
+		return true;
+	}
+
+
+	/** 
+	* @Title: modifyCheckFuelType 
+	* @Description: 修改车辆检验燃料种类
+	* @param cnumberplate 号牌号码
+	* @param cnumbertype 号牌种类
+	* @param cvin 车辆识别号
+	* @param checkfueltype  检测燃料种类
+	* @return    设定文件 
+	* @return String    返回类型 
+	* @throws 
+	*/
+	public String modifyCheckFuelType(String cnumberplate, String cnumbertype, String cvin, String checkfueltype) {
+		try {
+			VEHICLELOGIN vehiclelogin = vehicleLoginDao.queryByCnumberplateCnumbertypeCvin(cnumberplate, checkfueltype, cvin);
+			if (null == vehiclelogin) {
+				return SystemInfo.API_MODIFYJYRLZL_UNFOUND;
+			}
+			// 只要第一种燃料没有检测结束、提交、退办就可以修改
+			if (CustomData.DLXX_STATUS_RESULT.equals(vehiclelogin.getCheckstate())
+					|| CustomData.DLXX_STATUS_SUBMIT.equals(vehiclelogin.getCheckstate())
+					|| CustomData.DLXX_STATUS_RETIREMENT.equals(vehiclelogin.getCheckstate())) {
+				return SystemInfo.API_MODIFYJYRLZL_INCONFORMITY_STATUS;
+			}
+			vehiclelogin.setCheckfueltype(checkfueltype);
+			vehicleLoginDao.update(new SqlUpdate().addColumn(VEHICLELOGIN.SQL_checkfueltype).where(VEHICLELOGIN.SQL_id), vehiclelogin);
+		} catch (Exception e) {
+			log.error(SystemInfo.LOG_CODE_ERROR, e);
+			return SystemInfo.API_CODE_EXCEPTION;
+		}
+		return SystemInfo.API_MODIFYJYRLZL_SUCCESS;
+	}
+}

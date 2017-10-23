@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.user.systemLog;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author aiyun
+ *
+ */
+@Service
+public class ExceptionLogService {
+	
+	private static final Logger log = Logger.getLogger(ExceptionLogService.class);
+	
+}

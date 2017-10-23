@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.user.systemLog;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author Administrator
+ *
+ */
+@Service
+public class OperationLogService {
+
+	private static final Logger log = Logger.getLogger(OperationLogService.class);
+}

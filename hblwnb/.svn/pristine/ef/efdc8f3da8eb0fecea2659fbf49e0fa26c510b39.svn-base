@@ -1,0 +1,663 @@
+<div id="tab-7" class="tab-pane">
+									<fieldset>
+										<div class="ibox">
+											<div class="ibox-content">
+												<div class="table-responsive">
+													<form name="ctl00" method="post" action="" id="ctl00">
+														<table class="table table-stripped table-bordered">
+															<tbody>
+																<tr>
+																	<td align="left" class="category" colspan="4"
+																		style="height: 15px; width: 50%">
+																		<h3>检测报告打印</h3>
+																	</td>
+																</tr>
+																<tr>
+																	<td id="TD1" align="left" colspan="4" valign="top">
+																		<div id="printdiv">
+																			<table id="detail" width="100%" border="0"
+																				bordercolor="white" cellpadding="0" cellspacing="0">
+																				<tr style="height: 30px;"></tr>
+																				<tr>
+																					<td align="left" colspan="2">
+																						<div>
+																							<table cellspacing="2" cellpadding="2" border="0"
+																								id="GV_Title" style="width: 98%;">
+																								<tr style="height: 6px;">
+																									<td align="center"
+																										style="font-size: 8px; width: 14%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 8px; width: 23%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 8px; width: 15%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9px; width: 29%;">$!{vehiclelogin.CCHECKCODE}</td>
+																									<td align="center"
+																										style="font-size: 8px; width: 5%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 9px; width: 12%;">1</td>
+																								</tr>
+																							</table>
+																						</div>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td align="left" colspan="2" style="height: 150px">
+																						<div>
+																							<table cellspacing="3" cellpadding="2" border="0"
+																								id="GV_VehicleBaseInfo" style="width: 98%;">
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{tprefacecheck.CNUMBERPLATE}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left" colspan="2"
+																										style="font-size: 7pt; width: 20%;">$!{tprefacecheck.CUSER}</td>
+																										<td align="center"
+																										style="font-size: 7pt; width: 26%;">#if($!{vehiclelogin.CPHONE})
+																										$!{vehiclelogin.CPHONE} #else &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#end</td>
+																										
+																										
+																
+																										<!-- <td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									   																									<td align="left" colspan="3"
+																										style="font-size: 7pt; width: 50%;"></td>
+																										 -->
+																										
+																								</tr>
+																								<tr style="height:5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 26%;"> $!{tvehicle.BRANDCH}$!{tprefacecheck.NVEHICLEMODELID}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left" colspan="2"
+																										style="font-size: 7pt; width: 20%;">$!{tvehicle.CVEHICLEMADEFACTOR}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 16%;">$!util.showDate($!{tvehicle.MDATE})</td>
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">
+
+																										#set($nstdweight=$!{vehiclelogin.NSTDWEIGHT} + 100) $!{nstdweight}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 18%;">$!{vehiclelogin.NMAXWEIGHT}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 20%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 22%;">#set($dczz=$!{vehiclelogin.NSTDWEIGHT}) $!{dczz}</td>
+																									<!-- 原来的
+																									<td align="center"
+																										style="font-size: 7pt; width: 22%;">#if($!{vehiclelogin.dczz})
+																										$!{vehiclelogin.dczz} #else / #end</td>
+																								   -->
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{vehiclelogin.CVIN}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 18%;">$!{apiDataConfig.CDRIVEFORMMap.get($!{vehiclelogin.CDRIVEFORM})}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 20%;">&nbsp;</td>
+																										<!--qdltqy-->
+																									<td align="center"
+																										style="font-size: 7pt; width: 22%;">$!{jyjgxx.qdltqy}</td>
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{apiDataConfig.BSXXSMap.get($!{tprefacecheck.CGEARBOXTYPE})}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 18%;">/</td>
+																									<td align="right" colspan="2"
+																										style="font-size: 7pt; width: 21%;">$!{tprefacecheck.CENGINEMODEL}</td>
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">/</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 18%;">$!{tprefacecheck.CENGINEMODELNO}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 20%;">&nbsp;</td>
+																									<!--宁波环保没这个数值
+																									<td align="center" 
+																										style="font-size: 7pt; width: 21%;">$!{tprefacecheck.fdjqgs}</td>
+																										--!>
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{tprefacecheck.NLETOUT}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 18%;">#if($!{vehiclelogin.FUELSUPPLY})
+																										$!{apiDataConfig.FUELSUPPLYMap.get($!{vehiclelogin.FUELSUPPLY})}
+																										#else / #end</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 20%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 21%;">$!{tprefacecheck.NODOMETER}</td>
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{apiDataConfig.CFUELTYPEMap.get($!{tprefacecheck.CFUELTYPE})}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 18%;">#if($!{tprefacecheck.HCLTYPE})
+																										$!{tprefacecheck.HCLTYPE} #else / #end</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 23%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 21%;">$!{apiDataConfig.CADMISSIONMap.get($!{tprefacecheck.CADMISSION})}</td>
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 14%;">$!util.showDate($!{tprefacecheck.DREGISTER})</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 12%;">&nbsp;</td>
+																									<!--<td align="left" colspan="2"
+																										style="font-size: 7pt; width: 35%;">$!util.showTime($!{tprefacecheck.sqsj})至$!util.showTime($!{jyjgxx.sxjssj})</td>
+																										--!>
+																									<td align="center"
+																										style="font-size: 7pt; width: 11%;">$!{tvehicle.BRANDCH}</td>
+																								</tr>
+																								<tr style="height: 8px;">
+																									<td align="center" rowspan="2"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left" colspan="5" rowspan="2"
+																										style="font-size: 7pt; width: 16%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3||$!{vehiclelogin.CHECKMETHOD}==1)轻型汽油车排气污染物&nbsp;&nbsp;&nbsp;&nbsp;GB18285-2005点燃式发动机汽车排气污染物排放限值及测量方法<br />（双怠速法及简易工况法）
+																										#elseif($!{vehiclelogin.CHECKMETHOD}==4||$!{vehiclelogin.CHECKMETHOD}==5)柴油车排气污染物&nbsp;&nbsp;&nbsp;&nbsp;GB3847-2005车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法<br />（自由加速及加载减速）#end
+																									</td>
+																								</tr>
+																								<tr style="height: 5px;">
+
+																								</tr>
+																								<tr style="height: 5px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{vehiclelogin.REGISTERPERSON}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 18%;">&nbsp;&nbsp;&nbsp;$!{vehiclelogin.OPERATIONPERSON}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 25%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 21%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$!{vehiclelogin.CDRIVERCODE}</td>
+																								</tr>
+																								<tr style="height: 10px;">
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 16%;">$!{jyjgxx.wd}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 15%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 18%;">&nbsp;&nbsp;&nbsp;$!{jyjgxx.qy}</td>
+																									<td align="center"
+																										style="font-size: 7pt; width: 25%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 7pt; width: 21%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$!{jyjgxx.sd}</td>
+																								</tr>
+																							</table>
+																						</div>
+																					</td>
+																				</tr>
+																				
+																				<tr>
+																					<td align="left" colspan="2">
+																						<div>
+																							<table cellspacing="2" cellpadding="2" border="0"
+																								id="GV_Idle" style="width: 98%;">
+																							  <tr style="height:6px;">
+																									<td align="center" valign="bottom" rowspan="5"
+																										style="font-size: 9pt; width: 3%;">&nbsp;</td>
+																									<td align="center" rowspan="5"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; width: 11%;">&nbsp;</td>
+																									<td align="center" colspan="2"
+																										style="font-size: 9pt; width: 11%;">&nbsp;</td>
+																									<td align="center" colspan="2"
+																										style="font-size: 9pt; width: 14.5%;">&nbsp;</td>
+																									<td align="left" rowspan="5"
+																										style="font-size: 9pt; width: 18.5%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==1) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NHA-508
+																										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佛山南华
+																								#end</td>
+																								</tr>
+																							  <tr style="height: 6px;">
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 14.5%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 13%;">&nbsp;</td>
+																								</tr>
+																							  <tr style="height: 6px;">
+																									<td align="center"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">#if($!{vehiclelogin.CHECKMETHOD}==1)
+																										#set($st=$numberTool.format("0.00", $!{jyjgxx.val01})) $st #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">#if($!{vehiclelogin.CHECKMETHOD}==1)
+																										$!{jyjgxx.val02} #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								$!{jyjgxx.val03} #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 14.5%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								$!{jyjgxx.val04} #else — #end</td>
+																									<td align="left"
+																										style="font-size: 9pt; width: 13%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								$!{jyjgxx.val05} #else — #end</td>
+																								</tr>
+																							  <tr style="height: 6px;">
+																									<td align="center"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">#if($!{vehiclelogin.CHECKMETHOD}==1)
+																										0.97-1.03 #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								<!-- $!{jyjgxx.valsx02} -->#set($sta=$numberTool.format("0.0", $!{jyjgxx.valsx02})) $sta #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								$!{jyjgxx.valsx03} #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 14.5%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								$!{jyjgxx.valsx04} #else — #end</td>
+																									<td align="left"
+																										style="font-size: 9pt; width: 13%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								$!{jyjgxx.valsx05} #else — #end</td>
+																								</tr>
+																							  <tr style="height: 6px;">
+																									<td align="center"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">#if($!{vehiclelogin.CHECKMETHOD}==1)
+																										/ #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								#if($!{jyjgxx.valpd02}==1) ○ #else X #end #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 11%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								#if($!{jyjgxx.valpd03}==1) ○ #else X #end #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 14.5%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								#if($!{jyjgxx.valpd04}==1) ○ #else X #end #else — #end</td>
+																									<td align="left"
+																										style="font-size: 9pt; width: 13%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==1)
+																								#if($!{jyjgxx.valpd05}==1) ○ #else X #end #else — #end</td>
+																							</table>
+																						</div>
+
+																						<div>
+																							<table cellspacing="2" cellpadding="2" border="0"
+																								id="GV_Vms2" style="width: 98%;">
+																								<tr style="height: 20px;">
+																									<td align="center" rowspan="5"
+																										style="font-size: 9pt; height: 18.5pt; width: 3%;">&nbsp;</td>
+																									<td align="center" rowspan="5"
+																										style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 14%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 14.5%;">&nbsp;</td>
+																									<td align="center" rowspan="5"
+																										style="font-size: 9pt; height: 18.5pt; width: 18.5%;"><br />
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;NHA-508
+																										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佛山南华
+																										#end</td>
+																								</tr>
+																							  <tr style="height: 10px;">
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">#if($!{vehiclelogin.CHECKMETHOD}==3)
+																										$!{jyjgxx.val01} #else — #end</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">#if($!{vehiclelogin.CHECKMETHOD}==3)
+																										$!{jyjgxx.val02} #else — #end</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; height: 18.5pt; width: 14%;">#if($!{vehiclelogin.CHECKMETHOD}==3)
+																										$!{jyjgxx.val03} #else — #end</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9pt; height: 18.5pt; width: 14.5%;">#if($!{vehiclelogin.CHECKMETHOD}==3)
+																										$!{jyjgxx.val04} #else — #end</td>
+																								</tr>
+																								<tr>
+
+																								</tr>
+																							  <tr style="height: 10px;">
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valsx01})
+																										&nbsp; #else — #end #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valsx02})
+																										$!{jyjgxx.valsx02} #else — #end #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 14%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valsx03})
+																										&nbsp; #else — #end #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 14.5%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valsx04})
+																										$!{jyjgxx.valsx04} #else — #end #else — #end</td>
+																								</tr>
+																							  <tr style="height: 6px;">
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valpd01}
+																										&& $!{jyjgxx.valsx01})
+																										#if($!{jyjgxx.valpd01}==1) ○ #else / #end
+																										#else — #end #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 16%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valpd02}
+																										&& $!{jyjgxx.valsx02})
+																										#if($!{jyjgxx.valpd02}==1) ○ #else / #end
+																										#else — #end #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 14%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valpd03}
+																										&& $!{jyjgxx.valsx03})
+																										#if($!{jyjgxx.valpd03}==1) ○ #else / #end
+																										#else — #end #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; height: 18.5pt; width: 14.5%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==3) #if($!{jyjgxx.valpd04}
+																										&& $!{jyjgxx.valsx04})
+																										#if($!{jyjgxx.valpd04}==1) ○ #else / #end
+																										#else — #end #end</td>
+																								</tr>
+																							</table>
+																						</div>
+																						<div style="height:55px;">
+																						    
+																						</div>
+																						<div>
+																							<table cellspacing="2" cellpadding="2" border="0"
+																								id="GV_Opacity" style="width: 98%;">
+																							  <tr style="height: 10px;">
+																									<td align="center" valign="top" rowspan="4"
+																										style="font-size: 9.5pt; width: 3%;">&nbsp;</td>
+																									<td align="center" rowspan="4"
+																										style="font-size: 9.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9.5pt; width: 9%;">&nbsp;</td>
+																									<td align="center" colspan="3"
+																										style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9.5pt; width: 8.5%;">&nbsp;</td>
+																									<td align="center" rowspan="2"
+																										style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+																									<td align="left" rowspan="4"
+																										style="font-size: 9.5pt; width: 18.5%;"><br />
+																										#if($!{vehiclelogin.CHECKMETHOD}==5) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;NHT-6
+																										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佛山南华
+																								#end</td>
+																								</tr>
+																								<tr>
+																									<td align="center"
+																										style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9.5pt; width: 11%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9.5pt; width: 11%;">&nbsp;</td>
+																								</tr>
+																								<tr>
+																								  <td align="center" rowspan="2"
+																										style="font-size: 9.5pt; width: 15%;">—</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 10%;">#if($!{vehiclelogin.CHECKMETHOD}==5)
+																										#set($st=$mathTool.toDouble($!{jyjgxx.val02})) #set($st=$numberTool.format("0.00", $st)) $st #else — #end</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 11%;">#if($!{vehiclelogin.CHECKMETHOD}==5)
+																										#set($st=$mathTool.toDouble($!{jyjgxx.val03})) #set($st=$numberTool.format("0.00", $st)) $st #else — #end</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 6%;">#if($!{vehiclelogin.CHECKMETHOD}==5)
+																										#set($st=$mathTool.toDouble($!{jyjgxx.val04})) #set($st=$numberTool.format("0.00", $st)) $st #else — #end</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 6%;">#if($!{vehiclelogin.CHECKMETHOD}==5)
+																										#set($st=$mathTool.toDouble($!{jyjgxx.val05})) #set($st=$numberTool.format("0.00", $st)) $st #else — #end</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 6%;">#if($!{vehiclelogin.CHECKMETHOD}==5)
+																										$!{jyjgxx.valsx04} #else — #end</td>
+																									<td align="left" rowspan="2"
+																										style="font-size: 9.5pt; width: 10%;">#if($!{vehiclelogin.CHECKMETHOD}==5)#if($!{jyjgxx.sxjgpd}==1) ○ #else X #end #else — #end </td>
+																								</tr>
+																							  <tr style="height: 6px;">
+
+																								</tr>
+																							</table>
+																						</div>
+																									<div>
+																									<div style="height: 40px;"></div>
+																							<table cellspacing="2" cellpadding="2" border="0"
+																								id="GV_Filter" style="width: 98%;">
+																								
+																								<tr>
+																									<td width="4%" rowspan="3" align="center" valign="bottom"
+																										style="font-size: 9pt; width: 3%;">&nbsp;</td>
+																									<td width="10%" rowspan="3" align="center"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td width="10%" rowspan="3" align="center"
+																										style="font-size: 9pt; width: 9%;">&nbsp;</td>
+																									<td height="23" align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										#set($sj1=$mathTool.toDouble($!{jyjgxx.val01})) #set($sj1=$numberTool.format("0.00", $sj1)) $sj1 #else — #end</td></td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										#set($sj2=$mathTool.toDouble($!{jyjgxx.val02})) #set($sj2=$numberTool.format("0.00", $sj2)) $sj2 #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										#set($sj3=$mathTool.toDouble($!{jyjgxx.val03})) #set($sj3=$numberTool.format("0.00", $sj3)) $sj3 #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										$!{jyjgxx.val04} #else — #end</td>
+																									<td align="center"
+																										style="font-size: 9pt; width: 8.5%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										  #set($sj=$mathTool.toDouble($!{jyjgxx.val04})/$mathTool.toDouble($!{tprefacecheck.fdjgl})*100) #set($sj=$numberTool.format("0.00", $sj)) $sj  #else — #end</td>
+																									<td colspan="2" rowspan="3" align="center"
+																										style="font-size: 9pt; width: 8%;">&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										$!{jyjgxx.val05} #else — #end</td>
+																									<td width="19%" rowspan="3" align="left"
+																										style="font-size: 9pt; width: 18.5%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==4) &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NHT-6
+																										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;佛山南华
+																										#end</td>
+																								</tr>
+																								<tr>
+																								  <td height="10" align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										$!{jyjgxx.valsx01} #else — #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										$!{jyjgxx.valsx02} #else — #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										$!{jyjgxx.valsx03} #else — #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										&nbsp; #else &nbsp; #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 8.5%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										50% #else — #end</td>
+																							    </tr>
+																								<tr >
+																								  <td height="10" align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										#if($!{jyjgxx.valpd01}==1) ○ #else X #end #else — #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										#if($!{jyjgxx.valpd02}==1) ○ #else X #end #else — #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										#if($!{jyjgxx.valpd03}==1) ○ #else X #end #else — #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										&nbsp; #else &nbsp; #end</td>
+																								  <td align="center"
+																										style="font-size: 9pt; width: 8.5%;">&nbsp;&nbsp;&nbsp;&nbsp;#if($!{vehiclelogin.CHECKMETHOD}==4)
+																										<span id="pepd"></span> #else  —  #end</td>
+																								</table>	
+																						</div>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td align="left" colspan="2"
+																						style="border-bottom: 0;"></td>
+																				</tr>
+																				<tr>
+																					<td align="center" colspan="2"
+																						style="border-top: 0">
+																						<div>
+																							<table cellspacing="3" cellpadding="3" border="0"
+																								id="GV_Outlook" style="width: 98%;">
+																								<tr style="height: 15px;">
+																									<td align="center"
+																										style="font-size: 9.5pt; width: 14%;">&nbsp;</td>
+																									<td align="center"
+																										style="font-size: 9.5pt; width: 65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										#if($!{tprefacecheck.BFACECHECK}==1)合格 #else 不合格 #end</td>
+																									<td align="center"
+																										style="font-size: 9.5pt; width: 10%;">&nbsp;</td>
+																									<td align="left"
+																										style="font-size: 9.5pt; width: 11%;">&nbsp;&nbsp;&nbsp;&nbsp;$!{vehiclelogin.EXTERNALPERSON}</td>
+																								</tr>
+																								<tr>
+																									<td align="center" rowspan="5"
+																										style="font-size: 9.5pt; width: 14%;">&nbsp;</td>
+																									<td align="left" colspan="3" rowspan="5"
+																										style="font-size: 9.5pt; width: 65%;">
+																										#if($!{vehiclelogin.CHECKMETHOD}==1)
+																										&nbsp;&nbsp;依据&nbsp;&nbsp;GB18285-2005&nbsp;&nbsp;国家标准，对号牌&nbsp;&nbsp;$!{tprefacecheck.CNUMBERPLATE}
+																										&nbsp;&nbsp;进行排气污染物检测，<br />综合结论为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										#elseif($!{vehiclelogin.CHECKMETHOD}==3)
+																										&nbsp;&nbsp;依据&nbsp;&nbsp;GB18285-2005&nbsp;&nbsp;
+																										国家标准、DB33/660-2016&nbsp;&nbsp;地方标准,对号牌&nbsp;&nbsp;$!{tprefacecheck.CNUMBERPLATE} &nbsp;&nbsp;<br />进行排气污染物检测，综合结论为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										#elseif($!{vehiclelogin.CHECKMETHOD}==4)
+																										&nbsp;&nbsp;依据&nbsp;&nbsp;GB3847-2005&nbsp;&nbsp;国家标准、DB33/843-2013&nbsp;&nbsp;
+																										地方标准，对号牌&nbsp;&nbsp;$!{tprefacecheck.CNUMBERPLATE} &nbsp;&nbsp;<br />进行排气污染物检测，综合结论为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										#elseif($!{vehiclelogin.CHECKMETHOD}==5)
+																										&nbsp;&nbsp;依据&nbsp;&nbsp;GB3847-2005&nbsp;&nbsp;
+																										国家标准，对号牌&nbsp;&nbsp;$!{tprefacecheck.CNUMBERPLATE} &nbsp;&nbsp;<br />进行排气污染物检测，综合结论为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										#end #if($!{jyjgxx.sxjgpd}==1 &&
+																										$!{tprefacecheck.BFACECHECK}==1) 合格 #else 不合格 #end <br />
+																										<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+																										<br />
+																									</td>
+																								</tr>
+																								<tr>
+
+																								</tr>
+																								<tr>
+
+																								</tr>
+																								<tr>
+
+																								</tr>
+																								<tr>
+
+																								</tr>
+																							</table>
+																						</div>
+																						<div>
+																							<table cellspacing="3" cellpadding="2" border="0"
+																								id="GV_Allow" style="width: 98%;">
+																								<tr>
+																									<td align="center"
+																										style="font-size: 10pt; width: 14%;"></td>
+																									<td align="center"
+																										style="font-size: 10pt; width: 44%;"></td>
+																									<td style="font-size: 10pt; width: 18%;">&nbsp;</td>
+																									<td style="font-size: 10pt; width: 24%;">&nbsp;</td>
+																								</tr>
+																							</table>
+																						</div>
+																						<div>
+																							<table cellspacing="2" cellpadding="2" border="0"
+																								id="GV_Desc" style="width: 98%;">
+																								<tr>
+																									<td align="left" style="font-size: 9.5pt;">&nbsp;</td>
+																								</tr>
+																							</table>
+																						</div>
+																						<div></div> &nbsp; &nbsp; &nbsp; &nbsp;
+																						&nbsp;&nbsp;
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+
+																</tr>
+																<tr>
+																	<td align="center">
+
+																		<div class="btn-group">
+																			<button class=" btn btn-xs btn-primary"
+																				name="IBtnPrint" id="IBtnPrint"
+																				onclick="printPage();">打印</button>
+																		</div>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+
+														<div></div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>

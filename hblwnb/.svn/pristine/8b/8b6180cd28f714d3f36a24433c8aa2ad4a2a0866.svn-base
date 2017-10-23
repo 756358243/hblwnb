@@ -1,0 +1,111 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.api.autoPrint;
+
+import java.sql.Timestamp;
+import java.text.DecimalFormat;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.axis.utils.StringUtils;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vkl.common.util.StrUtil;
+import com.vkl.common.util.Util;
+import com.vkl.hblw.dao.domain.RESULTSREPORT;
+import com.vkl.hblw.dao.domain.TPREFACECHECK;
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.dao.persistence.ORIGINALVIDEODao;
+import com.vkl.hblw.dao.persistence.RESULTSREPORTDao;
+import com.vkl.hblw.dao.persistence.TPREFACECHECKDao;
+import com.vkl.hblw.dao.persistence.VEHICLELOGINDao;
+import com.vkl.hblw.setting.config.APIDataConfig;
+
+
+
+/**
+ * @author xieyong
+ * @Date 2017年10月13日上午11:18:58
+ * @Description 智能打印
+ * @updatetime 2017年10月13日
+ */
+@Controller
+@RequestMapping(value = "/api/autoPrint")
+public class AutoPrintController {
+
+	private static final Logger log = Logger.getLogger(AutoPrintController.class);
+
+	/**外检信息*/
+	@Autowired
+	private TPREFACECHECKDao tprefacecheckDao;
+	/**检验结果信息*/
+	@Autowired
+	private RESULTSREPORTDao resultsreportDao;
+	/**车辆状态信息*/
+	@Autowired
+	private VEHICLELOGINDao vehicleloginDao;
+	/**原始视频信息*/
+	@Autowired
+	private ORIGINALVIDEODao originalvideoDao;
+	/**环保接口字段对照*/
+	@Autowired
+	private APIDataConfig apiDataConfig;
+	@Autowired
+	private Util util;
+	
+	private String ret(Model model, String view) {
+		return "/user/print/" + view;
+	}
+	
+	/**
+	 * @author xcc 打印界面
+	 */
+	@RequestMapping("/order")
+	public String dataList(Model model, HttpServletRequest req) throws Exception {
+        /**获取号牌号码*/
+		String cnumberplate = StrUtil.getParamStr(req, "cnumberplate", "");
+		/**获取号牌种类*/
+		String cnumbertype = StrUtil.getParamStr(req, "cnumbertype", "");
+		/**登记时间*/
+		String registertime = StrUtil.getParamStr(req, "registertime", "");
+
+		if (StringUtils.isEmpty(registertime)) {
+			log.error("StringUtils.isEmpty(registertime)");
+			return "/error";
+		}
+		Timestamp registrationTime = Timestamp.valueOf(registertime);
+
+		/**
+		 * 根据号牌号码、号牌种类、登记时间查询数据
+		 */
+		VEHICLELOGIN vehiclelogin = vehicleloginDao.queryByCondition(cnumberplate, cnumbertype, registrationTime);
+		/*if(StringUtils.isEmpty(dlxx.getJybgbm())){
+			log.error("StringUtils.isEmpty(dlxx.getJybgbm())");
+			return "/error";
+		}*/
+		
+		/*TPREFACECHECK 外检信息表里面没有号牌种类字段*/
+		TPREFACECHECK tprefacecheck = tprefacecheckDao.queryByCondition(cnumberplate, cnumbertype, registrationTime);
+
+		// 检验结果
+		RESULTSREPORT resultsreport = resultsreportDao.queryByCondition(cnumberplate, cnumbertype, registrationTime);
+		/*if(resultsreport !=null && !StringUtils.isEmpty(resultsreport.getSd())){
+			double sd = Double.parseDouble(resultsreport.getSd()) * 100;
+			DecimalFormat df = new DecimalFormat("#.0"); 
+			resultsreport.setSd(df.format(sd));
+		}*/
+	
+		model.addAttribute("vehiclelogin", vehiclelogin);
+		model.addAttribute("tprefacecheck", tprefacecheck);//wjxx
+		model.addAttribute("resultsreport", resultsreport);
+
+		return ret(model, "order");
+
+	}
+}

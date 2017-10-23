@@ -1,0 +1,70 @@
+<div id="tab-3" class="tab-pane">
+	<fieldset class="form-horizontal">
+		<div class="ibox">
+			<div class="ibox-content">
+				<h3 class="page-header">登记照片</h3>
+				<div class="docs-galley">
+					<ul class="docs-pictures clearfix">
+						#if($!{jczpDJList} && $!{jczpDJList.size()} > 0) #foreach($jczp in
+						$jczpDJList)
+						<li>
+							<div class="file-box">
+								<div class="file">
+									<a href="#"> <span class="corner"></span>
+										#set($random='?' + $numberTool.format("0.00",$mathTool.getRandom()))
+										#set($strr=$!{jczp.zplj})
+										#set($zplj=$strr.substring($strr.indexOf('picture')) + $random)
+										<div class="image">
+											<img data-original="/$zplj" src="/$zplj">
+										</div>
+										<div class="file-name">
+											#set($key=$!{jczp.nodecode} + $!{jczp.cursor})
+											$!{apiDataConfig.ZPBHMap.get($key)} <br />
+										</div>
+									</a>
+
+								</div>
+							</div>
+						</li> #end #else
+						<lable>没有照片</lable>
+						#end
+
+
+					</ul>
+				</div>
+				<h3 class="page-header">外检照片</h3>
+				<div class="docs-galley">
+					<ul class="docs-pictures clearfix">
+						#if($!{jczpWJList} && $!{jczpWJList.size()} > 0) #foreach($jczp in
+						$jczpWJList)
+						<li>
+							<div class="file-box">
+								<div class="file">
+									<a href="#"> <span class="corner"></span>
+
+										#set($random='?' + $numberTool.format("0.00",$mathTool.getRandom()))
+										#set($strr=$!{jczp.zplj})
+										#set($zplj=$strr.substring($strr.indexOf('picture')) + $random)
+										<div class="image">
+											<img data-original="/$zplj" src="/$zplj">
+										</div>
+										<div class="file-name">
+											#set($key=$!{jczp.nodecode} + $!{jczp.cursor})
+											$!{apiDataConfig.ZPBHMap.get($key)} <br />
+										</div>
+									</a>
+
+								</div>
+							</div>
+						</li> #end #else
+						<lable>没有照片</lable>
+						#end
+
+					</ul>
+				</div>
+
+
+			</div>
+		</div>
+	</fieldset>
+</div>

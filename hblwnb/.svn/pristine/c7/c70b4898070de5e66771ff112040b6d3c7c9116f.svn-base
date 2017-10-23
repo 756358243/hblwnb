@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>机动车检验机构尾气排放联网平台</title>
+
+    <link href="${ctxPath}/static/inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/animate.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/style.css" rel="stylesheet">
+    <link href="${ctxPath}/static/css/newstyle.css" rel="stylesheet">
+	<link href="${ctxPath}/static/inspinia/css/plugins/sweetalert/sweetalert2.min.css" rel="stylesheet">
+</head>
+
+<body class="gray-bg loginbg">
+
+    <div class="middle-box text-center loginscreen animated ">
+        <div class="logincon">
+            <!--<div>
+
+                <h1 class="logo-name"></h1>
+
+            </div>
+            <h3>Welcome to IN+</h3>
+            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.-->
+                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+            <!--</p>
+            <p>Login in. To see it in action.</p>-->
+            <form class="m-t" role="form" id="login-form" action="${ctxPath}/user/doLogin.do">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="yhbh" placeholder="用户名" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="yhmm" placeholder="密码" required>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-inline" style="display:inline-block; float:left; margin-bottom:15px;"> <input type="checkbox" value="option1" id="inlineCheckbox1"><font><font class=""> 记住密码 </font></font></label>
+                    <a href="#" style="display:inline-block; float:right; margin-bottom:15px;"><small>忘记密码?</small></a>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
+                
+                
+            </form>
+            <p class="m-t"><span class="gslogo"></span> <small>南昌市微轲联信息技术有限公司版权所有</small> </p>
+        </div>
+    </div>
+
+    
+
+</body>
+
+
+<script type="text/javascript" src="${ctxPath}/static/inspinia/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="${ctxPath}/static/inspinia/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${ctxPath}/static/js/form/jquery.form.js"></script>
+<script type="text/javascript" src="${ctxPath}/static/js/form/jquery.validationEngine.min.js"></script>
+<script type="text/javascript" src="${ctxPath}/static/js/form/jquery.validationEngine-cn.js"></script>
+<script src="${ctxPath}/static/js/common.js"></script>
+<script src="${ctxPath}/static/inspinia/js/plugins/sweetalert/sweetalert2.min.js"></script>
+
+<script>
+jQuery(document).ready(function(){
+	var retUrl = "$!{retUrl}";
+    
+    $('#login-form').ajaxForm({
+
+		dataType : 'json',
+		success : function(ret) {
+			if (ret.code == 0) {
+		           if (retUrl == ""){
+						retUrl = "${ctxPath}/user/inspect/index.do";
+					}
+		           window.location.href= retUrl;
+		        } else {
+		        	swal({
+							title : ret.info,
+							type : "error",
+							timer : 2000
+						});
+					if(ret.attach == "verifyError"){
+						changeImage();
+					}
+		        }
+		},
+		error : function(data) {
+			swal({
+				title : "服务器错误，请稍候访问！",
+				type : "error",
+				timer : 2000
+			});
+		}
+	});
+   
+});
+</script>
+</html>

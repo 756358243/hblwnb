@@ -1,0 +1,226 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.7
+*
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>机动车检验机构尾气排放联网平台</title>
+
+    <link href="${ctxPath}/static/inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="${ctxPath}/static/inspinia/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="${ctxPath}/static/inspinia/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    
+    <link href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/animate.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/style.css" rel="stylesheet">
+    <link href="${ctxPath}/static/css/newstyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+       #parse("/header.vm")
+
+<div id="page-wrapper" class="gray-bg" >
+        
+        
+        <div class="row wrapper border-bottom white-bg">
+            <div class="col-lg-10">
+                <h2>检验人员信息备案详情</h2>
+                <ol class="breadcrumb crumb">
+                   <li>
+                        <span>当前位置:</span>
+                    </li>
+                    <li>
+                        <a href="index.html">备案信息</a>
+                    </li>
+                    <li>
+                        <span>检验人员信息备案</span>
+                    </li>
+                    <li class="active">
+                        <strong>检验人员信息备案详情</strong>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">检验人员信息备案详情</div>
+                        <div class="ibox-content">
+                        <div class="row">
+                             <div class="">
+                                        <div class="table-responsive">
+                                            <table class="table table-stripped table-bordered">
+                                                <thead>
+                                                <tr><th style="color: #1ab394;" > 基本信息</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                <td>
+                                                        <div class="col-md-2">
+							                                <div class="form-group">
+							                                    <label for="showEasing">检验机构编码</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							
+							                                    <label for="hideEasing">检测线编码</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							                                    <label for="showEasing">人员姓名</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                
+							                              </div>
+							                              <div class="col-md-2">
+							                                <div class="form-group">
+							
+							                                    <label for="hideEasing">人员身份证编号</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							                                    <label for="showEasing">人员手机号码</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							
+							                                    <label for="hideEasing">人员工号</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                
+							                                
+							                              </div>
+							                              <div class="col-md-2">
+							                                <div class="form-group">
+							                                    <label for="showEasing">人员性别</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							
+							                                    <label for="hideEasing">人员类型</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                              </div>
+							                              <div class="col-md-2">
+							                                <div class="form-group">
+							                                    <label for="showEasing">人员学历</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							
+							                                    <label for="hideEasing">入职日期</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                            </div>
+							                            <div class="col-md-2">
+							                                <div class="form-group">
+							                                    <label for="showEasing">离职日期</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							                                    <label for="showEasing">每天上岗时间</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                            </div>
+							                            <div class="col-md-2">
+							                                <div class="form-group">
+							
+							                                    <label for="hideEasing">状态</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                <div class="form-group">
+							                                    <label for="showEasing">登录名称</label>
+							                                    <input type="text" disabled=""  class="form-control" >
+							                                </div>
+							                                
+							                                
+							                              </div>
+							                             
+                                                    </td></tr></tbody></table> 
+                                        </div>
+                                    </div>
+                                   
+                       </div>
+                       
+                       </div>
+                       
+                       
+                    </div>
+                </div>
+            </div>
+            
+                </div>
+                #parse("/footer.vm")
+          </div>
+        </div>
+   
+    <!-- Mainly scripts -->
+    <script src="${ctxPath}/static/inspinia/js/jquery-3.1.1.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/bootstrap.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Flot -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/flot/jquery.flot.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/flot/jquery.flot.pie.js"></script>
+
+    <!-- Peity -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/demo/peity-demo.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="${ctxPath}/static/inspinia/js/inspinia.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="${ctxPath}/static/inspinia/js/demo/sparkline-demo.js"></script>
+
+    <!-- ChartJS-->
+    <script src="${ctxPath}/static/inspinia/js/plugins/chartJs/Chart.min.js"></script>
+
+    <!-- Toastr -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/toastr/toastr.min.js"></script>
+    
+    <script src="${ctxPath}/static/inspinia/js/plugins/dataTables/datatables.min.js"></script>
+
+
+   
+</body>
+</html>

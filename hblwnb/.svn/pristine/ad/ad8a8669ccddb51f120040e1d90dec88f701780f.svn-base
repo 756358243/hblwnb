@@ -1,0 +1,45 @@
+/** 
+ * Project Name:hblw_nb 
+ * File Name:TPREFACECHECKDao.java 
+ * Package Name:com.vkl.hblw.dao.persistence 
+ * Date:2017年10月13日下午2:26:16 
+ * Copyright (c) 2017, chenzhou1025@126.com All Rights Reserved. 
+ * 
+*/  
+  
+package com.vkl.hblw.dao.persistence;
+
+import com.vkl.hblw.dao.domain.TPREFACECHECK;
+import com.vkl.hblw.dao.persistence.base.TPREFACECHECKBaseDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+
+/** 
+* @ClassName: TPREFACECHECKDao 
+* @Description:车辆外检信息dao扩展类 
+* @author aiyun 
+* @date 2017年10月13日 下午2:26:25 
+*  
+*/
+public class TPREFACECHECKDao extends TPREFACECHECKBaseDao {
+
+	
+	/** 
+	* @Title: queryByCcheckcode 
+	* @Description: 根据流水号查询外检信息表
+	* @param CCHECKCODE
+	* @return    设定文件 
+	* @return TPREFACECHECK    返回类型 
+	* @throws 
+	*/
+	public TPREFACECHECK queryByCcheckcode(String CCHECKCODE){
+		TPREFACECHECK tprefacecheck = new TPREFACECHECK();
+		tprefacecheck.setCcheckcode(CCHECKCODE);
+		SqlSelect sql = new SqlSelect().where(TPREFACECHECK.SQL_ccheckcode);
+		tprefacecheck = load(sql, tprefacecheck);
+		return tprefacecheck;
+		
+	}
+	
+}
+  

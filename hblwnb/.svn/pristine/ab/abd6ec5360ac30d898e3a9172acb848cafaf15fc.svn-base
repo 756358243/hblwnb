@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project projectName="hblw" packageBase="com.vkl.hblw.dao" db="oracle" uuid="true"  >
+<Generator name="webapp" destBasePath="" destDomainBasePath="">
+<DaoContextExtend />
+<DomainList />
+</Generator>
+<Domain id="ADMIN"	 table="ADMIN"	 comment="管理员表">
+	<PropList>
+		<Prop id="id"		     column="ID"		     type="String"		 comment=""  primary="true"/>
+		<Prop id="username"		 column="USERNAME"		 type="String"		 comment="用户姓名" />
+		<Prop id="usercode"		 column="USERCODE"		 type="String"		 comment="用户编号" />
+		<Prop id="password"		 column="PASSWORD"		 type="String"		 comment="登录密码" />
+		<Prop id="effectivetime" column="EFFECTIVETIME"	 type="Timestamp"	 comment="用户有效期" />
+		<Prop id="roleid"		 column="ROLEID"		 type="String"		 comment="角色ID" />
+		<Prop id="lastloginip"	 column="LASTLOGINIP"	 type="String"		 comment="最后登录ip" />
+		<Prop id="lastlogintime" column="LASTLOGINTIME"	 type="Timestamp"	 comment="最后登录时间" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONDBQ"	 table="CALIBRATIONDBQ"	 comment="低标气检查记录表">
+	<PropList>
+		<Prop id="id"		     column="ID"		       type="String"	 comment="唯一标识"  primary="true"/>
+		<Prop id="cunitcode"	 column="CUNITCODE"		   type="String"	 comment="检验机构编号" />
+		<Prop id="checkdevicecode" column="CHECKDEVICECODE" type="String"	 comment="检测线编号" />
+		<Prop id="checkdate"	 column="CHECKDATE"		   type="Timestamp"	 comment="检查日期yyyy-mm-dd" />
+		<Prop id="checkbegindate" column="CHECKBEGINDATE"   type="Timestamp" comment="检查开始时间" />
+		<Prop id="c3h8"		     column="C3H8"		       type="Double"		 comment="标准气c3h8浓度10的-6次" />
+		<Prop id="co"		     column="CO"		       type="Double"		 comment="标准气co浓度%" />
+		<Prop id="co2"		     column="CO2"		       type="Double"		 comment="标准气co浓度%" />
+		<Prop id="no"		     column="NO"		       type="int"		 comment="标准气no浓度%" />
+		<Prop id="o2"		     column="O2"		       type="Double"		 comment="标准气o2浓度%" />
+		<Prop id="hcresult"		 column="HCRESULT"		   type="Double"		 comment="hc检查结果值10的-6次" />
+		<Prop id="coresult"		 column="CORESULT"		   type="Double"		 comment="co检查结果值%" />
+		<Prop id="co2result"	 column="CO2RESULT"		   type="Double"		 comment="co2检查结果值%" />
+		<Prop id="noresult"		 column="NORESULT"		   type="Double"		 comment="no检查结果值10的-6次" />
+		<Prop id="o2result"		 column="O2RESULT"		   type="Double"		 comment="" />
+		<Prop id="pefresult"	 column="PEFRESULT"		   type="Double"		 comment="" />
+		<Prop id="result"		 column="RESULT"		   type="String"	 comment="检查结果0 -不合格、1-合格" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONFJGLSS"	 table="CALIBRATIONFJGLSS"	 comment="附加功率损失检查记录表">
+	<PropList>
+		<Prop id="id"		      column="ID"		         type="String"	  comment="唯一标识"  primary="true"/>
+		<Prop id="cunitcode"	  column="CUNITCODE"		 type="String"	  comment="检验机构编号" />
+		<Prop id="checkdevicecode" column="CHECKDEVICECODE"	 type="String"	  comment="检测线编号" />
+		<Prop id="checkdate"	  column="CHECKDATE"		 type="Timestamp" comment="检查日期yyyy-mm-dd" />
+		<Prop id="hxjcbegindate"  column="HXJCBEGINDATE"	 type="Timestamp" comment="滑行检查开始时间，开始时间是滚筒转速下降到48km/h开始的时间" />
+		<Prop id="hxjcenddate"	  column="HXJCENDDATE"		 type="Timestamp" comment="滑行检查结束时间" />
+		<Prop id="s4832sjhx"	  column="S4832SJHX"		 type="Double"		  comment="48-32km/h实际滑行时间acdt40，ms" />
+		<Prop id="s3216sjhx"	  column="S3216SJHX"		 type="Double"		  comment="32-16km/h实际滑行时间acdt40，ms" />
+		<Prop id="s40ns"		  column="S40NS"		     type="Double"		  comment="40km/h时的内损plhp40，kw" />
+		<Prop id="s25ns"		  column="S25NS"		     type="Double"		  comment="25km/h时的内损plhp25，kw" />
+		<Prop id="jbgl"		      column="JBGL"		         type="Double"		  comment="基本惯量diw，kg" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONFXY"	 table="CALIBRATIONFXY"	 comment="分析仪检查记录表">
+	<PropList>
+		<Prop id="id"		         column="ID"		     type="String"	 comment="唯一标识"  primary="true"/>
+		<Prop id="cunitcode"		 column="CUNITCODE"		 type="String"	 comment="检验机构编号" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE" type="String"	 comment="检测线编号" />
+		<Prop id="checkdate"		 column="CHECKDATE"		 type="Timestamp" comment="检查日期yyyy-mm-dd" />
+		<Prop id="type"		         column="TYPE"		     type="String"	  comment="1-低浓度、2-中低浓度、3-中高浓度 4-高浓度、5-零度" />
+		<Prop id="checkbegindate"	 column="CHECKBEGINDATE" type="Timestamp" comment="开始时间是是从通高气开始" />
+		<Prop id="c3h8"		         column="C3H8"		     type="Double"		 comment="标准气c3h8浓度10的-6次" />
+		<Prop id="co"		         column="CO"		     type="Double"		 comment="标准气co浓度%" />
+		<Prop id="co2"		         column="CO2"		     type="Double"		 comment="标准气co2浓度%" />
+		<Prop id="no"		         column="NO"		     type="int"		 comment="标准气no浓度%" />
+		<Prop id="o2"		         column="O2"		     type="Double"		 comment="标准气o2浓度%" />
+		<Prop id="hcresult"		     column="HCRESULT"		 type="Double"		 comment="hc检查结果值10的-6次" />
+		<Prop id="coresult"		     column="CORESULT"		 type="Double"		 comment="co检查结果值%" />
+		<Prop id="co2result"		 column="CO2RESULT"		 type="Double"		 comment="co2检查结果值%" />
+		<Prop id="noresult"		     column="NORESULT"		 type="Double"		 comment="no检查结果值10的-6次" />
+		<Prop id="o2result"		     column="O2RESULT"		 type="Double"		 comment="o2检查结果值%" />
+		<Prop id="pefresult"		 column="PEFRESULT"		 type="Double"		 comment="pef值" />
+		<Prop id="result"		     column="RESULT"		 type="String"	 comment="检查结果0 -不合格、1-合格" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONFXYYLC"	 table="CALIBRATIONFXYYLC"	 comment="分析仪氧量程检查记录表">
+	<PropList>
+		<Prop id="id"		         column="ID"		       type="String"		 comment=""  primary="true"/>
+		<Prop id="cunitcode"		 column="CUNITCODE"		   type="String"		 comment="检验机构编号" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE"  type="String"		 comment="检测线编号" />
+		<Prop id="checkdate"		 column="CHECKDATE"		   type="Timestamp"	     comment="检查日期yyyy-mm-dd" />
+		<Prop id="checkbegindate"	 column="CHECKBEGINDATE"   type="Timestamp"	     comment="检查开始时间" />
+		<Prop id="yqlcbz"		     column="YQLCBZ"		   type="Double"		     comment="氧气量程标值" />
+		<Prop id="yqlcclz"		     column="YQLCCLZ"		   type="Double"		     comment="氧气量程标值" />
+		<Prop id="yqlcwc"		     column="YQLCWC"		   type="Double"		     comment="氧气量程测量值" />
+		<Prop id="result"		     column="RESULT"		   type="String"		 comment="判定结果0-不合格、1-合格" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONJZHX"	 table="CALIBRATIONJZHX"	 comment="加载滑行记录表">
+	<PropList>
+		<Prop id="id"		         column="ID"		     type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="cunitcode"		 column="CUNITCODE"		 type="String"		 comment="检验站编号" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE" type="String"		 comment="检测线编号" />
+		<Prop id="checkdate"		 column="CHECKDATE"		 type="Timestamp"	 comment="检查日期yyyy-mm-dd" />
+		<Prop id="hxjcbegindate"	 column="HXJCBEGINDATE"	 type="Timestamp"	 comment="滑行检查开始时间,开始时间是滚筒转速下降到48km/h开始的时间" />
+		<Prop id="s40ns"		     column="S40NS"		     type="Double"		     comment="40km/h时的内损plhp40，kw" />
+		<Prop id="s25ns"		     column="S25NS"		     type="Double"		     comment="25km/h时的内损plhp25，kw" />
+		<Prop id="s4832myhx"		 column="S4832MYHX"	 	 type="Double"		     comment="48-32km/h名义滑行时间ccdt40，ms" />
+		<Prop id="s3216myhx"		 column="S3216MYHX"		 type="Double"		     comment="32-16km/h名义滑行时间ccdt40，ms" />
+		<Prop id="s4832hxzb"		 column="S4832HXZB"		 type="Double"		     comment="48-32km/h滑行指示功率ihp40，kw" />
+		<Prop id="s3216hxzb"		 column="S3216HXZB"		 type="Double"		     comment="32-16km/h滑行指示功率ihp25，kw" />
+		<Prop id="jbgl"		         column="JBGL"		     type="Double"		     comment="基本惯量diw，kg" />
+		<Prop id="s4832sjhx"		 column="S4832SJHX"		 type="Double"		     comment="48-32km/h实际滑行时间acdt40，ms" />
+		<Prop id="s3216sjhx"		 column="S3216SJHX"		 type="Double"		     comment="32-16km/h实际滑行时间acdt40，ms" />
+		<Prop id="s4832result"		 column="S4832RESULT"	 type="String"		 comment="48-32km/h滑行检查结果0-不合格、1-合格" />
+		<Prop id="s3216result"		 column="S3216RESULT"	 type="String"		 comment="32-16km/h滑行检查结果0-不合格、1-合格" />
+		<Prop id="result"		     column="RESULT"		 type="String"		 comment="判定结果0-不合格、1-合格" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONLLJ"	 table="CALIBRATIONLLJ"	 comment="流量计检查记录表">
+	<PropList>
+		<Prop id="id"		         column="ID"		     type="String"		 comment=""  primary="true"/>
+		<Prop id="yqglcwc"		     column="YQGLCWC"		 type="Double"		     comment="" />
+		<Prop id="yqdlcbz"		     column="YQDLCBZ"		 type="Double"		     comment="氧气低量程标值" />
+		<Prop id="yqdlcclz"		     column="YQDLCCLZ"		 type="Double"		     comment="" />
+		<Prop id="yqdlcwc"		     column="YQDLCWC"		 type="Double"		     comment="" />
+		<Prop id="result"		     column="RESULT"		 type="String"		 comment="检查结果0 -不合格、1-合格" />
+		<Prop id="cunitcode"		 column="CUNITCODE"		 type="String"		 comment="检验机构编号" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE" type="String"		 comment="检测线编号" />
+		<Prop id="checkdate"		 column="CHECKDATE"		 type="Timestamp"	 comment="" />
+		<Prop id="checkbegindate"	 column="CHECKBEGINDATE" type="Timestamp"	 comment="" />
+		<Prop id="yqglcbz"		     column="YQGLCBZ"		 type="Double"		     comment="氧气高量程标值" />
+		<Prop id="yqglcclz"		     column="YQGLCCLZ"		 type="Double"		     comment="" />
+	</PropList>
+</Domain>
+
+<Domain id="CALIBRATIONXL"	 table="CALIBRATIONXL"	 comment="泄漏检查记录表">
+	<PropList>
+		<Prop id="id"		         column="ID"		     type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="cunitcode"		 column="CUNITCODE"		 type="String"		 comment="检验机构编号" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE" type="String"		 comment="检测线编号" />
+		<Prop id="checkdate"		 column="CHECKDATE"		 type="Timestamp"	 comment="检查日期yyyy-mm-dd" />
+		<Prop id="checkbegindate"	 column="CHECKBEGINDATE" type="Timestamp"	 comment="检查开始时间" />
+		<Prop id="result"		     column="RESULT"		 type="String"		 comment="判定结果0-不合格、1-合格" />
+	</PropList>
+</Domain>
+
+<Domain id="ERROR"	 table="ERROR"	 comment="异常信息表">
+	<PropList>
+		<Prop id="id"		         column="ID"		     type="String"		 comment=""  primary="true"/>
+		<Prop id="errorurl"		     column="ERRORURL"		 type="String"		 comment="异常访问路径" />
+		<Prop id="errorinfo"		 column="ERRORINFO"		 type="String"		 comment="异常信息" />
+		<Prop id="errordescribe"	 column="ERRORDESCRIBE"	 type="String"		 comment="异常描述" />
+		<Prop id="errortime"		 column="ERRORTIME"		 type="Timestamp"	 comment="异常发生时间" />
+	</PropList>
+</Domain>
+<Domain id="INFORMATION"	 table="INFORMATION"	 comment="信息发布查询接口">
+	<PropList>
+		<Prop id="id"		     column="ID"		 type="String"		 comment=""  primary="true"/>
+		<Prop id="pdate"		 column="PDATE"		 type="Timestamp"	 comment="发布时间" />
+		<Prop id="mtitle"		 column="MTITLE"	 type="String"		 comment="标题" />
+		<Prop id="mbody"		 column="MBODY"		 type="String"		 comment="" />
+		<Prop id="adate"		 column="ADATE"		 type="Timestamp"	 comment="有效期" />
+		<Prop id="kind"		     column="KIND"		 type="String"		 comment="信息种类" />
+	</PropList>
+</Domain>
+
+<Domain id="INTERFACEJOURNAL"	 table="INTERFACEJOURNAL"	 comment="接口调用日志表">
+	<PropList>
+		<Prop id="id"		          column="ID"		         type="String"		 comment=""  primary="true"/>
+		<Prop id="interfacename"      column="INTERFACENAME"     type="String"		 comment="接口名称" />
+		<Prop id="usetime"		      column="USETIME"		     type="Timestamp"	 comment="使用时间" />
+		<Prop id="interfacedescribe"  column="INTERFACEDESCRIBE" type="String"		 comment="接口描述" />
+		<Prop id="interfaceadvise"	  column="INTERFACEADVISE"	 type="String"		 comment="接口建议" />
+	</PropList>
+</Domain>
+
+<Domain id="JOURNAL"	 table="JOURNAL"	 comment="操作日志信息表">
+	<PropList>
+		<Prop id="id"		     column="ID"		     type="String"		 comment=""  primary="true"/>
+		<Prop id="username"		 column="USERNAME"		 type="String"		 comment="用户名称" />
+		<Prop id="usetime"		 column="USETIME"		 type="Timestamp"	 comment="使用时间" />
+		<Prop id="usedescribe"	 column="USEDESCRIBE"	 type="String"		 comment="使用描述" />
+		<Prop id="usepersonip"	 column="USEPERSONIP"	 type="String"		 comment="使用者使用IP" />
+	</PropList>
+</Domain>
+
+<Domain id="JURISDICTION"	 table="JURISDICTION"	 comment="权限表">
+	<PropList>
+		<Prop id="id"		                 column="ID"		 type="String"		 comment=""  primary="true"/>
+		<Prop id="jurisdictionstate"		 column="JURISDICTIONSTATE"		 type="String"		 comment="权限(0-6)级别权限" />
+		<Prop id="jurisdictiondescribe"		 column="JURISDICTIONDESCRIBE"	 type="String"		 comment="权限描述" />
+	</PropList>
+</Domain>
+
+<Domain id="MONITOCONFIG"	 table="MONITOCONFIG"	 comment="监控配置表">
+	<PropList>
+		<Prop id="id"		       column="ID"		             type="String"		 comment=""  primary="true"/>
+		<Prop id="institution"	   column="INSTITUTION"		     type="String"		 comment="检验机构编号" />
+		<Prop id="cchkdevicecode"  column="CCHKDEVICECODE"	     type="String"		 comment="检验线编号;6位所属行政区代码+2位本地区联网顺序号" />
+		<Prop id="passwaytype"	 column="PASSWAYTYPE"	 type="String"		 comment="通道类别;通道类别 (0 检测线前 1 检测线后 2 司机助手仪 3底盘通道 4 移动式通道 )" />
+		<Prop id="videoip"		   column="VIDEOIP"		         type="String"		 comment="录像机IP" />
+		<Prop id="videopassway"	   column="VIDEOPASSWAY"		 type="String"		 comment="录像机通道" />
+		<Prop id="videousername"   column="VIDEOUSERNAME"		 type="String"		 comment="录像机用户名" />
+		<Prop id="videopassword"   column="VIDEOPASSWORD"		 type="String"		 comment="录像机密码" />
+		<Prop id="camerapassway"   column="CAMERAPASSWAY"		 type="String"		 comment="摄像头通道" />
+		<Prop id="camerausername"  column="CAMERAUSERNAME"		 type="String"		 comment="摄像头用户名" />
+		<Prop id="camerapassword"  column="CAMERAPASSWORD"		 type="String"		 comment="摄像头密码" />
+		<Prop id="videoport"	   column="VIDEOPORT"		     type="String"		 comment="录像机端口" />
+		<Prop id="cameraport"	   column="CAMERAPORT"		     type="String"		 comment="摄像头端口" />
+		<Prop id="cameraip"		   column="CAMERAIP"		     type="String"		 comment="摄像头IP" />
+	</PropList>
+</Domain>
+
+<Domain id="ORIGINALVIDEO"	 table="ORIGINALVIDEO"	 comment="原始视频表">
+	<PropList>
+		<Prop id="id"		         column="ID"		         type="String"		 comment=""  primary="true"/>
+		<Prop id="ccheckcode"		 column="CCHECKCODE"		 type="String"		 comment="检测线编码" />
+		<Prop id="cprefacecheckid"	 column="CPREFACECHECKID"	 type="String"		 comment="外观检测编码" />
+		<Prop id="cunitcode"		 column="CUNITCODE"		     type="String"		 comment="检测机构编码" />
+		<Prop id="videostarttime"	 column="VIDEOSTARTTIME"	 type="Timestamp"	 comment="视频开始时间" />
+		<Prop id="videoendtime"		 column="VIDEOENDTIME"		 type="Timestamp"	 comment="视频结束时间" />
+		<Prop id="orvideourl"		 column="ORVIDEOURL"		 type="String"		 comment="原始视频路径" />
+		<Prop id="videotype"		 column="VIDEOTYPE"		     type="String"		 comment="视频类别;外检，上线检" />
+		<Prop id="videonumber"		 column="VIDEONUMBER"		 type="String"		 comment="视频编码;1-8对应视频" />
+		<Prop id="orvideodownyesorno" column="ORVIDEODOWNYESORNO" type="String"		 comment="原始视频是否下载;是否下载 0未下载 1已下载" />
+		<Prop id="video"		 column="VIDEO"		 type="String"		 comment="通道类别;通道类别 (0 检测线前 1 检测线后 2 司机助手仪 3底盘通道 4 移动式通道 )" />
+		<Prop id="cchkdevicecode"	 column="CCHKDEVICECODE"	 type="String"		 comment="检测线编码" />
+		<Prop id="passwaytype"	 column="PASSWAYTYPE"	 type="String"		 comment="通道类别;通道类别 (0 检测线前 1 检测线后 2 司机助手仪 3底盘通道 4 移动式通道 )" />
+	
+	</PropList>
+</Domain>
+
+<Domain id="PICTURE"	 table="PICTURE"	 comment="图片表">
+	<PropList>
+		<Prop id="id"		         column="ID"		         type="String"		 comment=""  primary="true"/>
+		<Prop id="ccheckcode"		 column="CCHECKCODE"		 type="String"		 comment="检测结果流水号：检测站编码（3位）+流水号（9位）同一检测站唯一" />
+		<Prop id="cprefacecheckid"	 column="CPREFACECHECKID"	 type="String"		 comment="外观编码/检验流水号;3位检测站编号+9位顺序号" />
+		<Prop id="cvehiclecode"		 column="CVEHICLECODE"		 type="String"		 comment="机动车序号;环保机动车序号" />
+		<Prop id="cunitcode"		 column="CUNITCODE"		     type="String"		 comment="检验站编号：3位，当为两位顺序号时首位加0" />
+		<Prop id="picturetype"		 column="PICTURETYPE"		 type="String"		 comment="图片类别;外检，上线检...." />
+		<Prop id="picturenumber"	 column="PICTURENUMBER"		 type="String"		 comment="图片编码;1-8对应图片" />
+		<Prop id="pictureurl"		 column="PICTUREURL"		 type="String"		 comment="图片路径;存放图片路径" />
+		<Prop id="pictureuptime"	 column="PICTUREUPTIME"		 type="Timestamp"	 comment="图片上传时间" />
+		<Prop id="picturestate"		 column="PICTURESTATE"		 type="String"		 comment="图片上传状态;上传标记 （0 未上传 1上传成功 2 上传失败 ）" />
+		<Prop id="pictureuploadtimes" column="PICTUREUPLOADTIMES" type="int"		 comment="上传次数" />
+		<Prop id="picturesize"		 column="PICTURESIZE"		 type="String"		 comment="图片文件大小" />
+		<Prop id="cnumberplate"		 column="CNUMBERPLATE"		 type="String"		 comment="号牌号码" />
+		<Prop id="cnumbertype"		 column="CNUMBERTYPE"		 type="String"		 comment="号牌种类" />
+	</PropList>
+</Domain>
+
+<Domain id="RESULTSREPORT"	 table="RESULTSREPORT"	 comment="结果报告单信息表">
+	<PropList>
+		<Prop id="id"		         column="ID"		          type="String"		 comment=""  primary="true"/>
+		<Prop id="ccheckcode"		 column="CCHECKCODE"		 type="String"		 comment="检测结果流水号：检测站编码（3位）+流水号（9位）同一检测站唯一" />
+		<Prop id="checkmethod"		 column="CHECKMETHOD"		  type="String"		 comment="1-双怠速、2-稳态工况、3-简易瞬态工况、4-加载减速、5-不透光烟度、6-滤纸烟度、7-瞬态（可多选）" />
+	    <Prop id="checkpresentationcode" column="CHECKPRESENTATIONCODE" type="String"	 comment="检测结果报告单编码" />
+	    <Prop id="cnumberplate"		 column="CNUMBERPLATE"		  type="String"		 comment="号牌号码" />
+	    <Prop id="founder"		     column="FOUNDER"		      type="String"		 comment="创建人" />
+	    <Prop id="nvehiclemodelid"	 column="NVEHICLEMODELID"	  type="String"		 comment="机动车型号" />
+	    <Prop id="cvehiclemadefactor" column="CVEHICLEMADEFACTOR"  type="String"		 comment="车辆出厂厂商" />
+	    <Prop id="mdate"		     column="MDATE"		          type="Timestamp"	 comment="出厂日期" />
+	    <Prop id="nstdweight"		 column="NSTDWEIGHT"		  type="int"		 comment="基准质量" />
+	    <Prop id="nmaxweight"		 column="NMAXWEIGHT"		  type="int"		 comment="最大总质量" />
+	    <Prop id="dczz"		         column="DCZZ"		          type="String"		 comment="单车轴重" />
+	    <Prop id="cvin"		         column="CVIN"		          type="String"		 comment="车辆识别代号（车架号）" />
+	    <Prop id="cdriveform"		 column="CDRIVEFORM"		  type="String"		 comment="驱动方式" />
+	    <Prop id="cgearboxtype"		 column="CGEARBOXTYPE"		  type="String"		 comment="变速箱形式" />
+	    <Prop id="gearnum"		     column="GEARNUM"		      type="int"		 comment="档位数" />
+	    <Prop id="cenginemodel"		 column="CENGINEMODEL"		  type="String"		 comment="发动机型号" />
+	    <Prop id="cengineno"		 column="CENGINENO"		      type="String"		 comment="发动机号" />
+	    <Prop id="ncylinder"		 column="NCYLINDER"		      type="int"		 comment="气缸数" />
+	    <Prop id="nletout"		     column="NLETOUT"		      type="Double"		 comment="发动机排量" />
+	    <Prop id="fuelsupply"		 column="FUELSUPPLY"		  type="String"		 comment="燃料供给系统型式" />
+	    <Prop id="nodometer"		 column="NODOMETER"		      type="int"		 comment="里程表读数" />
+	    <Prop id="cfueltype"		 column="CFUELTYPE"		      type="String"		 comment="燃料种类" />
+	    <Prop id="hcltype"		     column="HCLTYPE"		      type="String"		 comment="后处理种类" />
+	    <Prop id="cadmission"		 column="CADMISSION"		  type="String"		 comment="进气方式" />
+	    <Prop id="dregister"		 column="DREGISTER"		      type="Timestamp"   comment="初次登记日期" />
+	    <Prop id="registertime"		 column="REGISTERTIME"		  type="Timestamp"	 comment="登记日期" />
+	    <Prop id="fdjgl"		     column="FDJGL"		          type="String"		 comment="发动机功率" />
+	    <Prop id="brandch"		     column="BRANDCH"		      type="String"		 comment="中文品牌" />
+	    <Prop id="registerperson"    column="REGISTERPERSON"	  type="String"		 comment="登记员" />
+	    <Prop id="operationperson"	 column="OPERATIONPERSON"	  type="String"		 comment="操作员" />
+	    <Prop id="cdrivercode"		 column="CDRIVERCODE"	      type="String"		 comment="引车员" />
+	    <Prop id="ntemperature"		 column="NTEMPERATURE"	      type="Double"		 comment="环境温度" />
+	    <Prop id="natmosphere"		 column="NATMOSPHERE"		  type="Double"		 comment="大气压" />
+	    <Prop id="nhumidity"		 column="NHUMIDITY"		      type="Double"		 comment="相对湿度" />
+	    <Prop id="Λvalue"		     column="ΛVALUE"		      type="Double"		 comment="过量空气系数结果" />
+	    <Prop id="Λupperlimit"		 column="ΛUPPERLIMIT"		  type="Double"		 comment="过量空气系数限值上限" />
+	    <Prop id="Λlowerlimit"		 column="ΛLOWERLIMIT"		  type="Double"		 comment="过量空气系数限值下限" />
+	    <Prop id="Λresult"		     column="ΛRESULT"		      type="String"		 comment="过量空气系数判定" />
+	    <Prop id="nlowidleco"		 column="NLOWIDLECO"		  type="Double"		 comment="低怠速CO结果" />
+	    <Prop id="nlowidlecolimit"   column="NLOWIDLECOLIMIT"	  type="Double"		 comment="低怠速CO限值" />
+	    <Prop id="nlowidlecoresult"	 column="NLOWIDLECORESULT"	  type="String"		 comment="低怠速CO判定" />
+	    <Prop id="nlowidlehc"		 column="NLOWIDLEHC"		  type="Double"		 comment="低怠速HC结果" />
+	    <Prop id="nlowidlehclimit"	 column="NLOWIDLEHCLIMIT"	  type="Double"		 comment="低怠速HC限值" />
+	    <Prop id="nlowidlehcresult"	 column="NLOWIDLEHCRESULT"	  type="String"		 comment="低怠速HC判定结果" />
+	    <Prop id="nhighidleco"		 column="NHIGHIDLECO"		  type="Double"		 comment="高怠速CO结果" />
+	    <Prop id="nhighidlecolimit"	 column="NHIGHIDLECOLIMIT"	  type="Double"		 comment="高怠速CO限值" />
+	    <Prop id="nhighidlehc"		 column="NHIGHIDLEHC"		  type="int"		 comment="HC测量值 高怠速" />
+	    <Prop id="nhighidlehclimit"	 column="NHIGHIDLEHCLIMIT"	  type="Double"		 comment="高怠速HC限值" />
+	    <Prop id="nhighidlehcresult" column="NHIGHIDLEHCRESULT"	  type="String"		 comment="高怠速HC判定结果" />
+	    <Prop id="nlowidlerev"		 column="NLOWIDLEREV"		  type="Double"		 comment="转速 低怠速" />
+	    <Prop id="nhighidlerev"		 column="NHIGHIDLEREV"		  type="Double"		 comment="转速 高怠速" />
+	    <Prop id="cispass"		     column="CISPASS"		      type="String"		 comment="上线最终判定结果" />
+	    <Prop id="bfacecheck"		 column="BFACECHECK"		  type="String"		 comment="外检检测判定结果" />
+	    <Prop id="externalperson"	 column="EXTERNALPERSON"	  type="String"		 comment="外检员" />
+	    <Prop id="cartel"		     column="CARTEL"		      type="String"		 comment="车主联系方式" />
+	</PropList>
+</Domain>
+<Domain id="ROLE"	 table="ROLE"	 comment="角色表">
+	<PropList>
+		<Prop id="id"		         column="ID"		           type="String"		 comment=""  primary="true"/>
+		<Prop id="rolename"		     column="ROLENAME"		       type="String"		 comment="角色名称" />
+		<Prop id="roledescribe"		 column="ROLEDESCRIBE"	       type="String"		 comment="角色描述" />
+		<Prop id="rolestate"		 column="ROLESTATE"		       type="String"		 comment="角色状态,状态 (1正常，0 锁定)" />
+		<Prop id="jurisdictionid"	 column="JURISDICTIONID"       type="String"		 comment="权限id" />
+	</PropList>
+</Domain>
+
+<Domain id="TCHECHDEVICE"	 table="TCHECHDEVICE"	 comment="检测线信息上报表">
+	<PropList>
+		<Prop id="id"		         column="ID"		         type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="cunitcode"		 column="CUNITCODE"		     type="String"		 comment="检验站编号,检验站编号：3位，当为两位顺序号时首位加0" />
+		<Prop id="cchkdevicecode"	 column="CCHKDEVICECODE"	 type="String"		 comment="检验线编号,3位检验站编号+2位顺序号" />
+		<Prop id="dsetupdate"		 column="DSETUPDATE"		 type="Timestamp"	 comment="启用日期,yyyy-mm-dd" />
+		<Prop id="checkmethod"		 column="CHECKMETHOD"		 type="String"		 comment="检验方法,1-双怠速、2-稳态工况、3-简易瞬态工况、4-加载减速、5-不透光烟度、6-滤纸烟度、7-瞬态（可多选）" />
+		<Prop id="cstate"		     column="CSTATE"		     type="String"		 comment="检测线状态,见基础代码说明" />
+		<Prop id="cmanufacturer"	 column="CMANUFACTURER"		 type="String"		 comment="检测线设备厂商" />
+		<Prop id="calibrationdate"	 column="CALIBRATIONDATE"	 type="Timestamp"	 comment="设备检定有效期至,YYYY-MM-DD" />
+		<Prop id="nserial"		     column="NSERIAL"		     type="String"		 comment="检测线名称" />
+		<Prop id="cchkdevicetype"	 column="CCHKDEVICETYPE"	 type="String"		 comment="检测线类型,（0：汽油车 1：轻柴油车 2：重柴油车 3：汽柴混合）" />
+		<Prop id="cisstop"		     column="CISSTOP"		     type="String"		 comment="是否锁止,（0：否 1：是）" />
+		<Prop id="cmeno"		     column="CMENO"		         type="String"		 comment="备注" />
+		<Prop id="neisversion"		 column="NEISVERSION"		 type="String"		 comment="EIS版本号" />
+		<Prop id="cdeviceno"		 column="CDEVICENO"		     type="String"		 comment="EIS传送过来的设备编号" />
+		<Prop id="isasmonitor"		 column="ISASMONITOR"		 type="String"		 comment="黑盒子是否启用,0：否 1：是" />
+		<Prop id="devicename"		 column="DEVICENAME"		 type="String"		 comment="设备名称" />
+		<Prop id="devicetype"		 column="DEVICETYPE"		 type="String"		 comment="型号" />
+		<Prop id="deviceinnerid"	 column="DEVICEINNERID"		 type="String"		 comment="检测线内部工位号,序号,如：01" />
+	</PropList>
+</Domain>
+
+<Domain id="TCHECHDEVICEEQUI"	 table="TCHECHDEVICEEQUI"	 comment="检测线设备表">
+	<PropList>
+		<Prop id="id"		         column="ID"		         type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="smokedate"		 column="SMOKEDATE"		     type="Timestamp"	 comment="烟度计证书有效期,YYYY-MM-DD" />
+		<Prop id="tachometer"		 column="TACHOMETER"		 type="String"		 comment="转速计型号" />
+		<Prop id="tachometerrmanuf"	 column="TACHOMETERRMANUF"	 type="String"		 comment="转速计制造厂商" />
+		<Prop id="tachometervalidity" column="TACHOMETERVALIDITY" type="String"		 comment="转速计鉴定证书" />
+		<Prop id="tachometerdate"	 column="TACHOMETERDATE"	 type="Timestamp"	 comment="转速计证书有效期,YYYY-MM-DD" />
+		<Prop id="oiltemp"		     column="OILTEMP"		     type="String"		 comment="油温传感器型号" />
+		<Prop id="oiltemprrmanuf"	 column="OILTEMPRRMANUF"	 type="String"		 comment="油温传感器制造厂商" />
+		<Prop id="oiltempvalidity"	 column="OILTEMPVALIDITY"	 type="String"		 comment="油温传感器鉴定证书" />
+		<Prop id="oiltempdate"		 column="OILTEMPDATE"		 type="Timestamp"	 comment="油温传感器证书有效期,YYYY-MM-DD" />
+		<Prop id="weather"		     column="WEATHER"		     type="String"		 comment="气象站型号" />
+		<Prop id="weathermanuf"		 column="WEATHERMANUF"		 type="String"		 comment="气象站制造厂商" />
+		<Prop id="weathervalidity"	 column="WEATHERVALIDITY"	 type="String"		 comment="气象站鉴定证书	" />
+		<Prop id="weatherdate"		 column="WEATHERDATE"		 type="Timestamp"	 comment="气象站证书有效期,YYYY-MM-DD" />
+		<Prop id="devicecode"		 column="DEVICECODE"		 type="String"		 comment="检测线编号,3位检验站编号+2位顺序号，同检测线表的检测线编号一致" />
+		<Prop id="dymonum"		     column="DYMONUM"		     type="String"		 comment="测功机编号" />
+		<Prop id="analysernum"		 column="ANALYSERNUM"		 type="String"		 comment="分析仪编号" />
+		<Prop id="flowmeternum"		 column="FLOWMETERNUM"		 type="String"		 comment="流量计编号" />
+		<Prop id="smokenum"		     column="SMOKENUM"		     type="String"		 comment="烟度计编号" />
+		<Prop id="tachometernum"	 column="TACHOMETERNUM"		 type="String"		 comment="转速计编号" />
+		<Prop id="oiltempnum"		 column="OILTEMPNUM"		 type="String"		 comment="油温传感器编号" />
+		<Prop id="weathernum"		 column="WEATHERNUM"		 type="String"		 comment="气象站编号" />
+		<Prop id="dymo"		         column="DYMO"		         type="String"		 comment="底盘测功机型号" />
+		<Prop id="dymomanuf"		 column="DYMOMANUF"		     type="String"		 comment="底盘测功机制造厂商" />
+		<Prop id="dymovalidity"		 column="DYMOVALIDITY"	 	 type="String"		 comment="底盘测功机鉴定证书" />
+		<Prop id="dymodate"		     column="DYMODATE"		     type="Timestamp"	 comment="底盘测功机证书有效期,YYYY-MM-DD" />
+		<Prop id="analyser"		     column="ANALYSER"		     type="String"		 comment="分析仪型号" />
+		<Prop id="analysermanuf"	 column="ANALYSERMANUF"		 type="String"		 comment="分析仪制造厂商" />
+		<Prop id="analyservalidity"	 column="ANALYSERVALIDITY"	 type="String"		 comment="分析仪鉴定证书" />
+		<Prop id="analyservdate"	 column="ANALYSERVDATE"		 type="Timestamp"	 comment="分析仪证书有效期,YYYY-MM-DD" />
+		<Prop id="flowmeter"		 column="FLOWMETER"		     type="String"		 comment="流量计型号" />
+		<Prop id="flowmetermanuf"	 column="FLOWMETERMANUF"	 type="String"		 comment="流量计制造厂商" />
+		<Prop id="flowmetervalidity" column="FLOWMETERVALIDITY"	 type="String"		 comment="流量计鉴定证书" />
+		<Prop id="flowmeterdate"	 column="FLOWMETERDATE"		 type="Timestamp"	 comment="流量计证书有效期,YYYY-MM-DD" />
+		<Prop id="smoke"		     column="SMOKE"		         type="String"		 comment="烟度计型号" />
+		<Prop id="smokermanuf"		 column="SMOKERMANUF"		 type="String"		 comment="烟度计制造厂商" />
+		<Prop id="smokevalidity"	 column="SMOKEVALIDITY"		 type="String"		 comment="烟度计鉴定证书" />
+	</PropList>
+</Domain>
+
+<Domain id="TDIESELOILRESULT"	 table="TDIESELOILRESULT"	 comment="加载减速结果表">
+	<PropList>
+		<Prop id="id"		         column="ID"		         type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="ccheckcode"		 column="CCHECKCODE"		 type="String"		 comment="检验流水号,对同一检验机构，此检验流水号必须唯一，下同" />
+		<Prop id="cunitcode"		 column="CUNITCODE"		     type="String"		 comment="检验机构编号" />
+		<Prop id="cvehiclecode"		 column="CVEHICLECODE"		 type="String"		 comment="机动车序号,环保机动车序号" />
+		<Prop id="ntemperature"		 column="NTEMPERATURE"		 type="Double"		     comment="环境温度,℃" />
+		<Prop id="natmosphere"		 column="NATMOSPHERE"		 type="Double"		     comment="大气压,KPA" />
+		<Prop id="nhumidity"		 column="NHUMIDITY"		     type="Double"		     comment="相对湿度,%" />
+		<Prop id="dcheckdate"		 column="DCHECKDATE"		 type="Timestamp"	 comment="检测日期,YYYY/MM/DD HH:MM:SS" />
+		<Prop id="smokelimit"		 column="SMOKELIMIT"		 type="Double"		     comment="烟度限值,k/m^-1" />
+		<Prop id="nk100"		     column="NK100"		         type="Double"		     comment="100%点排放结果,k/m^-1" />
+		<Prop id="nk90"		         column="NK90"		         type="Double"		     comment="90%点排放结果,k/m^-1" />
+		<Prop id="nk80"		         column="NK80"		         type="Double"		     comment="80%点排放结果,k/m^-1" />
+		<Prop id="npowerlimit"		 column="NPOWERLIMIT"		 type="Double"		     comment="最大轮边功率限值,kw" />
+		<Prop id="npower"		     column="NPOWER"		     type="Double"		     comment="最大轮边功率,kw" />
+		<Prop id="nrevhighlimit"	 column="NREVHIGHLIMIT"		 type="int"		     comment="发动机额定转速上限,r/min" />
+		<Prop id="nrevlowlimit"		 column="NREVLOWLIMIT"		 type="int"		     comment="发动机额定转速下限,r/min" />
+		<Prop id="nrev"		         column="NREV"		         type="int"		     comment="实测发动机额定转速,r/min" />
+		<Prop id="cispass"		     column="CISPASS"		     type="String"		 comment="最终判定,0-不合格，1-合格" />
+		<Prop id="cpersoncode"		 column="CPERSONCODE"		 type="String"		 comment="检测员,名字" />
+		<Prop id="cchkdevicecode"	 column="CCHKDEVICECODE"	 type="String"		 comment="检测线编码" />
+		<Prop id="cfacecheckid"		 column="CFACECHECKID"		 type="String"		 comment="外观检验流水号" />
+		<Prop id="bcancelreasontype" column="BCANCELREASONTYPE"	 type="String"		 comment="终止或无效原因类型" />
+		<Prop id="cdrivercode"		 column="CDRIVERCODE"		 type="String"		 comment="引车员,名称" />
+		<Prop id="checktime"		 column="CHECKTIME"		     type="String"		 comment="检测类别,见基础代码说明" />
+		<Prop id="obdzsq"		     column="OBDZSQ"		     type="String"		 comment="OBD系统故障指示器,0不合格1合格" />
+		<Prop id="obdstatus"		 column="OBDSTATUS"		     type="String"		 comment="通讯是否成功,0不成功 1成功" />
+		<Prop id="obdfailereason"	 column="OBDFAILEREASON"	 type="String"		 comment="OBD通讯失败原因,见基础代码说明" />
+		<Prop id="obdzsqbj"		     column="OBDZSQBJ"		     type="String"		 comment="OBD系统故障指示器是否报警,0否1是" />
+		<Prop id="obdbjmessage"		 column="OBDBJMESSAGE"		 type="String"		 comment="故障代码及故障信息,若故障指示器报警" />
+		<Prop id="wwcxm"		     column="WWCXM"		         type="String"		 comment="OBD就绪状态未完成项目,见基础代码说明" />
+		<Prop id="gzlc"		         column="GZLC"		         type="Double"		     comment="故障里程,km" />
+		<Prop id="obdfj"		     column="OBDFJ"		         type="String"		 comment="是否需要复检,0否1是" />
+		<Prop id="recheckreason"	 column="RECHECKREASON"		 type="String"		 comment="复检内容" />
+		<Prop id="rechecksit"		 column="RECHECKSIT"		 type="String"		 comment="复检情况" />
+		<Prop id="noxvmaslimit"		 column="NOXVMASLIMIT"		 type="Double"		     comment="NOX排放限值" />
+		<Prop id="hcnoxvmaslimit"	 column="HCNOXVMASLIMIT"	 type="Double"		     comment="HC+NOX排放限值" />
+	</PropList>
+</Domain>
+
+<Domain id="TDIESELOILRESULTDATA"	 table="TDIESELOILRESULTDATA"	 comment="加载减速过程数据">
+	<PropList>
+		<Prop id="id"		         column="ID"		         type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="ccheckcode"		 column="CCHECKCODE"		 type="String"		 comment="检验流水号" />
+		<Prop id="cunitcode"		 column="CUNITCODE"		     type="String"		 comment="检验机构编号" />
+		<Prop id="cvehiclecode"		 column="CVEHICLECODE"		 type="String"		 comment="环保机动车序号" />
+		<Prop id="dcheckdate"		 column="DCHECKDATE"		 type="Timestamp"	 comment="全程时序YYYY-MM-DD HH:MM:SS" />
+		<Prop id="datatype"		     column="DATATYPE"		     type="String"		 comment="工况类型。0：功率扫描中1：恢复到100%VelMaxHP过程中2：100%VelMaxHP点检测过程3：90%VelMaxHP点检测过程4：80%VelMaxHP点检测过程注意：80%速度点以后的数据不要！！！" />
+		<Prop id="no"		         column="NO"		         type="int"		     comment="采样时序从1开始递增" />
+		<Prop id="realrev"		     column="REALREV"		     type="int"		     comment="实时车速km/h" />
+		<Prop id="torsion"		     column="TORSION"		     type="int"		     comment="扭力N" />
+		<Prop id="rev"		         column="REV"		         type="int"		     comment="发动机转速(r/min)" />
+		<Prop id="power"		     column="POWER"		         type="Double"		     comment="测功机载荷功率(kW)" />
+		<Prop id="smokek"		     column="SMOKEK"		     type="Double"		     comment="每秒检测的光吸收系数k/m^-1" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE"	 type="String"		 comment="检测线编号" />
+		<Prop id="nox"		         column="NOX"		         type="Double"		     comment="五气分析仪NO实时值，浓度延时值(10^-6)" />
+	</PropList>
+</Domain>
+
+<Domain id="TDOUBLEIDEDATA"	 table="TDOUBLEIDEDATA"	 comment="双怠速检测过程数据">
+	<PropList>
+		<Prop id="id"		         column="ID"		     type="String"	 comment="唯一标识"  primary="true"/>
+		<Prop id="ccheckcode"		 column="CCHECKCODE"	 type="String"	 comment="检验流水号" />
+		<Prop id="cunitcode"		 column="CUNITCODE"		 type="String"	 comment="检验机构编号" />
+		<Prop id="cvehiclecode"		 column="CVEHICLECODE"	 type="String"	 comment="机动车序号" />
+		<Prop id="timecount"		 column="TIMECOUNT"		 type="Double"		 comment="过程数据流水号 1开始每条递增" />
+		<Prop id="datatype"		     column="DATATYPE"		 type="String"	 comment="工况类型。1：高怠速检测中0：低怠速检测中" />
+		<Prop id="hc"		         column="HC"		     type="Double"		 comment="hc测量值" />
+		<Prop id="co"		         column="CO"		     type="Double"		 comment="co测量值%" />
+		<Prop id="o2"		         column="O2"		     type="int"		 comment="o2测量值%" />
+		<Prop id="co2"		         column="CO2"		     type="int"		 comment="co2测量值%" />
+		<Prop id="lambda"		     column="LAMBDA"		 type="Double"		 comment="过量空气系数" />
+		<Prop id="rev"		         column="REV"		     type="int"		 comment="转速r/min" />
+		<Prop id="oiltemperature"	 column="OILTEMPERATURE" type="Double"		 comment="油温℃" />
+		<Prop id="ntemperature"		 column="NTEMPERATURE"	 type="Double"		 comment="环境温度℃" />
+		<Prop id="nhumidity"		 column="NHUMIDITY"		 type="Double"		 comment="相对湿度%" />
+		<Prop id="natmosphere"		 column="NATMOSPHERE"	 type="Double"		 comment="大气压力KPA" />
+		<Prop id="cfacecheckid"		 column="CFACECHECKID"	 type="String"	 comment="外观检验流水号" />
+		<Prop id="checkdevicecode"	 column="CHECKDEVICECODE" type="String"	 comment="检测线编码" />
+	</PropList>
+</Domain>
+
+<Domain id="TDOUBLEIDLE"	 table="TDOUBLEIDLE"	 comment="双怠速结果信息表">
+	<PropList>
+		<Prop id="id"		             column="ID"		             type="String"		 comment="唯一标识"  primary="true"/>
+		<Prop id="nhighidlecolimit"		 column="NHIGHIDLECOLIMIT"		 type="Double"		     comment="高怠速CO限值,%" />
+		<Prop id="nhighidleco"		     column="NHIGHIDLECO"		     type="Double"		     comment="高怠速CO结果,%" />
+		<Prop id="nhighidlecoresult"	 column="NHIGHIDLECORESULT"		 type="String"		 comment="高怠速CO判定结果,0-不合格；1-合格" />
+		<Prop id="nhighidlehclimit"		 column="NHIGHIDLEHCLIMIT"		 type="Double"		     comment="高怠速HC限值,10^-6" />
+		<Prop id="nhighidlehc"		     column="NHIGHIDLEHC"		     type="int"		     comment="HC测量值 高怠速,10^-6" />
+		<Prop id="nhighidlehcresult"	 column="NHIGHIDLEHCRESULT"		 type="String"		 comment="高怠速HC判定结果,0-不合格；1-合格" />
+		<Prop id="cispass"		         column="CISPASS"		         type="String"		 comment="最终判定结果,0-不合格；1-合格" />
+		<Prop id="nhignidleno"		     column="NHIGNIDLENO"		     type="int"		     comment="NO测量值高怠速" />
+		<Prop id="nhignidleno2"		     column="NHIGNIDLENO2"		     type="int"		     comment="NO测量值低怠速" />
+		<Prop id="nhighidlerev"		     column="NHIGHIDLEREV"		     type="Double"		     comment="转速高怠速" />
+		<Prop id="nlowidlerev"		     column="NLOWIDLEREV"		     type="Double"		     comment="转速低怠速" />
+		<Prop id="cpersoncode"		     column="CPERSONCODE"		     type="String"		 comment="检测员ID" />
+		<Prop id="cchkdevicecode"		 column="CCHKDEVICECODE"		 type="String"		 comment="检测线编号" />
+		<Prop id="dcheckenddate"		 column="DCHECKENDDATE"		     type="Timestamp"	 comment="检测结束时间" />
+		<Prop id="bcancelreasontype"	 column="BCANCELREASONTYPE"		 type="String"		 comment="终止或无效原因类型,见基础代码说明" />
+		<Prop id="cdrivercode"		     column="CDRIVERCODE"		     type="String"		 comment="驾驶员ID" />
+		<Prop id="oiltemperature"		 column="OILTEMPERATURE"		 type="Double"		     comment="油温" />
+		<Prop id="cfacecheckid"		     column="CFACECHECKID"		     type="String"		 comment="外观检验流水号" />
+		<Prop id="checktime"		     column="CHECKTIME"		         type="String"		 comment="检测类别,见基础代码说明" />
+		<Prop id="obdzsq"		         column="OBDZSQ"		         type="String"		 comment="OBD系统故障指示器,0不合格1合格" />
+		<Prop id="obdstatus"		     column="OBDSTATUS"		         type="String"		 comment="通讯是否成功,0不成功 1成功" />
+		<Prop id="obdobdfailereason"	 column="OBDOBDFAILEREASON"		 type="String"		 comment="OBD通讯失败原因,见基础代码说明" />
+		<Prop id="obdzsqbj"		         column="OBDZSQBJ"		         type="String"		 comment="OBD系统故障指示器是否报警,0否1是" />
+		<Prop id="obdbjmessage"		     column="OBDBJMESSAGE"		     type="String"		 comment="故障代码及故障信息,若故障指示器报警" />
+		<Prop id="wwcxm"		         column="WWCXM"		             type="String"		 comment="OBD就绪状态未完成项目,见基础代码说明" />
+		<Prop id="gzlc"		             column="GZLC"		             type="Double"		     comment="故障里程,km" />
+		<Prop id="obdfj"	 	         column="OBDFJ"		             type="String"		 comment="是否需要复检,0否1是" />
+		<Prop id="recheckreason"		 column="RECHECKREASON"		     type="String"		 comment="复检内容" />
+		<Prop id="rechecksit"		     column="RECHECKSIT"		     type="String"		 comment="复检情况" />
+	    <Prop id="nid"		             column="NID"		             type="String"		 comment="检验流水号,对同一检验机构，此检验流水号必须唯一，下同" />
+		<Prop id="cunitcode"		     column="CUNITCODE"		         type="String"		 comment="检验机构编号,按检验机构备案信息编号" />
+		<Prop id="cvehiclecode"		     column="CVEHICLECODE"		     type="String"		 comment="机动车序号,环保机动车标识" />
+		<Prop id="ntemperature"		     column="NTEMPERATURE"		     type="Double"		     comment="环境温度,℃" />
+		<Prop id="natmosphere"		     column="NATMOSPHERE"		     type="Double"		     comment="大气压" />
+		<Prop id="nhumidity"		     column="NHUMIDITY"		         type="Double"		     comment="相对湿度" />
+		<Prop id="dcheckbegindate"		 column="DCHECKBEGINDATE"		 type="Timestamp"	 comment="检测开始时间,按“YYYY/MM/DD HH:MM:SS”格式填写" />
+		<Prop id="λlowerlimit"		     column="ΛLOWERLIMIT"		     type="Double"		     comment="过量空气系数限值下限" />
+		<Prop id="λupperlimit"		     column="ΛUPPERLIMIT"		     type="Double"		     comment="过量空气系数限值上限" />
+		<Prop id="λvalue"		         column="ΛVALUE"		         type="Double"		     comment="过量空气系数结果" />
+		<Prop id="λresult"		         column="ΛRESULT"		         type="String"		 comment="过量空气系数判定,0-不合格；1-合格" />
+		<Prop id="nlowidlecolimit"		 column="NLOWIDLECOLIMIT"		 type="Double"		     comment="低怠速CO限值,%" />
+		<Prop id="nlowidleco"		     column="NLOWIDLECO"		     type="Double"		     comment="低怠速CO结果,%" />
+		<Prop id="nlowidlecoresult"		 column="NLOWIDLECORESULT"		 type="String"		 comment="低怠速CO判定,0-不合格；1-合格" />
+		<Prop id="nlowidlehclimit"		 column="NLOWIDLEHCLIMIT"		 type="Double"		     comment="低怠速HC限值,10^-6" />
+		<Prop id="nlowidlehc"		     column="NLOWIDLEHC"		     type="Double"		     comment="低怠速HC结果" />
+		<Prop id="nlowidlehcresult"		 column="NLOWIDLEHCRESULT"		 type="String"		 comment="低怠速HC判定结果,0-不合格；1-合格" />
+	</PropList>
+</Domain>
+
+<Domain id="TFREEACCESPEED"	 table="TFREEACCESPEED"	 comment="自由加速结果表">
+	<PropList>
+		<Prop id="id"		             column="ID"		           type="String"	 comment="唯一标识"  primary="true"/>
+		<Prop id="nid"		             column="NID"		           type="String"	 comment="检验流水号,对同一检验机构，此检验流水号必须唯一（3位检测站编号+9位流水号）" />
+		<Prop id="cunitcode"		     column="CUNITCODE"		       type="String"	 comment="检验机构编号" />
+		<Prop id="cvehiclecode"		     column="CVEHICLECODE"		   type="String"	 comment="机动车序号" />
+		<Prop id="dcheckbegindate"	     column="DCHECKBEGINDATE"	   type="Timestamp"	 comment="检测开始时间,YYYY/MM/DD HH:MM:SS" />
+		<Prop id="dcheckenddate"		 column="DCHECKENDDATE"		   type="Timestamp"	 comment="检测结束时间,YYYY/MM/DD HH:MM:SS" />
+		<Prop id="nfreedomsmokerblimit"	 column="NFREEDOMSMOKERBLIMIT" type="Double"		 comment="排放限值" />
+		<Prop id="nfreedomsmokerb"		 column="NFREEDOMSMOKERB"	   type="Double"		 comment="排放结果1" />
+		<Prop id="nfreedomsmokerb2"		 column="NFREEDOMSMOKERB2"	   type="Double"		 comment="排放结果2" />
+		<Prop id="nfreedomsmokerb3"		 column="NFREEDOMSMOKERB3"	   type="Double"		 comment="排放结果3" />
+		<Prop id="nfreedomsmokerb4"		 column="NFREEDOMSMOKERB4"	   type="Double"		 comment="排放结果4" />
+		<Prop id="nfreedomsmokeavg"		 column="NFREEDOMSMOKEAVG"	   type="Double"		 comment="排放平均值" />
+		<Prop id="cispass"		         column="CISPASS"		     type="String"		 comment="排放判定,0-不合格，1-合格" />
+		<Prop id="cfacecheckid"		     column="CFACECHECKID"		 type="String"		 comment="外观检查编码" />
+		<Prop id="nfreedomrev1"		     column="NFREEDOMREV1"		 type="Double"		     comment="转速1" />
+		<Prop id="nfreedomrev2"		     column="NFREEDOMREV2"		 type="Double"		     comment="转速2" />
+		<Prop id="nfreedomrev3"		     column="NFREEDOMREV3"		 type="Double"		     comment="转速3" />
+		<Prop id="cpersoncode"		     column="CPERSONCODE"		 type="String"		 comment="检测员,名字" />
+		<Prop id="cchkdevicecode"		 column="CCHKDEVICECODE"	 type="String"		 comment="检测线编码" />
+		<Prop id="ntemperature"		     column="NTEMPERATURE"		 type="Double"		     comment="温度" />
+		<Prop id="natmosphere"		     column="NATMOSPHERE"		 type="Double"		     comment="大气压" />
+		<Prop id="nhumidity"		     column="NHUMIDITY"		     type="Double"		     comment="相对湿度" />
+		<Prop id="bcancelreasontype"	 column="BCANCELREASONTYPE"	 type="String"		 comment="终止或者无效原因类型,见基础代码说明" />
+		<Prop id="idlerev"		         column="IDLEREV"		     type="Double"		     comment="转速" />
+		<Prop id="isflag"		         column="ISFLAG"		     type="String"		 comment="标志：烟度和滤纸表示位,0滤纸；1烟度" />
+		<Prop id="cdrivercode"		     column="CDRIVERCODE"		 type="String"		 comment="引车员,名字" />
+		<Prop id="checktime"		     column="CHECKTIME"		     type="String"		 comment="检测类别,见基础代码说明" />
+		<Prop id="obdzsq"		         column="OBDZSQ"		     type="String"		 comment="OBD系统故障指示器,0不合格1合格" />
+		<Prop id="obdstatus"		     column="OBDSTATUS"		     type="String"		 comment="通讯是否成功,0不成功 1成功" />
+		<Prop id="obdfailereason"		 column="OBDFAILEREASON"	 type="String"		 comment="OBD通讯失败原因,见基础代码说明" />
+		<Prop id="obdzsqbj"		         column="OBDZSQBJ"		     type="String"		 comment="OBD系统故障指示器是否报警,0否1是" />
+		<Prop id="obdbjmessage"		     column="OBDBJMESSAGE"		 type="String"		 comment="故障代码及故障信息,若故障指示器报警" />
+		<Prop id="wwcxm"		         column="WWCXM"		         type="String"		 comment="OBD就绪状态未完成项目,见基础代码说明" />
+		<Prop id="gzlc"		             column="GZLC"		         type="Double"		     comment="故障里程,km" />
+		<Prop id="obdfj"		         column="OBDFJ"		         type="String"		 comment="是否需要复检,0否1是" />
+        <Prop id="recheckreason"		 column="RECHECKREASON"		 type="String"		 comment="复检内容" />
+		<Prop id="rechecksit"		     column="RECHECKSIT"		 type="String"		 comment="复检情况" />
+	</PropList>
+</Domain>
+
+<Domain id="TFREESPEEDDATA"	 table="TFREESPEEDDATA"	 comment="自由加速过程数据">
+	<PropList>
+		<Prop id="id"		      column="ID"		        type="String"		 comment="唯一标识" primary="true"/>
+		<Prop id="dcheckdate"     column="DCHECKDATE"		type="Timestamp"	 comment="全程时序YYYY-MM-DD HH:MM:SS" />
+		<Prop id="datatype"		  column="DATATYPE"		    type="String"		 comment="工况类型。1为第一次，2为第二次，以此类推" />
+		<Prop id="timecount"	  column="TIMECOUNT"		type="int"		     comment="采样时序从1开始递增yyyy-mm-dd hh:mm:ss" />
+		<Prop id="smokerb"		  column="SMOKERB"		    type="Double"		     comment="每秒检测的烟度值(Rb)" />
+		<Prop id="idlerev"		  column="IDLEREV"		    type="Double"		     comment="发动机转速(r/min)" />
+		<Prop id="ccheckcode"	  column="CCHECKCODE"		type="String"		 comment="检测流水号" />
+		<Prop id="cunitcode"	  column="CUNITCODE"		type="String"		 comment="检验机构编号" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		type="String"		 comment="机动车序号" />
+		<Prop id="no"		      column="NO"		        type="int"		     comment="逐秒，从1开始，每条递增1" />
+		<Prop id="checkdevicecode" column="CHECKDEVICECODE"  type="String"		 comment="检测线编号" />
+		<Prop id="cfacecheckid"	  column="CFACECHECKID"		type="String"		 comment="外观检验流水号" />
+	</PropList>
+</Domain>
+
+<Domain id="TGASVMASDATA"	 table="TGASVMASDATA"	 comment="简易瞬态检测过程中数据">
+	<PropList>
+		<Prop id="id"		      column="ID"		        type="String"		 comment="唯一标识" primary="true"/>
+		<Prop id="wqsjll"		  column="WQSJLL"		    type="Double"		     comment="尾气实际排放流量L/s" />
+		<Prop id="velocity"		  column="VELOCITY"		    type="Double"		     comment="滚筒线速度(km/h)" />
+		<Prop id="torque"		  column="TORQUE"		    type="Double"		     comment="扭矩(Nm)" />
+		<Prop id="airflowall"	  column="AIRFLOWALL"		type="Double"		     comment="流量分析仪稀释排放气体总流量(m3/min)，未修正" />
+		<Prop id="cfacecheckid"	  column="CFACECHECKID"		type="String"		 comment="外观检验流水号" />
+		<Prop id="ccheckcode"	  column="CCHECKCODE"		type="String"		 comment="检验流水号，对同一检验机构，此检验流水号必须唯一，下同" />
+		<Prop id="cunitcode"	  column="CUNITCODE"		type="String"		 comment="检验机构编号" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		type="String"		 comment="机动车序号" />
+		<Prop id="timecount"	  column="TIMECOUNT"		type="Timestamp"	 comment="全程时序 YYYY-MM-DD HH:MM:SS" />
+		<Prop id="datatype"		  column="DATATYPE"		    type="String"		 comment="工况类型。0：15km/h等速检测中1：32km/h等速检测中2：50km/h等速检测中3：35km/h等速检测中4：怠速检测中5：加速过程6：减速过程" />
+		<Prop id="no"		      column="NO"		        type="int"		     comment="采样时序从1开始递增" />
+		<Prop id="rev"		      column="REV"		        type="int"		     comment="发动机转速(r/min)" />
+		<Prop id="hc"		      column="HC"		        type="Double"		     comment="五气分析仪HC实时值，浓度延时值(10-6)" />
+		<Prop id="co"		      column="CO"		        type="Double"		     comment="五气分析仪CO实时值，浓度延时值(%)" />
+		<Prop id="co2"		      column="CO2"		        type="Double"		     comment="五气分析仪CO2实时值，浓度延时值(%)" />
+		<Prop id="nox"		      column="NOX"		        type="Double"		     comment="五气分析仪NO实时值，浓度延时值(10-6)" />
+		<Prop id="hj02"		      column="HJ02"		        type="Double"		     comment="环境02浓度" />
+		<Prop id="o2"		      column="O2"		        type="Double"		     comment="分析仪O2实时值" />
+		<Prop id="airflowo2"	  column="AIRFLOWO2"		type="Double"		     comment="流量计O2实时值" />
+		<Prop id="hcquality"	  column="HCQUALITY"		type="int"		     comment="HC排放质量" />
+		<Prop id="coquality"	  column="COQUALITY"		type="int"		     comment="CO排放质量" />
+		<Prop id="noquality"	  column="NOQUALITY"		type="int"		     comment="NO排放质量" />
+		<Prop id="standardrev"	  column="STANDARDREV"		type="int"		     comment="标准时速" />
+		<Prop id="realrev"		  column="REALREV"		    type="int"		     comment="实时车速" />
+		<Prop id="torsion"		  column="TORSION"		    type="int"		     comment="扭力" />
+		<Prop id="power"		  column="POWER"		    type="Double"		     comment="加载功率(kW)" />
+		<Prop id="ntemperature"	  column="NTEMPERATURE"		type="Double"		     comment="环境温度℃" />
+		<Prop id="nhumidity"	  column="NHUMIDITY"		type="Double"		     comment="相对湿度%" />
+		<Prop id="natmosphere"	  column="NATMOSPHERE"		type="Double"		     comment="大气压力kPa" />
+		<Prop id="flowtemperature" column="FLOWTEMPERATURE"	type="int"		     comment="流量计温度" />
+		<Prop id="flowpressure"	  column="FLOWPRESSURE"	    type="int"		     comment="流量计压力KPA" />
+		<Prop id="actualvolumeflow" column="ACTUALVOLUMEFLOW" type="Double"		     comment="实际体积流量L/s" />
+		<Prop id="standardvolumeflow" column="STANDARDVOLUMEFLOW" type="Double"		 comment="标准体积流量L/S" />
+		<Prop id="wdxzxs"		  column="WDXZXS"		    type="int"		     comment="湿度修正系数" />
+		<Prop id="xsxzxs"		  column="XSXZXS"		    type="int"		     comment="稀释修正系数" />
+		<Prop id="xsbl"		      column="XSBL"		        type="int"		     comment="稀释比例" />
+		<Prop id="fxyyl"		  column="FXYYL"		    type="int"		     comment="分析仪管路压力KPA" />
+	</PropList>
+</Domain>
+
+<Domain id="TGASVMASRESULT"	 table="TGASVMASRESULT"	 comment="null">
+	<PropList>
+		<Prop id="id"		      column="ID"		        type="String"		 comment="唯一标识" primary="true"/>
+		<Prop id="ccheckcode"	  column="CCHECKCODE"		type="String"		 comment="检验流水号,检测结果流水号：检验机构编号（3位）+流水号（9位）同一检测站唯一" />
+		<Prop id="cunitcode"	  column="CUNITCODE"		type="String"		 comment="检验机构编号,检验机构编号：3位，当为两位顺序号时首位加0" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		type="String"		 comment="机动车序号" />
+		<Prop id="ntemperature"	  column="NTEMPERATURE"		type="Double"		     comment="环境温度,℃" />
+		<Prop id="natmosphere"	  column="NATMOSPHERE"		type="Double"		     comment="大气压，kPa" />
+		<Prop id="nhumidity"	  column="NHUMIDITY"		type="Double"		     comment="相对湿度，%" />
+		<Prop id="dcheckbegindate" column="DCHECKBEGINDATE"	type="Timestamp"	 comment="检测开始时间，YYYY/MM/DD HH:MM:SS" />
+		<Prop id="dcheckenddate"  column="DCHECKENDDATE"	type="Timestamp"	 comment="检测结束时间，YYYY/MM/DD HH:MM:SS" />
+		<Prop id="power"		  column="POWER"		    type="Double"		     comment="测功机设定功率(kW),kw" />
+		<Prop id="hcvmaslimit"	  column="HCVMASLIMIT"		type="Double"		     comment="HC排放限值,g/km" />
+		<Prop id="covmaslimit"	  column="COVMASLIMIT"		type="Double"		     comment="CO排放限值,g/km" />
+		<Prop id="noxvmaslimit"	  column="NOXVMASLIMIT"		type="Double"		     comment="NOX排放限值,g/km（如适用）" />
+		<Prop id="hcnoxvmaslimit" column="HCNOXVMASLIMIT"	type="Double"		     comment="HC+NOX排放限值,g/km" />
+		<Prop id="hc"		      column="HC"		        type="Double"		     comment="HC排放结果,g/km" />
+		<Prop id="co"		      column="CO"		        type="Double"		     comment="CO排放结果,g/km" />
+		<Prop id="nox"		      column="NOX"		        type="Double"		     comment="NOX排放结果,g/km" />
+		<Prop id="hcnox"		  column="HCNOX"		    type="Double"		     comment="HC+NOX排放结果,g/km（如适用）" />
+		<Prop id="hcresult"		  column="HCRESULT"		    type="String"		 comment="HC排放判定,0-不合格、1-合格" />
+		<Prop id="coresult"		  column="CORESULT"		    type="String"		 comment="CO排放判定,0-不合格、1-合格" />
+		<Prop id="noxresult"	  column="NOXRESULT"		type="String"		 comment="NOX排放判定,0-不合格、1-合格" />
+		<Prop id="hcnoxresult"	  column="HCNOXRESULT"		type="String"		 comment="HC+NOX判定,0-不合格、1-合格" />
+		<Prop id="cispass"		  column="CISPASS"		    type="String"		 comment="最终判定结果,0-不合格、1-合格" />
+		<Prop id="cfacecheckid"	  column="CFACECHECKID"		type="String"		 comment="外观检验流水号,3位检测站编号+9位流水号与A1.2.2的检验流水号相同。" />
+		<Prop id="ambiento2"	  column="AMBIENTO2"		type="Double"		     comment="流量分析仪环境O2（%）" />
+		<Prop id="residualhc"	  column="RESIDUALHC"		type="Double"		     comment="残留HC（10-6,)最小为0" />
+		<Prop id="testtime"		  column="TESTTIME"		    type="String"		 comment="有效测试时间(s)" />
+		<Prop id="airflowall"	  column="AIRFLOWALL"		type="Double"		     comment="流量分析仪稀释排放气体总流量(m3/min)" />
+		<Prop id="co2"		      column="CO2"		        type="Double"		     comment="VMAS  CO2测量结果（g/km）" />
+		<Prop id="cchkdevicecode" column="CCHKDEVICECODE"	type="String"		 comment="检测线编码" />
+		<Prop id="cpersoncode"	  column="CPERSONCODE"		type="String"		 comment="检测人员,名字" />
+		<Prop id="bcancelreasontype" column="BCANCELREASONTYPE" type="String"	 comment="终止或者无效原因类型,见基础代码说明" />
+		<Prop id="ext_col2"		  column="EXT_COL2"		    type="String"		 comment="通过EIS过程数据计算检测结果" />
+		<Prop id="cdrivercode"	  column="CDRIVERCODE"		type="String"		 comment="引车员,名字" />
+		<Prop id="checktime"	  column="CHECKTIME"		type="String"		 comment="检测类别,见基础代码说明" />
+		<Prop id="obdzsq"		  column="OBDZSQ"		    type="String"		 comment="OBD系统故障指示器,0不合格1合格" />
+		<Prop id="obdstatus"	  column="OBDSTATUS"		type="String"		 comment="通讯是否成功,0不成功 1成功" />
+		<Prop id="obdfailereason" column="OBDFAILEREASON"	type="String"		 comment="OBD通讯失败原因,见基础代码说明" />
+		<Prop id="obdzsqbj"		  column="OBDZSQBJ"		    type="String"		 comment="OBD系统故障指示器是否报警,0否1是" />
+		<Prop id="obdbjmessage"	  column="OBDBJMESSAGE"		type="String"		 comment="故障代码及故障信息,若故障指示器报警" />
+		<Prop id="wwcxm"		  column="WWCXM"		    type="String"		 comment="OBD就绪状态未完成项目,见基础代码说明" />
+		<Prop id="gzlc"		      column="GZLC"		        type="Double"		     comment="故障里程,km" />
+		<Prop id="obdfj"		  column="OBDFJ"		    type="String"		 comment="是否需要复检,0否1是" />
+		<Prop id="recheckreason"  column="RECHECKREASON"	type="String"		 comment="复检内容" />
+		<Prop id="rechecksit"	  column="RECHECKSIT"		type="String"		 comment="复检情况" />
+	</PropList>
+</Domain>
+
+<Domain id="TPREFACECHECK"	 table="TPREFACECHECK"	 comment="外检信息表">
+	<PropList>
+		<Prop id="id"		      column="ID"		        type="String"		 comment="唯一标识" primary="true"/>
+		<Prop id="ccheckcode" column="CCHECKCODE"	type="String"		         comment="外观检验流水号,3位检测站编号+9位顺序号" />
+		<Prop id="cprefacecheckid" column="CPREFACECHECKID"	type="String"		 comment="外观检验流水号,3位检测站编号+9位顺序号" />
+		<Prop id="cunitcode"	  column="CUNITCODE"		type="String"		 comment="检验机构编号.3位" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		type="String"		 comment="机动车序号,环保机动车序号" />
+		<Prop id="cnumberplate"	  column="CNUMBERPLATE"		type="String"		 comment="号牌号码,带首位汉字，教练、警用需要带末位汉字" />
+		<Prop id="cplatetype"	  column="CPLATETYPE"		type="String"		 comment="车牌颜色,见基础代码说明" />
+		<Prop id="cvin"		      column="CVIN"		        type="String"		 comment="机动车识别代号,完整的VIN号或车架号" />
+		<Prop id="cenginemodelno" column="CENGINEMODELNO"	type="String"		 comment="发动机编号" />
+		<Prop id="cvehiclestyle"  column="CVEHICLESTYLE"	type="String"		 comment="机动车类型,按GA24.4" />
+		<Prop id="cpurposeid"	  column="CPURPOSEID"		type="String"		 comment="使用性质,按GA24.3" />
+		<Prop id="dregister"	  column="DREGISTER"		type="Timestamp"	 comment="初次登记日期,YYYY-MM-DD" />
+		<Prop id="bisavoidcheck"  column="BISAVOIDCHECK"	type="String"		 comment="是否免检,0否1是" />
+		<Prop id="nodometer"	  column="NODOMETER"		type="int"		     comment="行驶里程读数" />
+		<Prop id="cuser"		  column="CUSER"		    type="String"		 comment="车主姓名/单位名称" />
+		<Prop id="cphone"		  column="CPHONE"		    type="String"		 comment="车主电话" />
+		<Prop id="caddress"		  column="CADDRESS"		    type="String"		 comment="车主地址" />
+		<Prop id="nvehiclemodelid" column="NVEHICLEMODELID"	type="String"		 comment="机动车型号车辆型号" />
+		<Prop id="cenginemodel"	  column="CENGINEMODEL"	    type="String"		 comment="发动机型号" />
+		<Prop id="nstandardid"	  column="NSTANDARDID"		type="String"		 comment="排放标准阶段,见基础代码说明" />
+		<Prop id="cgearboxtype"	  column="CGEARBOXTYPE"		type="String"		 comment="变速器形式,见基础代码说明" />
+		<Prop id="cadmission"	  column="CADMISSION"		type="String"		 comment="进气方式,见基础代码说明" />
+		<Prop id="nletout"		  column="NLETOUT"		    type="Double"		     comment="发动机排量,升(L)" />
+		<Prop id="cfueltype"	  column="CFUELTYPE"		type="String"		 comment="燃料种类,可同时输入三种，以分号隔开" />
+		<Prop id="fuelsupply"	  column="FUELSUPPLY"		type="String"		 comment="燃料供给系统型式,见基础代码说明" />
+		<Prop id="nordainrev"	  column="NORDAINREV"		type="int"		     comment="发动机额定转速,转每分(r/min)" />
+		<Prop id="nordainpower"	  column="NORDAINPOWER"		type="int"		     comment="发动机额定功率,千瓦(kw)" />
+		<Prop id="cdriveform"	  column="CDRIVEFORM"		type="String"		 comment="驱动型式,见基础代码说明" />
+		<Prop id="nmaxweight"	  column="NMAXWEIGHT"		type="int"		     comment="最大总质量,千克（kg）" />
+		<Prop id="nstdweight"	  column="NSTDWEIGHT"		type="int"		     comment="基准质量" />
+		<Prop id="ncylinder"	  column="NCYLINDER"		type="int"		     comment="气缸数" />
+		<Prop id="egr"		      column="EGR"		        type="String"		 comment="是否有EGR,0-否；1-是" />
+		<Prop id="tg"		      column="TG"		        type="String"		 comment="是否有燃油蒸发控制装置,0-否；1-是" />
+		<Prop id="hcl"		      column="HCL"		        type="String"		 comment="是否有后处理装置,0-否；1-是" />
+		<Prop id="hcltype"		  column="HCLTYPE"		    type="String"		 comment="后处理种类,1-三元催化、2-DPF、3-SCR、4-DOC、5-POC、6-其他（如适用）" />
+		<Prop id="bisdiankong"	  column="BISDIANKONG"		type="String"		 comment="是否电控,0-否；1-是" />
+		<Prop id="bishaveobd"	  column="BISHAVEOBD"		type="String"		 comment="是否有obd" />
+		<Prop id="bisobdcomm"	  column="BISOBDCOMM"		type="String"		 comment="obd通信是否正常,0-否；1-是" />
+		<Prop id="bchkobd"		  column="BCHKOBD"		    type="String"		 comment="obd检验是否有故障,0-否；1-是" />
+		<Prop id="bchkt"		  column="BCHKT"		    type="String"		 comment="转向系统是否正常,0-否；1-是" />
+		<Prop id="bchkel"		  column="BCHKEL"		    type="String"		 comment="排气系统是否泄漏,0-否；1-是" />
+		<Prop id="bchkislou"	  column="BCHKISLOU"		type="String"		 comment="检查是否漏液,0-否；1-是" />
+		<Prop id="bchkaaae"		  column="BCHKAAAE"		    type="String"		 comment="检查是否关闭暖风/ABS/ASR/ESP等特殊装置,0-否；1-是" />
+		<Prop id="bfacecheck"	  column="BFACECHECK"		type="String"		 comment="外观检查结果,见基础代码说明：判定结果" />
+	    <Prop id="videostarttime"	 column="VIDEOSTARTTIME"	 type="Timestamp"	 comment="视频开始时间" />
+		<Prop id="videoendtime"		 column="VIDEOENDTIME"		 type="Timestamp"	 comment="视频结束时间" />
+	</PropList>
+</Domain>
+
+<Domain id="TUNIT"	 table="TUNIT"	 comment="检测机构接口数据表">
+	<PropList>
+		<Prop id="id"		      column="ID"		         type="String"		 comment="唯一标识" primary="true"/>
+		<Prop id="ceconomictype"  column="CECONOMICTYPE"	type="String"		 comment="经济类型,见基础代码说明" />
+		<Prop id="cma"		      column="CMA"		        type="String"		 comment="计量认证证号" />
+		<Prop id="nfixedassets"	  column="NFIXEDASSETS"		type="String"		 comment="固定资产（万元）" />
+		<Prop id="nregisteredcapital" column="NREGISTEREDCAPITAL" type="String"	 comment="注册资金（万元）" />
+		<Prop id="npostcode"	  column="NPOSTCODE"		type="String"		 comment="邮政编码" />
+		<Prop id="clicensenum"	  column="CLICENSENUM"		type="String"		 comment="经营许可证号" />
+		<Prop id="ntestsitearea"  column="NTESTSITEAREA"	type="String"		 comment="场地面积（平方米）" />
+		<Prop id="stafftotal"	  column="STAFFTOTAL"		type="int"		     comment="职工总数" />
+		<Prop id="seniorengineernum"  column="SENIORENGINEERNUM"  type="int"	 comment="高级工程师人数" />
+		<Prop id="assistantengineern" column="ASSISTANTENGINEERN" type="int"	 comment="助理工程师人数" />
+		<Prop id="technicaldirector"  column="TECHNICALDIRECTOR"  type="String"	 comment="技术负责人,人名" />
+		<Prop id="assessqualifiednum" column="ASSESSQUALIFIEDNUM" type="int"	 comment="考核合格人数" />
+		<Prop id="engineernum"	  column="ENGINEERNUM"		 type="int"		     comment="工程师人数" />
+		<Prop id="techniciannum"  column="TECHNICIANNUM"	 type="int"		     comment="技术员人数" />
+		<Prop id="qualitydirector" column="QUALITYDIRECTOR"	 type="String"		 comment="质量负责人,名称" />
+		<Prop id="longitude"	  column="LONGITUDE"		 type="Double"		     comment="检测场经度, 格式例123.56789度，小数点后5位" />
+		<Prop id="latitude"		  column="LATITUDE"		     type="Double"		     comment="检测场纬度, 格式例123.56789度，小数点后5位" />
+		<Prop id="testsafe"		  column="TESTSAFE"		     type="String"		 comment="是否承担安检,0-否；1-是" />
+		<Prop id="testcomb"		  column="TESTCOMB"		     type="String"		 comment="是否承担综检,0-否；1-是" />
+		<Prop id="dregdate"		  column="DREGDATE"		     type="Timestamp"	 comment="注册时间" />
+		<Prop id="cnocheck"		  column="CNOCHECK"		     type="String"		 comment="禁止检测某一用途车辆" />
+		<Prop id="nportnumber"	  column="NPORTNUMBER"		 type="int"		     comment="检测场服务器端口号" />
+		<Prop id="cipaddress"	  column="CIPADDRESS"		 type="String"		 comment="检测场服务器IP地址" />
+		<Prop id="cmemo"		  column="CMEMO"		     type="String"		 comment="备注" />
+		<Prop id="ext_col1"		  column="EXT_COL1"		     type="String"		 comment="路由器IP地址" />
+		<Prop id="ext_col2"		  column="EXT_COL2"		     type="String"		 comment="路由器端口号" />
+		<Prop id="ext_col3"		  column="EXT_COL3"		     type="String"		 comment="是否允许复检（0否，1是）,0-否；1-是" />
+		<Prop id="ext_col4"		  column="EXT_COL4"		     type="String"		 comment="检测服务区域" />
+		<Prop id="crange"		  column="CRANGE"		     type="String"		 comment="业务范围" />
+		<Prop id="agencytype"	  column="AGENCYTYPE"		 type="String"		 comment="申请机构类别,见基础代码说明" />
+		<Prop id="videomanufacturer" column="VIDEOMANUFACTURER" type="String"		 comment="视频厂商" />
+		<Prop id="workingdigit"	  column="WORKINGDIGIT"		 type="String"		 comment="工位数量" />
+		<Prop id="sequences"	  column="SEQUENCES"		 type="String"		 comment="标志顺序号" />
+		<Prop id="isused"		  column="ISUSED"		     type="String"		 comment="是否正在使用,0否1是" />
+		<Prop id="cmadate"		  column="CMADATE"		     type="Timestamp"	 comment="计量认证有效期" />
+		<Prop id="cparentunitid"  column="CPARENTUNITID"	 type="String"		 comment="所属区县环保局组织机构代码" />
+		<Prop id="institution"	  column="INSTITUTION"		 type="String"		 comment="检验机构编号,6位所属行政区代码+2位本地区联网顺序号" />
+		<Prop id="citycode"		  column="CITYCODE"		     type="String"		 comment="组织机构代码,所在地市编码（6位）：参照GBT 2260-2007 中华人民共和国行政区划代码" />
+		<Prop id="cunitcode"	  column="CUNITCODE"		 type="String"		 comment="检验站编号,检验机构编号：3位，两位联网顺序号首位加0" />
+		<Prop id="cunitname"	  column="CUNITNAME"		 type="String"		 comment="检验机构名称" />
+		<Prop id="county"		  column="COUNTY"		     type="String"		 comment="所属地区,如：海曙区330201" />
+		<Prop id="cpermit"		  column="CPERMIT"		     type="String"		 comment="资质认定证书编号" />
+		<Prop id="networkingbegindate"	column="NETWORKINGBEGINDATE" type="Timestamp" comment="资质认定有效期始" />
+		<Prop id="dexpiration"	  column="DEXPIRATION"		 type="Timestamp"	 comment="资质认定有效期止" />
+		<Prop id="unitaddress"	  column="UNITADDRESS"		 type="String"		 comment="机构地址" />
+		<Prop id="networkingdate" column="NETWORKINGDATE"	 type="Timestamp"	 comment="联网日期,yyyy-mm-dd" />
+		<Prop id="legal"		  column="LEGAL"		     type="String"		 comment="法人代表,名字" />
+		<Prop id="clinkman"		  column="CLINKMAN"		     type="String"		 comment="联系人,名字" />
+		<Prop id="cphone"		  column="CPHONE"		     type="String"		 comment="联系电话" />
+		<Prop id="nequipmentnum"  column="NEQUIPMENTNUM"	 type="int"		     comment="检测线数量,按检测工位计算" />
+		<Prop id="cunitstatus"	  column="CUNITSTATUS"		 type="String"		 comment="检验机构状态,1-正常、2-停业、3-断网、4-注销" />
+		<Prop id="cunitabbreviation"	column="CUNITABBREVIATION"	 type="String"	  comment="检测站简称" />
+		<Prop id="cdirector"	  column="CDIRECTOR"		 type="String"		 comment="负责人名称,名字" />
+	</PropList>
+</Domain>
+
+<Domain id="TVEHICLE"	 table="TVEHICLE"	 comment="车辆信息表">
+	<PropList>
+		<Prop id="id"		      column="ID"		         type="String"		 comment="唯一标识" primary="true"/>
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		 type="String"		 comment="机动车序号，唯一，环保车辆标识，由中心端系统定义，检测站上传保存的车辆数据返回后将带回机动车序号。" />
+		<Prop id="cnumberplate"	  column="CNUMBERPLATE"		 type="String"		 comment="号牌号码，带首位汉字，教练、警用需要带末位汉字" />
+		<Prop id="cnumbertype"	  column="CNUMBERTYPE"		 type="String"		 comment="号牌种类，按GA24.7" />
+		<Prop id="cplatetype"	  column="CPLATETYPE"		 type="String"		 comment="车牌颜色，见基础代码说明" />
+		<Prop id="cvin"		      column="CVIN"		         type="String"		 comment="车辆识别代号，填写完整的VIN号或车架号。" />
+		<Prop id="cengineno"	  column="CENGINENO"		 type="String"		 comment="发动机编号发动机号" />
+		<Prop id="cvehiclestyle"  column="CVEHICLESTYLE"	 type="String"		 comment="机动车类型车辆类型，按GA24.4" />
+		<Prop id="cpurposeid"	  column="CPURPOSEID"		 type="String"		 comment="使用性质，按GA24.3" />
+		<Prop id="dregister"	  column="DREGISTER"		 type="Timestamp"	 comment="初次登记日期,yyyy-MM-dd" />
+		<Prop id="mdate"		  column="MDATE"		     type="Timestamp"	 comment="制造日期,yyyy-MM-dd" />
+		<Prop id="district"		  column="DISTRICT"		     type="String"		 comment="行政区划,考参GB/T 2260" />
+		<Prop id="cuser"		  column="CUSER"		     type="String"		 comment="车主姓名/单位名称" />
+		<Prop id="cphone"		  column="CPHONE"		     type="String"		 comment="车主电话" />
+		<Prop id="caddress"		  column="CADDRESS"		     type="String"		 comment="车主地址" />
+		<Prop id="nvehiclemodelid" column="NVEHICLEMODELID"	 type="String"		 comment="机动车型号车辆型号" />
+		<Prop id="cenginemodel"	  column="CENGINEMODEL"		 type="String"		 comment="发动机型号" />
+		<Prop id="cenginemadefactory" column="CENGINEMADEFACTORY" type="String"	 comment="发动机生产厂" />
+		<Prop id="nstandardid"	  column="NSTANDARDID"		 type="String"		 comment="排放标准，见基础代码说明" />
+		<Prop id="cgearboxtype"	  column="CGEARBOXTYPE"		 type="String"		 comment="变速箱形式，见基础代码说明" />
+		<Prop id="cadmission"	  column="CADMISSION"		 type="String"		 comment="进气方式，见基础代码说明" />
+		<Prop id="nletout"		  column="NLETOUT"		     type="Double"		     comment="发动机排量，升(L)" />
+		<Prop id="cfueltype"	  column="CFUELTYPE"		 type="String"		 comment="燃料种类，可同时输入三种，分号隔开，见基础代码说明" />
+		<Prop id="fuelsupply"	  column="FUELSUPPLY"		 type="String"		 comment="燃料供给系统型式，见基础代码说明" />
+		<Prop id="nordainrev"	  column="NORDAINREV"		 type="int"		     comment="发动机额定转速，转每分(r/min)" />
+		<Prop id="nordainpower"	  column="NORDAINPOWER"		 type="int"		     comment="发动机额定功率，千瓦(kw)" />
+		<Prop id="cdriveform"	  column="CDRIVEFORM"		 type="String"		 comment="驱动方式，见基础代码说明" />
+		<Prop id="nmaxweight"	  column="NMAXWEIGHT"		 type="int"		     comment="最大总质量，千克（kg）" />
+		<Prop id="nstdweight"	  column="NSTDWEIGHT"		 type="int"		     comment="基准质量，千克（kg）" />
+		<Prop id="nseatortonnage" column="NSEATORTONNAGE"	 type="int"		     comment="核定载客" />
+		<Prop id="nodometer"	  column="NODOMETER"		 type="int"		     comment="里程表读数，最新的" />
+		<Prop id="ncylinder"	  column="NCYLINDER"		 type="int"		     comment="气缸数" />
+		<Prop id="bhaspurge"	  column="BHASPURGE"		 type="String"		 comment="是否有净化装置，0-否1-是" />
+		<Prop id="bhasodb"		  column="BHASODB"		     type="String"		 comment="是否有OBD，0-否1-是" />
+		<Prop id="vehiclestatus"  column="VEHICLESTATUS"	 type="String"		 comment="机动车状态，A正常、B转出、E注销、M强制注销、L其他" />
+		<Prop id="bisdianpen"	  column="BISDIANPEN"		 type="String"		 comment="是否电控" />
+		<Prop id="egr"		      column="EGR"		         type="String"		 comment="是否有EGR，0-否；1-是" />
+		<Prop id="esp"		      column="ESP"		         type="String"		 comment="是否能关闭车身稳定（如ESP），0-否；1-是" />
+		<Prop id="cvehiclekind"	  column="CVEHICLEKIND"		 type="String"		 comment="车辆种类，0汽油车1柴油车3混合动力4农用车" />
+		<Prop id="cname"		  column="CNAME"		     type="String"		 comment="厂牌" />
+		<Prop id="cogrmodel"	  column="COGRMODEL"		 type="String"		 comment="egr型号" />
+		<Prop id="ccarortruck"	  column="CCARORTRUCK"		 type="String"		 comment="客货，GA24.4  车辆种类大类" />
+		<Prop id="cpurposeid2"	  column="CPURPOSEID2"		 type="String"		 comment="车主属性，见基础代码说明" />
+		<Prop id="bworkcar"		  column="BWORKCAR"		     type="String"		 comment="是否营运车，0否；1是" />
+		<Prop id="cnearunitcode"  column="CNEARUNITCODE"	 type="String"		 comment="最近修改的检测场编号，添本检测站3位编码" />
+		<Prop id="cvehiclemadefactor" column="CVEHICLEMADEFACTOR" type="String"	 comment="车辆生产厂" />
+		<Prop id="nweight"		  column="NWEIGHT"		     type="int"		     comment="载重" />
+		<Prop id="ext_col10"	  column="EXT_COL10"		 type="String"		 comment="检验方法，见基础代码说明" />
+		<Prop id="slidingdevice"  column="SLIDINGDEVICE"	 type="String"		 comment="侧滑装置，0无1能解锁2不能解锁" />
+		<Prop id="isnew"		  column="ISNEW"		     type="String"		 comment="是否新车，0-否；1-是" />
+		<Prop id="saletype"		  column="SALETYPE"		     type="String"		 comment="国产/进口参考ga24.12" />
+		<Prop id="blrq"		      column="BLRQ"		         type="Timestamp"	 comment="办理时间" />
+		<Prop id="clly"		      column="CLLY"		         type="String"		 comment="车辆来源 1 注册 2 转入 3 过户" />
+		<Prop id="yhphm"		  column="YHPHM"		     type="String"		 comment="原号牌号码" />
+		<Prop id="yhpzl"		  column="YHPZL"		     type="String"		 comment="原号牌种类 ga24.7" />
+		<Prop id="zcd"		      column="ZCD"		         type="String"		 comment="转出地" />
+		<Prop id="zxyy"		      column="ZXYY"		         type="String"		 comment="注销原因 a报废 b灭失 c出境 d撤销登记 e强制注销" />
+		<Prop id="xh"		      column="XH"		         type="String"		 comment="机动车序号公安" />
+		<Prop id="yxqz"		      column="YXQZ"		         type="Timestamp"	 comment="检验有效期止" />
+		<Prop id="qzbfqz"		  column="QZBFQZ"		     type="Timestamp"	 comment="强制报废期止" />
+		<Prop id="zxrq"		      column="ZXRQ"		         type="Timestamp"	 comment="注销日期" />
+		<Prop id="yqjyqzbfqz"	  column="YQJYQZBFQZ"		 type="Timestamp"	 comment="预期检验强制报废期止" />
+		<Prop id="clpp2"		  column="CLPP2"		     type="String"		 comment="英文号牌" />
+		<Prop id="bodycolor"	  column="BODYCOLOR"		 type="String"		 comment="车身颜色,GA 24.8" />
+		<Prop id="brandch"		  column="BRANDCH"		     type="String"		 comment="品牌中文" />
+		<Prop id="branden"		  column="BRANDEN"		     type="String"		 comment="品牌英文" />
+		<Prop id="manufcountry"	  column="MANUFCOUNTRY"		 type="String"		 comment="制造国,按GB/T 2659" />
+		<Prop id="fuelconsumption" column="FUELCONSUMPTION"	 type="Double"		     comment="发动机油耗千米/l 工程机械为 l/h,升/千米（L/km），工程机械等为升/时（L/H）" />
+		<Prop id="jettype"		  column="JETTYPE"		     type="String"		 comment="喷射类型,见基础代码说明" />
+		<Prop id="bodysize"		  column="BODYSIZE"		     type="String"		 comment="车身尺寸" />
+		<Prop id="ownerkind"	  column="OWNERKIND"		 type="String"		 comment="所有权,1单位 2个人" />
+		<Prop id="ownerdistrict"  column="OWNERDISTRICT"	 type="String"		 comment="住所行政区划,参考GB/T 2260" />
+		<Prop id="fuelspec"		  column="FUELSPEC"		     type="String"		 comment="燃油规格,见基础代码说明" />
+		<Prop id="fuelway"		  column="FUELWAY"		     type="String"		 comment="供油方式（省厅）" />
+		<Prop id="gearnum"		  column="GEARNUM"		     type="int"		     comment="档位数" />
+		<Prop id="exhaustpipe"	  column="EXHAUSTPIPE"		 type="int"		     comment="排管数" />
+		<Prop id="tirecount"	  column="TIRECOUNT"		 type="int"		     comment="轮胎数" />
+		<Prop id="engineposi"	  column="ENGINEPOSI"		 type="String"		 comment="发动机位置 1前置 2中置 3后置" />
+		<Prop id="tg"		      column="TG"		         type="String"		 comment="是否有燃油蒸发控制装置,0-否；1-是" />
+		<Prop id="hcl"		      column="HCL"		         type="String"		 comment="是否有后处理装置,0-否；1-是" />
+		<Prop id="hcltype"		  column="HCLTYPE"		     type="String"		 comment="后处理种类可多选,见基础代码说明" />
+	</PropList>
+</Domain>
+
+<Domain id="UPLOADSTATUS"	 table="UPLOADSTATUS"	 comment="上传状态信息表">
+	<PropList>
+		<Prop id="id"		      column="ID"		         type="String"		 comment="" primary="true"/>
+		<Prop id="ccheckcode"	  column="CCHECKCODE"		 type="String"		 comment="检测结果流水号：检测站编码（3位）+流水号（9位）同一检测站唯一" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		 type="String"		 comment="唯一，环保车辆标识，由中心端系统定义，检测站上传保存的车辆数据返回后将带回机动车序号。" />
+		<Prop id="cnumberplate"	  column="CNUMBERPLATE"		 type="String"		 comment="号牌号码;带首位汉字，教练、警用需要带末位汉字" />
+		<Prop id="cnumbertype"	  column="CNUMBERTYPE"		 type="String"		 comment="号牌种类" />
+		<Prop id="tvehiclestatus" column="TVEHICLESTATUS"	 type="String"		 comment="车辆信息是否上传;车辆信息是否上传  0未上传 1已上传" />
+		<Prop id="tprefacecheckstatus" column="TPREFACECHECKSTATUS" type="String" comment="外检信息是否上传;外检信息是否上传  0未上传 1已上传" />
+		<Prop id="onlinestatus"	  column="ONLINESTATUS"		 type="String"		 comment="检验过程信息是否上传;检验过程信息是否上传  0未上传 1已上传" />
+		<Prop id="onlineresultstatus" column="ONLINERESULTSTATUS"  type="String" comment="检验结果信息是否上传;检验结果信息是否上传  0未上传 1已上传" />
+		<Prop id="carpicture01"	  column="CARPICTURE01"		 type="String"		 comment="照片01是否上传;照片01是否上传  0未上传 1已上传" />
+		<Prop id="carpicture02"	  column="CARPICTURE02"		 type="String"		 comment="照片02是否上传  0未上传 1已上传" />
+		<Prop id="carpicture03"	  column="CARPICTURE03"		 type="String"		 comment="照片03是否上传  0未上传 1已上传" />
+		<Prop id="carpicture04"	  column="CARPICTURE04"		 type="String"		 comment="照片04是否上传  0未上传 1已上传" />
+		<Prop id="carpicture05"	  column="CARPICTURE05"		 type="String"		 comment="照片05是否上传  0未上传 1已上传" />
+		<Prop id="carpicture06"	  column="CARPICTURE06"		 type="String"		 comment="照片06是否上传  0未上传 1已上传" />
+		<Prop id="carpicture07"	  column="CARPICTURE07"		 type="String"		 comment="照片07是否上传  0未上传 1已上传" />
+		<Prop id="carpicture08"	  column="CARPICTURE08"		 type="String"		 comment="照片08是否上传  0未上传 1已上传" />
+		<Prop id="carpicture09"	  column="CARPICTURE09"		 type="String"		 comment="照片09是否上传  0未上传 1已上传" />
+		<Prop id="carpicture10"	  column="CARPICTURE10"		 type="String"		 comment="照片10是否上传  0未上传 1已上传" />
+		<Prop id="carpicture11"	  column="CARPICTURE11"		 type="String"		 comment="照片11是否上传  0未上传 1已上传" />
+		<Prop id="carpicture12"	  column="CARPICTURE12"		 type="String"		 comment="照片12是否上传  0未上传 1已上传" />
+		<Prop id="carpicture13"	  column="CARPICTURE13"		 type="String"		 comment="照片13是否上传  0未上传 1已上传" />
+		<Prop id="carpicture14"	  column="CARPICTURE14"		 type="String"		 comment="照片14是否上传  0未上传 1已上传" />
+		<Prop id="carvideo01"	  column="CARVIDEO01"		 type="String"		 comment="视频01是否上传  0未上传 1已上传" />
+		<Prop id="carvideo02"	  column="CARVIDEO02"		 type="String"		 comment="视频02是否上传  0未上传 1已上传" />
+		<Prop id="carvideo03"	  column="CARVIDEO03"		 type="String"		 comment="视频03是否上传  0未上传 1已上传" />
+		<Prop id="carvideo04"	  column="CARVIDEO04"		 type="String"		 comment="视频04是否上传  0未上传 1已上传" />
+		<Prop id="carvideo05"	  column="CARVIDEO05"		 type="String"		 comment="视频05是否上传  0未上传 1已上传" />
+		<Prop id="carvideo06"	  column="CARVIDEO06"		 type="String"		 comment="视频06是否上传  0未上传 1已上传" />
+		<Prop id="carvideo07"	  column="CARVIDEO07"		 type="String"		 comment="视频07是否上传  0未上传 1已上传" />
+		<Prop id="carvideo08"	  column="CARVIDEO08"		 type="String"		 comment="视频08是否上传  0未上传 1已上传" />
+		<Prop id="carvideo09"	  column="CARVIDEO09"		 type="String"		 comment="视频09是否上传  0未上传 1已上传" />
+		<Prop id="checksubmit"	  column="CHECKSUBMIT"		 type="String"		 comment="检验提交信息是否上传;检验提交信息是否上传  0未上传 1已上传" />
+	</PropList>
+</Domain>
+
+<Domain id="UPORGUSER"	 table="UPORGUSER"	 comment="检验人员信息上报接口">
+	<PropList>
+		<Prop id="id"		             column="ID"		         type="String"		 comment="用户ID,32位UUID" primary="true"/>
+		<Prop id="cunitcode"	         column="CUNITCODE"		     type="String"		 comment="所属检验站编号" />
+		<Prop id="account"		         column="ACCOUNT"		     type="String"		 comment="帐号" />
+		<Prop id="name"		             column="NAME"		         type="String"		 comment="姓名" />
+		<Prop id="password"		         column="PASSWORD"		     type="String"		 comment="密码,MD5加密" />
+		<Prop id="job"		             column="JOB"		         type="String"		 comment="岗位,见基础代码说明" />
+		<Prop id="description"	         column="DESCRIPTION"		 type="String"		 comment="描述信息" />
+		<Prop id="password_changed_date" column="PASSWORD_CHANGED_DATE" type="Timestamp" comment="密码最后一次修改时间" />
+		<Prop id="account_enabled"       column="ACCOUNT_ENABLED"	 type="String"		 comment="帐号是否启用" />
+		<Prop id="account_locked"        column="ACCOUNT_LOCKED"	 type="String"		 comment="帐号是否锁定" />
+		<Prop id="account_locked_reason" column="ACCOUNT_LOCKED_REASON" type="String"	 comment="帐号锁定原因" />
+		<Prop id="sex"		             column="SEX"		         type="String"		 comment="性别,0女1男" />
+		<Prop id="birthdate"	         column="BIRTHDATE"		     type="Timestamp"	 comment="生日	" />
+		<Prop id="credentials_type"      column="CREDENTIALS_TYPE"   type="String"		 comment="证件类型,0身份证1军官证" />
+		<Prop id="credentials_number"    column="CREDENTIALS_NUMBER" type="String"		 comment="证件号码" />
+		<Prop id="email"		         column="EMAIL"		         type="String"		 comment="邮件地址" />
+		<Prop id="mobile_telephone"      column="MOBILE_TELEPHONE"   type="String"		 comment="移动电话" />
+		<Prop id="home_telephone"        column="HOME_TELEPHONE"	 type="String"		 comment="家庭电话" />
+		<Prop id="office_telephone"      column="OFFICE_TELEPHONE"   type="String"		 comment="办公电话" />
+		<Prop id="fax"		             column="FAX"		         type="String"		 comment="传真" />
+		<Prop id="home_address"	         column="HOME_ADDRESS"		 type="String"		 comment="家庭住址" />
+	</PropList>
+</Domain>
+
+<Domain id="VEHICLELOGIN"	 table="VEHICLELOGIN"	 comment="车辆状态信息表">
+	<PropList>
+		<Prop id="id"		      column="ID"		         type="String"		 comment="" primary="true"/>
+		<Prop id="ccheckcode"	  column="CCHECKCODE"		 type="String"		 comment="检验流水号,检测结果流水号：检测站编码（3位）+流水号（9位）同一检测站唯一" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		 type="String"		 comment="机动车序号,唯一，环保车辆标识，由中心端系统定义，检测站上传保存的车辆数据返回后将带回机动车序号。" />
+		<Prop id="cnumberplate"	  column="CNUMBERPLATE"		 type="String"		 comment="号牌号码,带首位汉字，教练、警用需要带末位汉字" />
+		<Prop id="cnumbertype"	  column="CNUMBERTYPE"		 type="String"		 comment="号牌种类" />
+		<Prop id="cplatetype"	  column="CPLATETYPE"		 type="String"		 comment="车牌颜色" />
+		<Prop id="cvin"		      column="CVIN"		         type="String"		 comment="车辆识别代号" />
+		<Prop id="cengineno"	  column="CENGINENO"		 type="String"		 comment="发动机编号发动机号" />
+		<Prop id="cvehiclestyle"  column="CVEHICLESTYLE"	 type="String"		 comment="机动车类型车辆类型" />
+		<Prop id="cpurposeid"	  column="CPURPOSEID"		 type="String"		 comment="使用性质" />
+		<Prop id="cfueltype"	  column="CFUELTYPE"		 type="String"		 comment="燃料种类" />
+		<Prop id="ext_col10"	  column="EXT_COL10"		 type="String"		 comment="检验方法" />
+		<Prop id="institution"	  column="INSTITUTION"		 type="String"		 comment="检验机构编号" />
+		<Prop id="cunitname"	  column="CUNITNAME"		 type="String"		 comment="" />
+		<Prop id="cchkdevicecode" column="CCHKDEVICECODE"	 type="String"		 comment="检验线编号" />
+		<Prop id="checktype"	  column="CHECKTYPE"		 type="String"		 comment="检测类别,检验类别 (格式如：01-路检、02-复检、03-年检等)" />
+		<Prop id="givecheck"	  column="GIVECHECK"		 type="String"		 comment="送检人" />
+		<Prop id="givecheckremarks" column="GIVECHECKREMARKS" type="String"		 comment="送检人备注" />
+		<Prop id="registertime"	  column="REGISTERTIME"		 type="Timestamp"	 comment="登记时间" />
+		<Prop id="registerperson" column="REGISTERPERSON"	 type="String"		 comment="登记员" />
+		<Prop id="registerremarks" column="REGISTERREMARKS"	 type="String"		 comment="登记备注" />
+		<Prop id="cdrivercode"	  column="CDRIVERCODE"		 type="String"		 comment="引车员" />
+		<Prop id="externalperson" column="EXTERNALPERSON"	 type="String"		 comment="外检员" />
+		<Prop id="cannulaperson"  column="CANNULAPERSON"	 type="String"		 comment="插管员" />
+		<Prop id="operationperson" column="OPERATIONPERSON"	 type="String"		 comment="操作员" />
+		<Prop id="otherremarks"	  column="OTHERREMARKS"		 type="String"		 comment="其他备注,备注 （检测方法变更等备注）" />
+		<Prop id="checkstate"	  column="CHECKSTATE"		 type="String"		 comment="检测状态,检验状态 1待检 2检验结束 3已上传" />
+		<Prop id="fuelway"		  column="FUELWAY"		     type="String"		 comment="供油方式（省厅）" />
+		<Prop id="fuelsupply"	  column="FUELSUPPLY"		 type="String"		 comment="燃料供给系统型式" />
+		<Prop id="charge"		  column="CHARGE"		     type="String"		 comment="是否收费,0-否，1-是" />
+		<Prop id="checkresult"	  column="CHECKRESULT"		 type="String"		 comment="检测结果,0不合格1合格" />
+		<Prop id="carstate"		  column="CARSTATE"		     type="String"		 comment="客车货车状态,0客车 1货车" />
+		<Prop id="checklink"	  column="CHECKLINK"		 type="String"		 comment="审验环节" />
+		<Prop id="wyhwithdraw"	  column="WYHWITHDRAW"		 type="String"		 comment="撤回原因" />
+		<Prop id="checkfueltype"  column="CHECKFUELTYPE"	 type="String"		 comment="检测燃料种类" />
+		<Prop id="carfueltype"	  column="CARFUELTYPE"		 type="String"		 comment="车辆燃料种类" />
+		<Prop id="cartel"		  column="CARTEL"		     type="String"		 comment="车子联系方式,车辆联系方式（车主，或者代车主）" />
+		<Prop id="auditpasstime"  column="AUDITPASSTIME"	 type="Timestamp"	 comment="审核通过时间" />
+		<Prop id="submitstate"	  column="SUBMITSTATE"		 type="String"		 comment="提交状态" />
+		<Prop id="firstchecknumber" column="FIRSTCHECKNUMBER" type="String"		 comment="首检检验流水号 （复检用，复检的时候必传）,首检检验流水号 （复检用，复检的时候必传）" />
+		<Prop id="mdate"		  column="MDATE"		     type="Timestamp"	 comment="制造日期出厂日期" />
+		<Prop id="cdriveform"	  column="CDRIVEFORM"		 type="String"		 comment="驱动方式" />
+	</PropList>
+</Domain>
+
+<Domain id="VIDEO"	 table="VIDEO"	 comment="视频表">
+	<PropList>
+		<Prop id="id"		      column="ID"		         type="String"		 comment="CCHECKCODE" primary="true"/>
+		<Prop id="cnumbertype"	  column="CNUMBERTYPE"		 type="String"		 comment="号牌种类" />
+		<Prop id="ccheckcode"	  column="CCHECKCODE"		 type="String"		 comment="检验流水号;检测结果流水号：检测站编码（3位）+流水号（9位）同一检测站唯一" />
+		<Prop id="cprefacecheckid" column="CPREFACECHECKID"	 type="String"		 comment="外观编码/检验流水号;3位检测站编号+9位顺序号" />
+		<Prop id="cvehiclecode"	  column="CVEHICLECODE"		 type="String"		 comment="机动车序号" />
+		<Prop id="cunitcode"	  column="CUNITCODE"		 type="String"		 comment="检验站编号检验站编号：3位，当为两位顺序号时首位加0" />
+		<Prop id="videotype"	  column="VIDEOTYPE"		 type="String"		 comment="视频类别;外检，上线检" />
+		<Prop id="videonumber"	  column="VIDEONUMBER"		 type="String"		 comment="视频编码" />
+		<Prop id="videourl"		  column="VIDEOURL"		     type="String"		 comment="视频路径" />
+		<Prop id="videouptime"	  column="VIDEOUPTIME"		 type="Timestamp"	 comment="视频上传时间" />
+		<Prop id="videostate"	  column="VIDEOSTATE"		 type="String"		 comment="视频上传状态" />
+		<Prop id="videouploadtimes" column="VIDEOUPLOADTIMES" type="int"		 comment="上传次数" />
+		<Prop id="videosize"	  column="VIDEOSIZE"		 type="String"		 comment="视频文件大小" />
+		<Prop id="cnumberplate"	  column="CNUMBERPLATE"		 type="String"		 comment="号牌号码" />
+		<Prop id="cchkdevicecode"	 column="CCHKDEVICECODE"	 type="String"		 comment="检测线编码" />
+	</PropList>
+</Domain>
+</Project>

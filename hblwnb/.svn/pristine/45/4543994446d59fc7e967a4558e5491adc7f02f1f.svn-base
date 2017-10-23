@@ -1,0 +1,123 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.7
+*
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>机动车检验机构尾气排放联网平台</title>
+
+    <link href="${ctxPath}/static/inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="${ctxPath}/static/inspinia/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="${ctxPath}/static/inspinia/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    
+    <link href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="${ctxPath}/static/inspinia/css/animate.css" rel="stylesheet">
+    <link href="${ctxPath}/static/inspinia/css/style.css" rel="stylesheet">
+    <link href="${ctxPath}/static/css/newstyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+       #parse("/header.vm")
+
+<div id="page-wrapper" class="gray-bg" >
+        
+        #parse("/news.vm")
+        <div class="row wrapper border-bottom white-bg">
+            <div class="col-lg-10">
+                <h2>异常信息</h2>
+                <ol class="breadcrumb crumb">
+                   <li>
+                        <span>当前位置:</span>
+                    </li>
+                    <li>
+                        <a href="index.html">系统信息</a>
+                    </li>
+                    <li class="active">
+                        <strong>异常信息详情</strong>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+       
+            <div class="row">
+             <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">                       
+                              <table class="table table-bordered dataTables-index" >                               
+                                <tbody>
+                                <tr>
+                                    <td width="10%" style="background:#f9f9f9;font-weight:bold;">异常信息 </td>
+                                    <td colspan="6"> at com.primeton.tp.core.bizservice.ProcessRunner.implement(ProcessRunner.java:187)
+                                    at com.primeton.tp.core.bizservice.ProcessRunner.implementat 
+                                    com.primeton.tp.core.bizservice.ProcessRunner.implement
+                                    </td>                                   
+                                </tr>
+                                <tr>
+                                    <td width="10%" style="background:#f9f9f9; font-weight:bold;">异常描述 </td>
+                                    <td width="25%">信息错误</td>
+                                    <td width="10%" style="background:#f9f9f9;font-weight:bold;">访问路径</td>
+                                    <td width="25%">http://localhost:8080/HelloWorld/</td>
+                                    <td width="10%" style="background:#f9f9f9;font-weight:bold;">异常发生时间</td>
+                                    <td >2017-07-08 12:55</td>                       
+                                </tr>                                                               
+                                </tbody>                              
+                            </table>
+                       </div>
+                    </div>
+              </div>
+            
+           </div>
+               
+          </div>
+           #parse("/footer.vm")
+        </div>
+        </div>
+   
+    <!-- Mainly scripts -->
+    <script src="${ctxPath}/static/inspinia/js/jquery-3.1.1.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/bootstrap.min.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="${ctxPath}/static/inspinia/js/inspinia.js"></script>
+    <script src="${ctxPath}/static/inspinia/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="${ctxPath}/static/inspinia/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <script src="${ctxPath}/static/inspinia/js/plugins/dataTables/datatables.min.js"></script>
+     <script>
+   
+        $(document).ready(function() {
+        });
+         
+       
+
+    </script>
+
+   
+</body>
+</html>

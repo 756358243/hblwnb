@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.user.statistics;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vkl.hblw.controller.user.systemLog.OperationLogController;
+
+/**
+ * @author admin2
+ *
+ */
+@Controller
+@RequestMapping(value = "/user/statistics")
+public class StatisticsController {
+	
+	private static final Logger log = Logger.getLogger(OperationLogController.class);
+
+	
+
+	private String ret(Model model, String view) {
+		return "/user/statistics/" + view;
+	}
+
+	
+
+}

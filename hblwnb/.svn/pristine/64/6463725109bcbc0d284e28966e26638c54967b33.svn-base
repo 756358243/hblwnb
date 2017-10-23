@@ -1,0 +1,93 @@
+/** 
+ * Project Name:hblw_nb 
+ * File Name:VEHICLELOGINDao.java 
+ * Package Name:com.vkl.hblw.dao.persistence 
+ * Date:2017年10月13日下午2:47:45 
+ * Copyright (c) 2017, chenzhou1025@126.com All Rights Reserved. 
+ * 
+*/  
+  
+package com.vkl.hblw.dao.persistence;
+
+
+import java.sql.Timestamp;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.dao.persistence.base.VEHICLELOGINBaseDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+/** 
+ * ClassName:VEHICLELOGINDao <br/> 
+ * Function: TODO ADD FUNCTION. <br/> 
+ * Reason:   TODO ADD REASON. <br/> 
+ * Date:     2017年10月13日 下午2:47:45 <br/> 
+ * @author   xwh 
+ * @version   
+ * @since    JDK 1.8
+ * @see       
+ */
+public class VEHICLELOGINDao extends VEHICLELOGINBaseDao {
+
+	/** 
+	* @Title: queryByCnumberplateCnumbertypeCvin 
+	* @Description: 查询登录车辆状态信息 
+	* @param cnumberplate
+	* @param cnumbertype
+	* @param cvin
+	* @return    设定文件 
+	* @return VEHICLELOGIN    返回类型 
+	* @throws 
+	*/
+	public VEHICLELOGIN queryByCnumberplateCnumbertypeCvin(String cnumberplate, String cnumbertype, String cvin) {
+		VEHICLELOGIN vehicleLogin = new VEHICLELOGIN();
+		vehicleLogin.setCnumberplate(cnumberplate);
+		vehicleLogin.setCnumbertype(cnumbertype);
+		vehicleLogin.setCvin(cvin);
+		SqlSelect sql = new SqlSelect().where(VEHICLELOGIN.SQL_cnumberplate).and(VEHICLELOGIN.SQL_cnumbertype).and(VEHICLELOGIN.SQL_cvin);
+		vehicleLogin=load(sql, vehicleLogin);
+		return vehicleLogin;
+	}
+	/**
+	 * 
+	* @Title: queryByCondition 
+	* @Description: 获取等级车辆信息
+	* @author xy
+	* @param cnumberplate 车牌号码
+	* @param cnumbertype 号牌种类
+	* @param registertime 登记时间
+	* @return
+	 */
+	@Transactional
+	public VEHICLELOGIN queryByCondition(String cnumberplate, String cnumbertype, Timestamp registertime) {
+		VEHICLELOGIN vehiclelogin=new VEHICLELOGIN();
+		vehiclelogin.setCnumberplate(cnumberplate);
+		vehiclelogin.setCnumbertype(cnumbertype);
+		vehiclelogin.setRegistertime(registertime);
+		SqlSelect sql = new SqlSelect().where(VEHICLELOGIN.SQL_cnumberplate).and(VEHICLELOGIN.SQL_cnumbertype).and(VEHICLELOGIN.SQL_registertime);
+		vehiclelogin = load(sql, vehiclelogin);
+		return vehiclelogin;
+		}
+	
+	
+	
+	/** 
+	* @Title: queryByCcheckcode 
+	* @Description: 根据流水号查询登录车辆记录 
+	* @param CCHECKCODE
+	* @return    设定文件 
+	* @return VEHICLELOGIN    返回类型 
+	* @throws 
+	*/
+	public VEHICLELOGIN queryByCcheckcode(String CCHECKCODE){
+		VEHICLELOGIN vehiclelogin = new VEHICLELOGIN();
+		vehiclelogin.setCcheckcode(CCHECKCODE);
+		SqlSelect querySql = new SqlSelect().where(VEHICLELOGIN.SQL_ccheckcode);
+		vehiclelogin = load(querySql, vehiclelogin);
+		return vehiclelogin;
+	}
+	
+
+}
+  

@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.api.video;
+
+import java.sql.Timestamp;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.context.annotation.Scope;
+import org.springframework.core.task.TaskRejectedException;
+import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vkl.common.json.JsonResult;
+import com.vkl.common.json.JsonUtil;
+import com.vkl.common.util.StrUtil;
+import com.vkl.hblw.common.constant.CustomData;
+import com.vkl.hblw.common.constant.SystemInfo;
+import com.vkl.hblw.common.thread.SubmitThread;
+import com.vkl.hblw.common.thread.VideoCompressThread;
+import com.vkl.hblw.service.api.video.VideoServiece;
+
+/**
+ * @author xcc
+ *
+ */
+@Controller
+@Scope("prototype")
+@RequestMapping(value = "/api/video")
+public class VideoController {
+
+	private static final Logger log = Logger.getLogger(VideoController.class);
+
+	
+}

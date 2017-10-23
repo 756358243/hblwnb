@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.api.autoPrint;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author xcc
+ *
+ */
+@Service
+public class AutoPrintService {
+
+	private static final Logger log = Logger.getLogger(AutoPrintService.class);
+
+	
+}

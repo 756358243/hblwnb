@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.api.vehicleLogin;
+
+import java.sql.Timestamp;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vkl.common.json.JsonResult;
+import com.vkl.common.json.JsonUtil;
+import com.vkl.common.util.StrUtil;
+import com.vkl.hblw.common.constant.SystemInfo;
+import com.vkl.hblw.service.api.vehicleLogin.VehicleLoginService;
+
+/**
+ * @author xcc 检测登录系统调用接口
+ */
+@Controller
+@RequestMapping(value = "/api/vehicleLogin")
+public class VehicleLoginController {
+
+	private static final Logger log = Logger.getLogger(VehicleLoginController.class);
+
+	
+}

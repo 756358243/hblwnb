@@ -1,0 +1,93 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.user.inspectionInfo;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vkl.hblw.dao.persistence.PICTUREDao;
+import com.vkl.hblw.dao.persistence.TDIESELOILRESULTDATADao;
+import com.vkl.hblw.dao.persistence.TDOUBLEIDEDATADao;
+import com.vkl.hblw.dao.persistence.TFREESPEEDDATADao;
+import com.vkl.hblw.dao.persistence.TGASVMASDATADao;
+import com.vkl.hblw.dao.persistence.TPREFACECHECKDao;
+import com.vkl.hblw.dao.persistence.VEHICLELOGINDao;
+import com.vkl.hblw.service.user.inspectionInfo.VehicleInspectionService;
+
+/**
+ * @author xcc
+ * 车辆检测信息
+ *
+ */
+@Controller
+@RequestMapping(value = "/user/vehicleInspect")
+public class VehicleInspectionController {
+
+	private static final Logger log = Logger.getLogger(VehicleInspectionController.class);
+
+	@Resource
+	private VEHICLELOGINDao vehicleloginDao;
+	@Autowired
+	private TPREFACECHECKDao tprefacecheckDao;// 外检信息
+	@Autowired
+	private PICTUREDao pictureDao;//图片信息
+	@Autowired
+	private VehicleInspectionService vehicleInspectionService;
+//	@Autowired
+//	private TJYJGXXDao tJYJGXXDao;// 检验结果信息
+	@Autowired
+	private TDOUBLEIDEDATADao tdoubleidedataDao;// 双怠速检验过程信息
+	@Autowired
+	private TGASVMASDATADao tgasvmasdataDao;// 简易瞬态检验过程信息
+	@Autowired
+	private TDIESELOILRESULTDATADao tdieseloilresultdataDao;// 加载减速检验过程信息
+	@Autowired
+	private TFREESPEEDDATADao tfreespeeddataDao;// 自由加速不透光检验过程信息
+//	@Autowired
+//	private TJYSPDao tJYSPDao;// 检测视频
+//	
+//	@Autowired
+//	private MJYYSSPDao mjyysspDao;// 原始检测视频
+//	
+//	
+//	@Autowired
+//	private TJYSCJGDao tJYSCJGDao;// 检测上传结果
+//	@Autowired
+//	private SystemCountService systemCountService;// 
+	
+
+	private String ret(Model model, String view) {
+		return "/user/inspect/" + view;
+	}
+
+	/** 
+	* @Title: index 
+	* @Description: 检测信息界面首页 
+	* @param model
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* @return String    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/index")
+	public String index(Model model, HttpServletRequest req) throws Exception {
+
+		return ret(model, "index");
+
+	}
+	
+//	@RequestMapping("/dataList")
+//	public ResponseEntity<String> dataList(Model model, HttpServletRequest req) throws Exception {
+//	
+//	
+//	}
+}

@@ -1,0 +1,59 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.api.pda;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vkl.hblw.common.constant.CustomData;
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.dao.persistence.VEHICLELOGINDao;
+import com.vkl.hblw.dao.util.SqlSelect;
+
+/**
+ * @author xcc
+ *
+ */
+@Service
+public class PdaService {
+
+	private static final Logger log = Logger.getLogger(PdaService.class);
+	
+	@Autowired
+	private VEHICLELOGINDao vEHICLELOGINDao;// 检验登记信息
+
+	/** 
+	* @Title: getQuarantineCars 
+	* @Description: 查询所有的待检测车辆，并且可以根据号牌号码和车架号查询 
+	* @param CNUMBERPLATE
+	* @param CVIN
+	* @return    设定文件 
+	* return List<VEHICLELOGIN>    返回类型 
+	* @throws 
+	*/
+	public List<VEHICLELOGIN> getQuarantineCars(String CNUMBERPLATE,String CVIN) {
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("checkstate", "1");
+		SqlSelect sql = new SqlSelect().where(VEHICLELOGIN.SQL_checkstate);
+
+		
+		//map.put("CNUMBERPLATE", "%" + CNUMBERPLATE + "%");
+		//map.put("CVIN", "%" + CVIN + "%");
+		//sql.and(VEHICLELOGIN.FLD_checkstate + " like :CNUMBERPLATE ");
+		//sql.or(VEHICLELOGIN.FLD_cvin + " like :CVIN ");
+		//sql.and(VEHICLELOGIN.FLD_cvin + " like :CVIN ");
+		List<VEHICLELOGIN> listByMap = vEHICLELOGINDao.listByMap(sql, map);
+		if (listByMap != null) {
+			return listByMap;
+		}
+		return null;
+	}
+	
+}

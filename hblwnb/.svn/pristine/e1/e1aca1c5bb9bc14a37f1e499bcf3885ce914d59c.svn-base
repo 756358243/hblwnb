@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	http://www.springframework.org/schema/cache
+	http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task-4.2.xsd">
+
+
+	<context:component-scan base-package="com.vkl.hblw" />
+	<context:component-scan base-package="com.vkl.common" />
+	
+	  <mvc:annotation-driven />  
+	   
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+	<!-- <context:component-scan base-package="com.vkl.hblw.controller" /> -->
+ 
+	  <!-- 支持异步方法执行 -->
+   <!--  <task:annotation-driven />  -->
+ 
+	<!-- <bean id="springContextUtil" class="com.lh.hrss.sdyw.SpringContextUtil"
+		lazy-init="false"></bean> -->
+	<!-- <bean id="tsUtil" class="com.lh.hrss.sdyw.util.TsUtil"></bean> -->
+
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/vm" />
+		<property name="configLocation">
+			<value>WEB-INF/config/velocity_config.properties</value>
+		</property>
+		<property name="velocityProperties">
+			<props>
+				<prop key="velocimacro.library">/common/velocity_common.vm</prop>
+			</props>
+		</property>
+	</bean>
+ 
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="suffix">
+			<value>.vm</value>
+		</property>
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="exposeRequestAttributes" value="false" />
+		 <property name="numberToolAttribute" value="numberTool"/>
+		 <property name="toolboxConfigLocation" value="/WEB-INF/config/toolbox.xml"/>
+	</bean> 
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- <property name="maxUploadSize" value="5000000" /> -->
+	</bean>
+
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<bean class="com.vkl.hblw.setting.interceptor.CommonInterceptor"></bean>
+				<bean class="com.vkl.hblw.setting.interceptor.UserLoginProtectInterceptor"></bean>				
+				<bean class="com.vkl.hblw.setting.interceptor.ApiInterceptor"></bean>
+				<bean class="com.lh.hrss.sdyw.web.interceptor.SaLoginProtectInterceptor"></bean>
+			</list>
+		</property>
+		<property name="useDefaultSuffixPattern" value="true" />
+	</bean> -->
+
+	<!--配置拦截器, 多个拦截器,顺序执行 -->  
+	<mvc:interceptors>    
+	    <mvc:interceptor>    
+	        <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->  
+	        <mvc:mapping path="/**" />  
+	        <bean class="com.vkl.hblw.setting.interceptor.CommonInterceptor"></bean>    
+	    </mvc:interceptor>
+	    <mvc:interceptor>    
+	        <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->  
+	        <mvc:mapping path="/**" />  
+	        <bean class="com.vkl.hblw.setting.interceptor.UserLoginProtectInterceptor"></bean>    
+	    </mvc:interceptor>   
+	    <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->  
+	</mvc:interceptors> 
+ 
+	<!-- 隐式地向 Spring 容器注册 AutowiredAnnotationBeanPostProcessor、 CommonAnnotationBeanPostProcessor、 
+		PersistenceAnnotationBeanPostProcessor 以及 equiredAnnotationBeanPostProcessor 
+		这 4 个 BeanPostProcessor。 在配置文件中使用 context 命名空间之前， 必须在 <beans> 元素中声明 context 
+		命名空间。 -->
+	<context:annotation-config />
+	<!-- <context:component-scan/> 配置项不但启用了对类包进行扫描 以实施注释驱动 Bean 定义的功能， 同时还启用了注释驱动自动注入的功能 
+		（即还隐式地在内部注册了 AutowiredAnnotationBeanPostProcessor 和 CommonAnnotationBeanPostProcessor） -->
+	<!-- 缓存注解驱动 -->
+	<cache:annotation-driven />
+	<!-- <cache:annotation-driven cache-manager="cacheManager" proxy-target-class="false" 
+		mode="proxy"/> -->
+	<!-- cacheManager工厂类 -->
+	<bean id="cacheManagerFactory"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+		<property name="shared" value="true" />
+	</bean>
+	<!-- 声明cacheManager -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="cacheManagerFactory" />
+	</bean>
+
+	<bean id="simpleCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="cacheManagerFactory" />
+		<!-- 使用缓存 关联ehcache.xml中的缓存配置 -->
+		<property name="cacheName" value="myCache" /> 
+	</bean>
+</beans>

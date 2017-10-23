@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>机动车检验机构尾气排放联网平台</title>
+
+<link href="${ctxPath}/static/inspinia/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="${ctxPath}/static/inspinia/font-awesome/css/font-awesome.css"
+	rel="stylesheet">
+
+<!-- Toastr style -->
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/toastr/toastr.min.css"
+	rel="stylesheet">
+
+<!-- Gritter 
+    <link href="${ctxPath}/static/inspinia/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">-->
+
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote.css"
+	rel="stylesheet">
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote-bs3.css"
+	rel="stylesheet">
+
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/datapicker/datepicker3.css"
+	rel="stylesheet">
+
+<link href="${ctxPath}/static/inspinia/css/animate.css" rel="stylesheet">
+<link href="${ctxPath}/static/inspinia/css/style.css" rel="stylesheet">
+<link href="${ctxPath}/static/css/newstyle.css" rel="stylesheet">
+<!-- TU PIAN -->
+<link rel="stylesheet" href="${ctxPath}/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ctxPath}/static/css/normalize.css" />
+<link rel="stylesheet" href="${ctxPath}/static/css/default.css">
+<link rel="stylesheet" href="${ctxPath}/static/css/viewer.css">
+<link rel="stylesheet" href="${ctxPath}/static/css/main.css">
+<!-- video -->
+<link href="${ctxPath}/static/css/video/video-js.css" rel="stylesheet">
+
+<link href="${ctxPath}/static/inspinia/css/plugins/iCheck/custom.css"
+	rel="stylesheet">
+<!-- fileupload -->
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/jasny/jasny-bootstrap.min.css"
+	rel="stylesheet">
+<!-- Sweet Alert -->
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/sweetalert/sweetalert2.min.css"
+	rel="stylesheet">
+
+<style type="text/css">
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+#divleft {
+	width: 252px;
+	float: left;
+	background-color: #061326;
+	margin: 0px;
+	padding: 0px;
+}
+
+#divsplogo {
+	width: 251px;
+	height: 107px;
+}
+
+#divmid {
+	width: 5px;
+	background-color: #01d2e6;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+#divright {
+	float: left;
+	background-color: #071730;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+}
+
+#divsplist {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+#divsplist ul {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#divsplist ul li {
+	padding: 8px 8px 8px 20px;
+	font-size: 13px;
+	font-weight: 200;
+	text-align: left;
+	font-family: "微软雅黑";
+	list-style: none;
+}
+
+#divsplist li a {
+	text-decoration: none;
+	color: #FFF;
+}
+
+#divsplist li a:visited {
+	color: #02dbfa;
+}
+
+#divsplist li a:hover {
+	color: #02dbfa;
+}
+
+#divyj {
+	background-color: #f8f8f8;
+	height: 59px;
+	margin: 10px;
+}
+
+#logo {
+	width: 145px;
+	height: 59px;
+	float: left;
+}
+
+#dl {
+	width: 145px;
+	height: 59px;
+}
+
+#yjxx {
+	line-height: 59px;
+	vertical-align: middle;
+	width: 70px;
+	float: left;
+	font-family: "Microsoft YaHei";
+	font-size: 13px;
+	font-weight: 200;
+}
+
+#video {
+	margin: 10px;
+}
+
+#yjmx {
+	float: left;
+	height: 59px;
+	font-size: 13px;
+	font-weight: 200;
+	line-height: 59px;
+	vertical-align: middle;
+}
+
+#yjmx a {
+	text-decoration: none;
+	color: Red;
+}
+
+#yjxxmx h1 {
+	font-size: 40px;
+	color: Red;
+	font-weight: 200;
+	cursor: pointer;
+}
+
+.red {
+	background-color: #ffffff;
+}
+
+.orange {
+	background-color: #ffffff;
+}
+</style>
+
+</head>
+
+<body class="pace-done">
+	<div id="wrapper">
+		#parse("/header.vm")
+		<div id="page-wrapper" class="gray-bg">
+		#parse("/news.vm")
+			<div class="row wrapper border-bottom white-bg ">
+				<div class="col-lg-10">
+					<h2>车辆检验信息</h2>
+					<ol class="breadcrumb crumb">
+						<li><span>当前位置:</span></li>
+						<li><a href="index.html">环保信息查询</a></li>
+						<li><span>车辆检验信息</span></li>
+						<li class="active"><strong>车辆检验信息详情</strong></li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+				<div class="row">
+					<div class="col-lg-12">
+						
+						<div class="tabs-container">
+							<ul class="nav nav-tabs">
+								<li class="active"><a data-toggle="tab" href="#tab-1">车辆登记信息</a></li>
+								<li class=""><a data-toggle="tab" href="#tab-2">车辆外检信息</a></li>
+								
+							</ul>
+							<div class="tab-content"> 
+								#parse("/user/setting/detail_tab/djxx.vm")
+								#parse("/user/setting/detail_tab/wjxx.vm")
+								
+
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+
+			#parse("/footer.vm")
+		</div>
+	</div>
+
+
+
+
+	<!-- Mainly scripts -->
+	<script src="${ctxPath}/static/inspinia/js/jquery-3.1.1.min.js"></script>
+	<script src="${ctxPath}/static/inspinia/js/bootstrap.min.js"></script>
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="${ctxPath}/static/inspinia/js/inspinia.js"></script>
+	<script src="${ctxPath}/static/inspinia/js/plugins/pace/pace.min.js"></script>
+
+	<!-- Data picker -->
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+	<!-- FooTable -->
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- TU PIAN -->
+	<!-- <script src="${ctxPath}/static/js/tupian/bootstrap.min.js"></script>
+    <script src="${ctxPath}/static/js/tupian/jquery.min.js"></script> -->
+	<script src="${ctxPath}/static/js/tupian/viewer.js"></script>
+	<!-- <script src="${ctxPath}/static/js/tupian/main.js"></script> -->
+
+	<!-- video -->
+	<!-- <script src="${ctxPath}/static/js/video/Play.js"></script> -->
+	<script src="${ctxPath}/static/js/video/video.min.js"></script>
+	<!-- iCheck -->
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/iCheck/icheck.min.js"></script>
+	<!-- fileupload -->
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+	<!-- Sweet alert -->
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/sweetalert/sweetalert2.min.js"></script>
+
+
+	<script src="${ctxPath}/static/js/form/jquery.form.js"></script>
+	<script>
+		$(document).ready(function() {
+
+						
+			//datepicker
+			$('.input-group.date').datepicker({
+				todayBtn : "linked",
+				keyboardNavigation : false,
+				forceParse : false,
+				calendarWeeks : true,
+				autoclose : true,
+				format : 'yyyy-mm-dd 00:00:00'
+			});
+
+			$('.i-checks').iCheck({
+				checkboxClass : 'icheckbox_square-green',
+				radioClass : 'iradio_square-green',
+			});
+
+			$('#djxxForm').ajaxForm({
+
+				dataType : 'json',
+				success : function(ret) {
+					if (ret.code == 0) {
+						swal({
+							title : ret.info,
+							type : "success",
+							timer : 2000
+						});
+				    } else {
+				        	swal({
+									title : ret.info,
+									type : "error",
+									timer : 2000
+								});
+							
+				    }
+				},
+				error : function(data) {
+					swal({
+						title : "服务器错误，请稍候访问！",
+						type : "error",
+						timer : 2000
+					});
+				}
+			});
+			
+			$('#wjxxForm').ajaxForm({
+
+				dataType : 'json',
+				success : function(ret) {
+					if (ret.code == 0) {
+						swal({
+							title : ret.info,
+							type : "success",
+							timer : 2000
+						});
+				    } else {
+				        	swal({
+									title : ret.info,
+									type : "error",
+									timer : 2000
+								});
+							
+				    }
+				},
+				error : function(data) {
+					swal({
+						title : "服务器错误，请稍候访问！",
+						type : "error",
+						timer : 2000
+					});
+				}
+			});
+			
+
+		});
+
+		
+
+		
+		
+		
+	</script>
+
+
+</body>
+</html>

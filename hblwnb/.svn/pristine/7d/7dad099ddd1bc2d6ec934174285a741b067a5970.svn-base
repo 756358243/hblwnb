@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.user.inspectionInfo;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author xcc
+ *
+ */
+@Service
+public class VehicleInspectionService {
+
+	private static final Logger log = Logger.getLogger(VehicleInspectionService.class);
+
+	
+}

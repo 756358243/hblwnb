@@ -1,0 +1,201 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.api.pda;
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
+
+import com.vkl.common.json.JsonResult;
+import com.vkl.common.json.JsonUtil;
+import com.vkl.common.util.StrUtil;
+import com.vkl.hblw.common.constant.CustomData;
+import com.vkl.hblw.common.constant.ResultDate;
+import com.vkl.hblw.common.util.AndroidOut;
+import com.vkl.hblw.dao.domain.VEHICLELOGIN;
+import com.vkl.hblw.service.api.pda.PdaService;
+/** 
+* @ClassName: PdaController 
+* @Description: pda模块控制层所有接口都在这 
+* @author aiyun 
+* @date 2017年10月13日 上午11:27:55 
+*  
+*/
+@Controller
+@RequestMapping(value = "/api/pda")
+public class PdaController {
+
+	private static final Logger log = Logger.getLogger(PdaController.class);
+	@Autowired
+	private PdaService pdaService;
+    
+	
+	/** 
+	* @Title: doUpload 
+	* @Description: pda上传图片接口 
+	* @param req
+	* @param sess
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/doUpload")
+	public ResponseEntity<String> doUpload(HttpServletRequest req, HttpSession sess) throws Exception {
+
+		MultipartRequest multipartRequest = (MultipartHttpServletRequest) req;
+		AndroidOut.aiyunprintln("doUpload接口开始调用:"+"----------hblwnb----------");
+		String CCHECKCODE = StrUtil.getParamStr(req, "CCHECKCODE", "");
+		String CPREFACECHECKID = StrUtil.getParamStr(req, "CPREFACECHECKID", "");
+		String PICTURENUMBER = StrUtil.getParamStr(req, "PICTURENUMBER", "");
+		//调用service层方法
+		JsonResult result = pdaService.pictureUpload(multipartRequest, CCHECKCODE, CPREFACECHECKID, PICTURENUMBER);
+		return JsonUtil.toResponse(result);
+	}
+
+	/** 
+	* @Title: getQuarantineCars 
+	* @Description: 获取待检车辆列表，CNUMBERPLATE为条件查询 
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/getQuarantineCars")
+	public ResponseEntity<String> getQuarantineCars(HttpServletRequest req) throws Exception {
+
+		String CNUMBERPLATE = StrUtil.getParamStr(req, "CNUMBERPLATE", "");
+		String CVIN = StrUtil.getParamStr(req, "CVIN", "");
+		AndroidOut.aiyunprintln("getQuarantineCars接口开始调用:"+"----------hblwnb----------"+CNUMBERPLATE+"-----------hblwnb-------"+CVIN);
+		//1.调用service层的方法
+		JsonResult result =pdaService.getQuarantineCars(CNUMBERPLATE, CVIN);
+		return JsonUtil.toResponse(result);
+	}
+	
+	
+	/** 
+	* @Title: wjxxStart 
+	* @Description: pda视频开始出发接口。记录开始时间
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/wjxxStart")
+	public ResponseEntity<String> wjxxStart(HttpServletRequest req) throws Exception {
+		AndroidOut.aiyunprintln("wjxxStart接口开始调用:"+"----------hblwnb----------");
+		//根据流水号出入信息
+		String CCHECKCODE = StrUtil.getParamStr(req, "CCHECKCODE", "");
+	    //调用service层的服务
+		JsonResult result =pdaService.TprefaceCheckStart(CCHECKCODE);
+		return JsonUtil.toResponse(result);
+	}
+	
+	
+	
+	/** 
+	* @Title: wjxx 
+	* @Description: 外检结束触发接口，记录外检结束时间
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/wjxxEnd")
+	public ResponseEntity<String> wjxxEnd(HttpServletRequest req) throws Exception {
+		AndroidOut.aiyunprintln("wjxxEnd接口开始调用:"+"----------hblwnb----------");
+		
+	
+		
+		return null;
+	}
+
+	
+	
+	/** 
+	* @Title: underpanStart 
+	* @Description: 底盘开始时间记录以及触发接口 
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/underpanStart")
+	public ResponseEntity<String> underpanStart(HttpServletRequest req) throws Exception {
+		AndroidOut.aiyunprintln("underpanStart接口开始调用:"+"----------hblwnb----------");
+		//根据流水号出入信息
+		String CCHECKCODE = StrUtil.getParamStr(req, "CCHECKCODE", "");
+		String CPREFACECHECKID = StrUtil.getParamStr(req, "CPREFACECHECKID", "");
+		//检测线编码
+		String CCHKDEVICECODE = StrUtil.getParamStr(req, "CCHKDEVICECODE", ""); 
+		//检测站编号
+		String CUNITCODE = StrUtil.getParamStr(req, "CUNITCODE", ""); 
+		
+		//1.0调用service的方法
+		JsonResult result =pdaService.insertUnderpanStart(CCHECKCODE, CPREFACECHECKID, CCHKDEVICECODE, CUNITCODE);
+		
+		return JsonUtil.toResponse(result);
+	}
+	
+	
+
+	/** 
+	* @Title: underpanEnd 
+	* @Description: 底盘视频结束时间触发接口
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/underpanEnd")
+	public ResponseEntity<String> underpanEnd(HttpServletRequest req) throws Exception {
+		AndroidOut.aiyunprintln("underpanEnd接口开始调用:"+"----------hblwnb----------");
+		//根据流水号出入信息
+		String CCHECKCODE = StrUtil.getParamStr(req, "CCHECKCODE", "");
+	    //调用service层的时候，用通道类别作为区分是哪个视频，流水号是一样的
+		
+		
+
+		return null;
+
+	}
+	
+	
+	
+	/** 
+	* @Title: underpan 
+	* @Description: 底盘抓拍接口 
+	* @param req
+	* @return
+	* @throws Exception    设定文件 
+	* return ResponseEntity<String>    返回类型 
+	* @throws 
+	*/
+	@RequestMapping("/underpan")
+	public ResponseEntity<String> underpan(HttpServletRequest req) throws Exception {
+		AndroidOut.aiyunprintln("underpan接口开始调用:"+"----------hblwnb----------");
+        
+		
+		return null;
+
+		
+	}
+	
+	
+}

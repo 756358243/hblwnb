@@ -1,0 +1,179 @@
+<div id="tab-5" class="tab-pane">
+	<fieldset>
+		<div class="ibox">
+			<div class="ibox-content">
+				#if(${vehiclelogin.CHECKMETHOD} == 3)
+				<h3 class="page-header">简易瞬态工况法检验过程信息详情</h3>
+
+				<table
+					class="footable table table-stripped toggle-arrow-tiny table-striped"
+					data-page-size="15">
+					<thead>
+						<tr>
+							<th data-hide="phone">采样时序</th>
+							<th data-hide="phone">工况类型</th>
+							<th data-hide="phone">实测加载功率</th>
+							<th data-hide="phone">HC浓度</th>
+							<th data-hide="phone">CO浓度</th>
+							<th data-hide="phone">CO2浓度</th>
+							<th data-hide="phone">环境O2浓度</th>
+							<th data-hide="phone">分析仪O2浓度</th>
+							<th data-hide="phone">流量计O2浓度</th>
+							<th data-hide="phone">HC排放质量</th>
+							<th data-hide="phone">CO排放质量</th>
+							<th data-hide="phone">NOX排放质量</th>
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($jcgc in $tgasvmasdata)
+						<tr>
+							<td>$!{jcgc.NO}</td>
+							<td>$!{jcgc.DATATYPE}</td>
+							<td>$!{jcgc.POWER}</td>
+							<td>$!{jcgc.HC}</td>
+							<td>$!{jcgc.CO}</td>
+							<td>$!{jcgc.CO2}</td>
+							<td>$!{jcgc.HJO2}</td>
+							<td>$!{jcgc.O2}</td>
+							<td>$!{jcgc.AIRFLOWO2}</td>
+							<td>$!{jcgc.HCQUALITY}</td>
+							<td>$!{jcgc.COQUALITY}</td>
+							<td>$!{jcgc.NOQUALITY}</td>
+						</tr>
+						#end
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="7">
+								<ul class="pagination pull-right"></ul>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				#elseif(${vehiclelogin.CHECKMETHOD}==4)
+				<h3 class="page-header">加载减速工况法检测过程信息详情</h3>
+
+				<table
+					class="footable table table-stripped toggle-arrow-tiny table-striped"
+					data-page-size="15">
+					<thead>
+						<tr>
+							<th data-hide="phone">采样时序</th>
+							<th data-hide="phone">工况类型</th>
+							<th data-hide="phone">实时车速</th>
+							<th data-hide="phone">发动机转速</th>
+							<th data-hide="phone">测功机载荷</th>
+							<th data-hide="phone">光吸收系数K</th>
+							<th data-hide="phone">扭力</th>
+							<th data-hide="phone">不透光度N</th>
+							<th data-hide="phone">总吸收功率</th>
+							<th data-hide="phone">寄生功率</th>
+							<th data-hide="phone">指示功率</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($jcgc in $tdieseloilresultdata)
+						<tr>
+							<td>$!{jcgc.TIMECOUNT}</td>
+							<td>$!{jcgc.DATATYPE}</td>
+							<td>$!{jcgc.REALREV}</td>
+							<td>$!{jcgc.REV}</td>
+							<td>$!{jcgc.POWER}</td>
+							<td>$!{jcgc.SMOKEK}</td>
+							<td>$!{jcgc.TORSION}</td>
+						</tr>
+						#end
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="11">
+								<ul class="pagination pull-right"></ul>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				#elseif(${vehiclelogin.CHECKMETHOD}==5)
+				<h3 class="page-header">自由加速法检测过程信息详情</h3>
+
+				<table
+					class="footable table table-stripped toggle-arrow-tiny table-striped"
+					data-page-size="15">
+					<thead>
+						<tr>
+							<th data-hide="phone">取样点时序</th>
+							<th data-hide="phone">工况类型</th>
+							<th data-hide="phone">怠速发动机转速</th>
+							<th data-hide="phone">每秒烟度值</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($jcgc in $tfreespeeddata)
+						<tr>
+							<td>$!{jcgc.TIMECOUNT}</td>
+							<td>$!{jcgc.DATATYPE}</td>
+							<td>$!{jcgc.IDLEREV}</td>
+							<td>$!{jcgc.SMOKERB}</td>
+						</tr>
+						#end
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5">
+								<ul class="pagination pull-right"></ul>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				#elseif(${vehiclelogin.CHECKMETHOD}==1)
+				<h3 class="page-header">双怠速法检测过程信息详情</h3>
+
+				<table
+					class="footable table table-stripped toggle-arrow-tiny table-striped"
+					data-page-size="15">
+					<thead>
+						<tr>
+							<th data-hide="phone">采样时序</th>
+							<th data-hide="phone">工况类型</th>
+							<th data-hide="phone">实时车速</th>
+							<th data-hide="phone">发动机转速</th>
+							<th data-hide="phone">λ过量空气系数</th>
+							<th data-hide="phone">HC浓度</th>
+							<th data-hide="phone">CO浓度</th>
+							<th data-hide="phone">NO浓度</th>
+							<th data-hide="phone">O2浓度</th>
+							<th data-hide="phone">CO2浓度</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($jcgc in $tdoubleidedata)
+						<tr>
+							<td>${jcgc.TIMECOUNT}</td>
+							<td>${jcgc.DATATYPE}</td>
+							<td>${jcgc.REALREV}</td>
+							<td>${jcgc.REV}</td>
+							<td>${jcgc.LAMBDA}</td>
+							<td>${jcgc.HC}</td>
+							<td>${jcgc.CO}</td>
+							<td>${jcgc.NO}</td>
+							<td>${jcgc.O2}</td>
+							<td>${jcgc.CO2}</td>
+
+						</tr>
+						#end
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="8">
+								<ul class="pagination pull-right"></ul>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				#end
+			</div>
+		</div>
+	</fieldset>
+</div>

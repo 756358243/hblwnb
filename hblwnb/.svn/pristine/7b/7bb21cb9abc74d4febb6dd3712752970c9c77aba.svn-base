@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package com.vkl.hblw.service.user.statistics;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author xcc
+ *
+ */
+@Service
+public class StatisticsService {
+
+	private static final Logger log = Logger.getLogger(StatisticsService.class);
+
+	
+
+}

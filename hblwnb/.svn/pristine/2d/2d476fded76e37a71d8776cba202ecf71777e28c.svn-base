@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="apiServerConfig" class="com.vkl.hblw.setting.config.APIServerConfig"
+		init-method="init">
+		<!-- 查询接口地址 -->
+		<property name="queryAPIAddress" value="http://10.33.27.70/mds_exg/work/nozzle/query.do" />
+		<!-- 上传接口地址 -->
+		<property name="uploadAPIAddress" value="http://10.33.27.70/mds_exg/work/nozzle/fwsave.do" />
+		<!-- 附件接口地址-->		
+		<property name="fileAPIAddress" value="http://10.33.27.70/mds_exg/work/nozzle/fesave.do" />
+		<!-- jkid接口名称列表-->
+		<property name="jkidMap">
+		   <map>
+		      <entry key="query_jdc" value="Hzhbjkr001" />
+		      <entry key="query_jyjg" value="Hzhbjkr002" />
+		      <entry key="query_jcx" value="Hzhbjkr003" />
+		      <entry key="query_jcsb" value="Hzhbjkr004" />
+		      <entry key="query_jyry" value="Hzhbjkr005" />
+		      <entry key="query_jybgbm" value="Hzhbjkr006" />
+		      <entry key="query_jy" value="Hzhbjkr007" />
+		      <entry key="query_zp" value="Hzhbjkr008" />
+		      <entry key="query_jyrydr" value="Hzhbjkr009" />
+		      
+		      <entry key="upload_jcsbzj" value="Hzhbjkw011" />
+		      <entry key="upload_jcdj" value="Hzhbjkw012" />
+		      <entry key="upload_wj" value="Hzhbjkw013" />
+		      <entry key="upload_zp" value="Hzhbjkw014" />
+		      <entry key="upload_jcjg" value="Hzhbjkw015" />
+		      <entry key="upload_jcgc" value="Hzhbjkw016" />
+		      <entry key="upload_jcsj" value="Hzhbjkw017" />
+		      <entry key="upload_zlbq" value="Hzhbjkw018" />
+		      <entry key="upload_sp" value="Hzhbjkw019" />
+		     
+		   </map>
+		</property>
+	</bean>
+
+	<bean id="inspectionStationConfig" class="com.vkl.hblw.setting.config.InspectionStationConfig"
+		init-method="init">
+		<!-- 检验机构编码 -->
+		<property name="jyjgbm" value="33010004" />
+		<!-- 授权码-->
+		<property name="sqm" value="33010004" />
+		<!-- 授权码-->
+		<property name="FastDFSConfigPath" value="C:\\Users\\fdfs_client.conf" />
+		
+		
+	</bean>
+
+</beans>

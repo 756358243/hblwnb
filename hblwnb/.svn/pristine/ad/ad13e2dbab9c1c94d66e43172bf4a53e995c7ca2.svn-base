@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package com.vkl.hblw.controller.user.inspectionInfo;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * @author xcc
+ *
+ */
+@Controller
+@RequestMapping(value = "/user/vehicleInspect")
+public class VehicleInspectionController {
+
+	private static final Logger log = Logger.getLogger(VehicleInspectionController.class);
+
+	
+
+	private String ret(Model model, String view) {
+		return "/user/inspect/" + view;
+	}
+
+	
+}

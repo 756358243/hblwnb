@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>机动车检验机构尾气排放联网平台</title>
+
+
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote.css"
+	rel="stylesheet">
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/summernote/summernote-bs3.css"
+	rel="stylesheet">
+
+<link
+	href="${ctxPath}/static/inspinia/css/plugins/datapicker/datepicker3.css"
+	rel="stylesheet">
+
+
+
+</head>
+
+<body>
+	<div id="wrapper">
+		#parse("/header.vm")
+
+		<div id="page-wrapper" class="gray-bg">
+            #parse("/news.vm")
+
+			<div class="row wrapper border-bottom white-bg">
+				<div class="col-lg-10">
+					<h2>检测设备自检信息详情</h2>
+					<ol class="breadcrumb crumb">
+						<li><span>当前位置:</span></li>
+						<li><a href="index.html">环保检测信息</a></li>
+						<li><span>检测设备自检信息</span></li>
+						<li class="active"><strong>检测设备自检信息详情</strong></li>
+					</ol>
+				</div>
+			</div>
+			<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox">
+							<div class="ibox-title">检测设备自检信息详情</div>
+							<div class="ibox-content">
+								<div class="row">
+									<div class="">
+										<div class="table-responsive">
+											<table class="table table-stripped table-bordered">
+												<thead>
+													<tr>
+														<th style="color: #1ab394;">基本信息</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">检验机构编码</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.jyjgbm}>
+																</div>
+																<div class="form-group">
+
+																	<label for="hideEasing">检测线编码</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.jcxbm}>
+																</div>
+																<div class="form-group">
+																	<label for="showEasing">检测设备编码</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.jcsbbm}>
+																</div>
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+
+																	<label for="hideEasing">类型</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.lx}>
+																</div>
+																<div class="form-group">
+																	<label for="showEasing">检测设备名称</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.jcsbmc}>
+																</div>
+																<div class="form-group">
+
+																	<label for="hideEasing">设备类型</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.sblx}>
+																</div>
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">操作项目</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.czxm}>
+																</div>
+																<div class="form-group">
+
+																	<label for="hideEasing">操作人编号</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.czrbh}>
+																</div>
+																<div class="form-group">
+																	<label for="showEasing">操作人</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.czr}>
+																</div>
+
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+
+																	<label for="hideEasing">操作时间</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.czsj}>
+																</div>
+																<div class="form-group">
+																	<label for="showEasing">操作开始时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.czkssj}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+
+																	<label for="hideEasing">操作结束时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.czjssj}>
+																</div>
+																<div class="form-group">
+																	<label for="showEasing">自检阶段</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.zjjd}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+
+																	<label for="hideEasing">自检结果</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.zjjg}>
+																</div>
+																<div class="form-group">
+																	<label for="showEasing">自检错误信息</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.zjcwxx}>
+																</div>
+																<div class="form-group"></div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<table class="table table-stripped table-bordered">
+												<thead>
+													<tr>
+														<th style="color: #1ab394;">项目参数</th>
+													</tr>
+												</thead>
+												#if($!{zjxx.sblx}==6 && $!{zjxx.czxm}==0)
+												<tbody>
+													<tr>
+														<td>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">流量计氧气高量程标值</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val01}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">流量计氧气高量程测量值</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val02}>
+																</div>
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">流量计氧气高量程误差</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val03}>
+																</div>
+
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">流量计氧气低量程标值</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val04}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">流量计氧气低量程测量值</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val05}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">流量计氧气低量程误差</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val06}>
+																</div> 
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">流量计氧检查设备型号</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val07}>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="col-md-12">
+																<div class="form-group">
+																	<label for="showEasing">其他备注</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.qtbz}>
+																</div>
+
+															</div>
+														</td>
+
+													</tr>
+												</tbody>
+												#elseif($!{zjxx.sblx}==2 && $!{zjxx.czxm}==5)
+												<tbody>
+													<tr>
+														<td>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">分析仪氧量程检查氧气量程标值</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val01}>
+																</div>
+												
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">分析仪氧量程检查氧气量程测量值</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val02}>
+																</div>
+
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">分析仪氧量程检查氧气量程误差</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val03}>
+																</div>
+
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">分析仪氧量程检查结果<br></br></label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val04}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">分析仪氧量程检查类型<br></br></label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val05}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">分析仪氧量程检查开始时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val06}>
+																</div> 
+															</div>
+															
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="col-md-12">
+																<div class="form-group">
+																	<label for="showEasing">其他备注</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.qtbz}>
+																</div>
+
+															</div>
+														</td>
+
+													</tr>
+												</tbody>
+												#elseif($!{zjxx.sblx}==1 && $!{zjxx.czxm}==3)
+												<tbody>
+													<tr>
+														<td>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">附加功率损失滑行检查开始时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val01}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">附加功率损失32-16km/h实际滑行时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val02}>
+																</div>
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">附加功率损失滑行检查结束时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val03}>
+																</div>
+																
+																<div class="form-group">
+																	<label for="hideEasing">附加功率损失48-32km/h实际滑行时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val04}>
+																</div>
+															
+
+															</div>
+															
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">附加功率损失40km/h时的内损</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val05}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">附加功率损失25km/h时的内损</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val06}>
+																</div> 
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">附加功率损失基本惯量<br></br></label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val07}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">附加功率结果<br></br></label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val08}>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="col-md-12">
+																<div class="form-group">
+																	<label for="showEasing">其他备注</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.qtbz}>
+																</div>
+
+															</div>
+														</td>
+
+													</tr>
+												</tbody>
+												#elseif($!{zjxx.sblx}==1 && $!{zjxx.czxm}==4)
+												<tbody>
+													<tr>
+														<td>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">加载滑行检查48-32km/h实际滑行时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val01}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查32-16km/h实际滑行时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val02}>
+																</div>
+
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="showEasing">加载滑行检查40km/h时的内损</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val03}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查25km/h时的内损</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val04}>
+																</div>
+
+															</div>
+															
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查48-32km/h名义滑行时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val05}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查32-16km/h名义滑行时间</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val06}>
+																</div> 
+															</div>
+															
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查48-32km/h滑行指示功率</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val07}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查32-16km/h滑行指示功率</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val08}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查基本惯量<br></br></label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val09}>
+																</div>
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查48-32km/h滑行检查结果</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val10}>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label for="hideEasing">加载滑行检查32-16km/h滑行检查结果</label> <input
+																		type="text" disabled="" class="form-control"
+																		value=$!{zjxx.val11}>
+																</div>
+															</div>
+															
+														</td>
+													</tr>
+													
+													<tr>
+														<td>
+															<div class="col-md-12">
+																<div class="form-group">
+																	<label for="showEasing">其他备注</label> <input type="text"
+																		disabled="" class="form-control" value=$!{zjxx.qtbz}>
+																</div>
+
+															</div>
+														</td>
+
+													</tr>
+												</tbody>
+												#end
+												
+											</table>
+
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			#parse("/footer.vm")
+		</div>
+	</div>
+
+
+
+	<script
+		src="${ctxPath}/static/inspinia/js/plugins/dataTables/datatables.min.js"></script>
+
+
+
+</body>
+</html>
